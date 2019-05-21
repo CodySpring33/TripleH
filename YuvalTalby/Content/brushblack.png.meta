@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "brushblack"
+		var ResourceId = 0x5c130f76841ebbbb
+		var FrameSizeX = 880
+		var FrameSizeY = 980
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 220
+		var OriginY = 900
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}
