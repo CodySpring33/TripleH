@@ -1,0 +1,23 @@
+/////////////////////
+//Name: John Richardson
+//Date: 5/22/19
+//Brief: Creates a Timer and tells the player the Time
+////////////////////
+
+
+class TimerScript : ZilchComponent
+{
+  var Timer : Real = 0;
+  var Time : Real = 0;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    this.Owner.SpriteText.Text = "Time: `this.Timer as Integer`";
+    this.Timer +=  event.Dt; 
+  }
+}
