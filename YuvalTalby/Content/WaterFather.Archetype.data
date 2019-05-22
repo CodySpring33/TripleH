@@ -29,7 +29,7 @@ Cog
 	}
 	DrawWater 
 	{
-		var Delay = 0.0500000007
-		var Detail = 5
+		var Delay = 0.0199999996
+		var Detail = 3
 	}
 }
