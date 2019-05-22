@@ -1,5 +1,10 @@
 class DebugBall : ZilchComponent
 {
+  
+  var Dying : Boolean = false;
+  
+  var Dead : Boolean = false;
+  
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -20,7 +25,27 @@ class DebugBall : ZilchComponent
     if(Zero.Keyboard.KeyIsDown(Keys.Q))
       this.Owner.RigidBody.AngularVelocity += Real3(0,0,100) * event.Dt;  
     if(Zero.Keyboard.KeyIsDown(Keys.E))
-      this.Owner.RigidBody.AngularVelocity += Real3(0,0,-100) * event.Dt;      
+      this.Owner.RigidBody.AngularVelocity += Real3(0,0,-100) * event.Dt;
+      
+    if(this.Owner.RigidBody.Velocity.X < 0)
+    {
+      this.Dying = true;
+    }
+    
+    if(this.Dying)
+    {
+      this.Owner.Sprite.VertexColor = Math.Lerp(this.Owner.Sprite.VertexColor, Real4(this.Owner.Sprite.VertexColor.XYZ, 0),event.Dt * 10);
+      this.Owner.RigidBody.Velocity = Math.Lerp(this.Owner.RigidBody.Velocity, Real3(0,this.Owner.RigidBody.Velocity.Y,0), event.Dt * 2);
+      if(this.Owner.Sprite.VertexColor.W < 0.05)
+      {
+        this.Dead = true;
+      }
+    }
+    
+    if(this.Dead)
+    {
+      this.Owner.Transform.Translation += Real3(0,0,10);
+    }
       
     foreach(var contact in this.Owner.Collider.Contacts)
     {

@@ -15,7 +15,10 @@ class CameraScript : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, Real3((this.Player.Transform.Translation.XY),10), 10 * event.Dt);
+    if(this.Player.Transform.Translation.Y < 40)
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, Real3(this.Player.Transform.Translation.XY,10), 10 * event.Dt);
+    else
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, Real3(this.Player.Transform.Translation.X, 40,10), 10 * event.Dt);
     
     //this.Owner.Transform.Translation += Real3(event.Dt,0,0);
   }

@@ -13,7 +13,16 @@ class Draw : ZilchComponent
   
   var Rand : Random = Random();
   
+  [Property]
+  var MaxPaintAmt : Real = 100;
+  
+  var PaintAmt : Real = 0;
+  
   var Color : Real4 = Real4(0,0,0,0);
+  
+  var RefillMultiplier : Real = 25.0;
+  
+  var Player : Cog = null;
   
   var DoColor : Boolean = false;
   
@@ -33,6 +42,8 @@ class Draw : ZilchComponent
     Zero.Connect(this.Space, Events.MouseUp, this.OnMouseUp);
     Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
     this.Camera = this.Space.FindObjectByName("GameCamera");
+    this.Player = this.Space.FindObjectByName("Ball");
+    this.PaintAmt = this.MaxPaintAmt;
     
   }
 
@@ -93,26 +104,49 @@ class Draw : ZilchComponent
 
   function OnMouseDown(event : ViewportMouseEvent)
   {
-    //moving index up such that the correct drawing is accessed
-    this.DrawIndex += 1;
-    
     //spawning appropriate object
-    if(this.Shape == 0)
+    if(this.Shape == 0 && this.PaintAmt > 0)
       this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.Drawer, this.MousePosition));
       
     //setting Z manually so the square doesn't go over the brush   
-    if(this.Shape == 1)
+    else if(this.Shape == 1)
       this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.SquareDraw, Real3(this.MousePosition.XY, -3)));
       
-    if(this.Shape == 2)
-      this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.WaterFather, this.MousePosition));
+    else if(this.Shape == 2)
+    {
+      Console.WriteLine("this number is greater than 0 : `this.PaintAmt`");
+      this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.WaterFather, this.MousePosition));      
+    }
+    
+    else
+    {
+      this.Shape = -1;
+    }
+    
     //Console.WriteLine(this.MyDrawings[this.DrawIndex]);
+    //moving index up such that the correct drawing is accessed
+    if(this.Shape != -1)
+      this.DrawIndex += 1;
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
     //get mouse position
     this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
+    if(!Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.PaintAmt < this.MaxPaintAmt)
+    {
+      foreach(var contact in this.Player.Collider.Contacts)
+      {
+        
+        if(contact.OtherObject.Name.Contains("Block"))
+        {
+          this.PaintAmt += event.Dt * this.RefillMultiplier;
+          this.Shape = 0;
+        }
+          
+      }
+    }      
+    Console.WriteLine(this.PaintAmt);
     if(!this.DoMousePosUpdate)
     {
       //once the mouse has calmed down, let it start lerping. it tends to get excited on the first frame

@@ -77,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-2.30528069, 4.89531994, 20}
+			var Translation = Real3{51.689373, 6.17501545, 20.0000019}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 15.034462
+			var Size = 45.1661339
 		}
 		EditorCameraController 
 		{
@@ -139,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{-2.30528069, 4.89531994, -1.00758626e-07}
+			var LookTarget = Real3{51.689373, 6.17501545, 2.25941449e-06}
 			var MoveSensitivity = 1
 		}
 	}
@@ -252,6 +252,7 @@ Level
 				}
 				Draw 
 				{
+					var MaxPaintAmt = 100
 					var LerpMultiplier = 10
 				}
 			}
@@ -355,7 +356,7 @@ Level
 		var Name = "Block"
 		Transform 
 		{
-			var Translation = Real3{144.390778, -9.52450752, 0}
+			var Translation = Real3{143.146515, -9.52450752, 0}
 			var Scale = Real3{73.7115097, 8.22733784, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -403,7 +404,7 @@ Level
 		var Name = "Block"
 		Transform 
 		{
-			var Translation = Real3{57.6771927, -9.62254906, 0}
+			var Translation = Real3{56.575016, 1.02650738, 0}
 			var Scale = Real3{30.0233154, 2.58190536, 1}
 			var Rotation = Quaternion{0, 0, -0.707106829, 0.707106829}
 		}
@@ -448,12 +449,12 @@ Level
 	}
 	Cog [ContextId:11]
 	{
-		var Name = "BlockO"
+		var Name = "Block"
 		Transform 
 		{
-			var Translation = Real3{57.7632751, 25.4812698, 0}
+			var Translation = Real3{84.5322495, 1.08787727, 0}
 			var Scale = Real3{30.0233154, 2.58190536, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
+			var Rotation = Quaternion{0, 0, -0.707106829, 0.707106829}
 		}
 		Sprite 
 		{
@@ -496,10 +497,10 @@ Level
 	}
 	Cog [ContextId:12]
 	{
-		var Name = "BlockO"
+		var Name = "Block"
 		Transform 
 		{
-			var Translation = Real3{57.7632751, 25.4812698, 0}
+			var Translation = Real3{70.7168732, 14.9621696, 0}
 			var Scale = Real3{30.0233154, 2.58190536, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -547,8 +548,8 @@ Level
 		var Name = "BlockO"
 		Transform 
 		{
-			var Translation = Real3{150.828644, 26.0565414, 0}
-			var Scale = Real3{44.8051109, 2.80623102, 1}
+			var Translation = Real3{179.007477, 1.3142662, 0}
+			var Scale = Real3{28.9478264, 2.80623078, 1}
 			var Rotation = Quaternion{0, 0, -0.707106829, 0.707106829}
 		}
 		Sprite 
@@ -592,58 +593,10 @@ Level
 	}
 	Cog [ContextId:14]
 	{
-		var Name = "BlockO"
-		Transform 
-		{
-			var Translation = Real3{179.007477, 16.1729183, 0}
-			var Scale = Real3{65.7030411, 2.80623102, 1}
-			var Rotation = Quaternion{0, 0, -0.707106829, 0.707106829}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5275aa4d802dd6dc:Square"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		BoxCollider 
-		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "5c3e8ac1e9ac9730:Firm"
-			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Static
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-	}
-	Cog [ContextId:15]
-	{
 		var Name = "Block"
 		Transform 
 		{
-			var Translation = Real3{200.578491, 47.5402374, 0}
+			var Translation = Real3{200.329651, 14.4425621, 0}
 			var Scale = Real3{44.8051109, 2.80623102, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
