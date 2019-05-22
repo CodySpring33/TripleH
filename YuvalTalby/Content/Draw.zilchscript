@@ -22,6 +22,9 @@ class Draw : ZilchComponent
   
   //what shape is being drawn
   var Shape : Integer = 0;
+  
+  [Property]
+  var LerpMultiplier : Real = 5;
     
   function Initialize(init : CogInitializer)
   {
@@ -72,6 +75,10 @@ class Draw : ZilchComponent
     //square  
     if(event.Key == Keys.Two)
       this.Shape = 1;
+      
+    //hydro, homies
+    if(event.Key == Keys.Three)
+      this.Shape = 2;
   }
 
   function OnMouseUp(event : ViewportMouseEvent)
@@ -96,7 +103,10 @@ class Draw : ZilchComponent
     //setting Z manually so the square doesn't go over the brush   
     if(this.Shape == 1)
       this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.SquareDraw, Real3(this.MousePosition.XY, -3)));
-    Console.WriteLine(this.MyDrawings[this.DrawIndex]);
+      
+    if(this.Shape == 2)
+      this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.WaterFather, this.MousePosition));
+    //Console.WriteLine(this.MyDrawings[this.DrawIndex]);
   }
 
   function OnLogicUpdate(event : UpdateEvent)
@@ -106,6 +116,7 @@ class Draw : ZilchComponent
     if(!this.DoMousePosUpdate)
     {
       //once the mouse has calmed down, let it start lerping. it tends to get excited on the first frame
+      //try deleting this every once in a while to see if it's still necessary
       if(Math.Abs(this.MousePosition.X * this.MousePosition.Y) < 1000000)
       {
         this.DoMousePosUpdate = true;
@@ -114,7 +125,7 @@ class Draw : ZilchComponent
     //Console.WriteLine(this.MousePosition);
     //set position to mouse, act as a cursor
     if(this.DoMousePosUpdate)
-      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,this.MousePosition,10 * event.Dt);
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,Real3(this.MousePosition.XY, this.MousePosition.Z - 0.1) - this.Camera.Transform.Translation,this.LerpMultiplier * event.Dt);
     
      
     

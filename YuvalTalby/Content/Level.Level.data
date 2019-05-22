@@ -77,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{145.721542, 16.0678864, 20.0000057}
+			var Translation = Real3{-2.30528069, 4.89531994, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 122.773575
+			var Size = 15.034462
 		}
 		EditorCameraController 
 		{
@@ -139,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{145.721542, 16.0678864, 6.36969889e-06}
+			var LookTarget = Real3{-2.30528069, 4.89531994, -1.00758626e-07}
 			var MoveSensitivity = 1
 		}
 	}
@@ -220,37 +220,41 @@ Level
 		CameraScript 
 		{
 		}
-	}
-	Cog [ContextId:5]
-	{
-		var Name = "Brush"
-		Transform 
+		Hierarchy 
 		{
-			var Translation = Real3{0, 0, -1}
-			var Scale = Real3{0.25, 0.25, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c130f76841ebbbb:brushblack"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Draw 
-		{
+			Cog [Id:0x5c319d9c342059f4][ContextId:5]
+			{
+				var Name = "Brush"
+				Transform 
+				{
+					var Translation = Real3{0, 0, -11}
+					var Scale = Real3{0.25, 0.25, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				Sprite 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var SpriteSource = "5c130f76841ebbbb:brushblack"
+					var FlipX = false
+					var FlipY = false
+					var AnimationActive = true
+					var AnimationSpeed = 1
+					var StartFrame = 0
+				}
+				Draw 
+				{
+					var LerpMultiplier = 10
+				}
+			}
 		}
 	}
 	Cog [InheritId:"5c695a5b6c1f7918:Ball"][ContextId:6]

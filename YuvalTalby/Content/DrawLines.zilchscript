@@ -16,7 +16,7 @@ class DrawLines : ZilchComponent
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     this.Camera = this.Space.FindObjectByName("GameCamera");
     this.Brush = this.Space.FindObjectByName("Brush");
-    this.MyLines[this.LineIndex] = this.Space.CreateAtPosition(Archetype.Paint, this.Brush.Transform.Translation);
+    this.MyLines[this.LineIndex] = this.Space.CreateAtPosition(Archetype.Paint, this.Brush.Transform.WorldTranslation);
     this.MyLines[this.LineIndex].AttachTo(this.Owner);
     //randomize color if color mode is on
     if(this.Brush.Draw.DoColor)
@@ -31,7 +31,7 @@ class DrawLines : ZilchComponent
     if(this.Active)
     {    
       var mousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
-      var brushPosition = this.Brush.Transform.Translation;
+      var brushPosition = this.Brush.Transform.WorldTranslation;
       Console.WriteLine(mousePosition);
       
       var currentLine = this.MyLines[this.LineIndex];
@@ -52,9 +52,10 @@ class DrawLines : ZilchComponent
         //instruction to access next line
         this.LineIndex += 1;
         
-        //make another line and attach it
+        //make another line and attach it and move it to the right rotation
         this.MyLines.Add(this.Space.CreateAtPosition(Archetype.Paint, brushPosition));
         this.MyLines[this.LineIndex].AttachTo(this.Owner);
+        this.MyLines[this.LineIndex].Transform.SetEulerAnglesXYZ(0,0,this.MyLines[this.LineIndex-1].Transform.EulerAngles.Z);
         //randomize color if color mode is on
         if(this.Brush.Draw.DoColor)
           this.MyLines[this.LineIndex].Sprite.VertexColor = Real4(this.Rand.Range(0,1),this.Rand.Range(0,1),this.Rand.Range(0,1),1);

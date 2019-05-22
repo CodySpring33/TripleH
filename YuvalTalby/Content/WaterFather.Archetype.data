@@ -1,16 +1,16 @@
 [Version:1]
 Cog 
 {
-	var Name = "Paint"
+	var Name = "WaterFather"
 	Transform 
 	{
-		var Translation = Real3{-0.00390625, 0, 0}
-		var Scale = Real3{1, 8, 1}
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	Sprite 
 	{
-		var Visible = true
+		var Visible = false
 		var ViewCulling = true
 		var VisibilityEvents = true
 		var OverrideBoundingBox = false
@@ -18,22 +18,18 @@ Cog
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 0
 		var Material = "582c575af53d18c9:AlphaSprite"
-		var VertexColor = Real4{1, 1, 1, 1}
+		var VertexColor = Real4{0, 0.627450705, 0.878431439, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
-		var SpriteSource = "5c6ef6ce7c3f4835:Pixel"
+		var SpriteSource = "59a4f6f4a01bac09:SoftCircle"
 		var FlipX = false
 		var FlipY = false
 		var AnimationActive = true
 		var AnimationSpeed = 1
 		var StartFrame = 0
 	}
-	BoxCollider 
+	DrawWater 
 	{
-		var Ghost = false
-		var SendsEvents = true
-		var Material = "5c3e8ac1e9ac9730:Firm"
-		var CollisionGroup = "4e740859314e5515:DefaultGroup"
-		var Offset = Real3{0.00389999989, 0, 0}
-		var HalfSize = Real3{0.00389999989, 0.00389999989, 0.5}
+		var Delay = 0.0500000007
+		var Detail = 5
 	}
 }
