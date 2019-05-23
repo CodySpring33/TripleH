@@ -1,0 +1,22 @@
+////////////////////////////////
+//Name: John Richardson
+//Date: 5/23/19
+//Brief: Sets whether the player is dead
+///////////////////////////////
+
+
+class DeathScript : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Owner.Sprite.VertexColor.W == 1)
+      {
+        this.LevelSettings.LevelVars.PlayerDead = true;
+      }
+  }
+}

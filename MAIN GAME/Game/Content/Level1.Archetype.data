@@ -1,0 +1,78 @@
+[Version:1]
+Cog 
+{
+	var Name = "Level1"
+	Transform 
+	{
+		var Translation = Real3{0.857536316, -90.4749832, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
+	{
+		var Visible = false
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	Chunk 
+	{
+		var ChunkLength = 250
+		var OutBiome = ChunkOutBiome.Level2
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5c3de9de3c2d6ca2][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{28.2218933, 41.9942627, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{66.3362656, 92.8706818, 1}
+			}
+		}
+		Cog [Id:0x5c3de9de3c2d6cea][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{194.480774, 41.2960663, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{66.3362656, 92.8706818, 1}
+			}
+		}
+		Cog [Id:0x5c3de9de3c2d6d1c][InheritId:"5c3c1276290bb50b:Blimp"]
+		{
+			var Name = "BlockO"
+			Transform 
+			{
+				var Translation = Real3{171.623322, 117.929176, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{66.3362656, 44.973526, 1}
+			}
+		}
+		Cog [Id:0x5c3de9de3c2d6d4d][InheritId:"5c3c1061b3c9cb7d:Skyscraper"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{102.679703, 41.3049469, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{39.8686867, 122.947662, 1}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+class DrawSquare : ZilchComponent
+{
+  var Camera : Cog = null;
+  var Active : Boolean = true;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    this.Camera = this.Space.FindObjectByName("GameCamera");
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(!Zero.Mouse.IsButtonDown(MouseButtons.Left))
+      this.Active = false;
+      
+    if(this.Active)
+    {    
+      //get mouse position
+      var mousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
+      //difference between mouse position and square      
+      var deltaVector = this.Owner.Transform.Translation - mousePosition;
+      var mouseDist = Math.Distance(this.Owner.Transform.Translation.XY, mousePosition.XY);
+      //scaling and rotating to keep square at mouse
+      this.Owner.Transform.Scale = Real3(mouseDist,mouseDist,mouseDist) * 1.42;
+      //set angle to that of the delta vector
+      this.Owner.Transform.SetEulerAnglesXYZ(0,0,Math.ATan2(deltaVector.Y, deltaVector.X) + Math.Pi / 4);
+    }
+  }
+}
