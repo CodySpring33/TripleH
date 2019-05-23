@@ -1,11 +1,11 @@
 [Version:1]
 Cog 
 {
-	var Name = "Block"
+	var Name = "BlockO"
 	Transform 
 	{
-		var Translation = Real3{321.638428, 23.9103546, 0}
-		var Scale = Real3{66.3362656, 92.8706818, 1}
+		var Translation = Real3{233.019104, 86.6046219, 0}
+		var Scale = Real3{8.26534557, 69.2175751, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	Sprite 
