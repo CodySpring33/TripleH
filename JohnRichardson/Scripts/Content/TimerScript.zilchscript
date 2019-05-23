@@ -8,6 +8,7 @@
 class TimerScript : ZilchComponent
 {
   var Timer : Real = 0;
+  var Delay : Real = 0.1;
   var Time : Real = 0;
   
   function Initialize(init : CogInitializer)
@@ -17,7 +18,14 @@ class TimerScript : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    this.Owner.SpriteText.Text = "Time: `this.Timer as Integer`";
-    this.Timer +=  event.Dt; 
+    this.Timer += event.Dt;
+    if(this.Timer >= this.Delay){
+      this.Delay += 0.1;
+      this.Time += 1;
+    }
+    if(this.Time == 10){
+      this.Time = 0;
+    }
+    this.Owner.SpriteText.Text = "Time: `this.Timer as Integer`.`this.Time as Integer`";
   }
 }
