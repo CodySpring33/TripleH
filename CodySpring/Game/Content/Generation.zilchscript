@@ -1,0 +1,99 @@
+class Generation : ZilchComponent
+{
+  [Property] var NameOfFirstChunk : String = "Level1";
+  var CurrChunk : Cog = null;
+  var OldChunks : Array[Cog] = Array[Cog]();
+  var Player : Cog = null;
+  var PlayerStartingX : Real = 0;
+  var RNG : Random = Random();
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.CurrChunk = this.Space.FindObjectByName(this.NameOfFirstChunk);
+    this.Player = this.Space.FindObjectByName("Ball");
+    this.PlayerStartingX = this.Player.Transform.Translation.X;
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    // Creating a new chunk
+    var chunk_spawn_x = this.CurrChunk.Transform.Translation.X + this.CurrChunk.Chunk.ChunkLength;
+    var chunk_end_x = chunk_spawn_x - this.PlayerStartingX -40;
+    if (this.Player.Transform.Translation.X >= chunk_end_x)
+    {
+      this.OldChunks.Push(this.CurrChunk);
+      this.CurrChunk = this.Space.CreateAtPosition(this.GetNextChunk(), Real3(chunk_spawn_x, -90, 0));
+    }
+    // Removing an old chunk
+    var chunks_to_delete : Array[Cog] = Array[Cog](); 
+    for (var i = 0; i < this.OldChunks.Count; ++i)
+    {
+      var chunk_remove_x = this.OldChunks[i].Transform.Translation.X + this.OldChunks[i].Chunk.ChunkLength + this.PlayerStartingX;
+      if (this.Player.Transform.Translation.X >= chunk_remove_x)
+      {
+        chunks_to_delete.Push(this.OldChunks[i]);
+        this.OldChunks.RemoveAt(i);
+      }
+      else
+      {
+        ++i;
+      }
+    }
+    
+    while (chunks_to_delete.Count > 0)
+    {
+      var to_delete = chunks_to_delete.Pop();
+      to_delete.Destroy(); 
+    }
+  }
+  
+  // Returns an archetype that is the next chunk that should spawn
+  function GetNextChunk() : Archetype
+  {
+//    if (this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Dirt)
+//    {
+//      var roll = this.RNG.DieRoll(3);
+//      if (roll == 1)
+//      {
+//        return Archetype.Chunk0;
+//      }
+//      else if (roll == 2)
+//      {
+//        return Archetype.Chunk1;
+//      }
+//      else
+//      {
+//        return Archetype.Chunk3;
+//      }
+//    }
+ //   else if (this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Grass)
+ //   {
+ //     var roll = this.RNG.DieRoll(3);
+ //     if (roll == 1)
+ //     {
+ //       return Archetype.Chunk4;
+ //     }
+ //     else if (roll == 2)
+ //     {
+ //       return Archetype.Chunk5;
+ //     }
+ //     else
+ //     {
+ //       return Archetype.Chunk6;
+ //     }
+ //   }
+    if (this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level1)
+    {
+      Console.WriteLine("changed");
+      return Archetype.Level1;
+      
+    }
+    else if(this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level2)
+    {
+      Console.WriteLine("changed12");
+      return Archetype.Level2;
+    }
+    throw Exception("Could not determine the next chunk.");
+  }
+}

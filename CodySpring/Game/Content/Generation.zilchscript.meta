@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "Generation"
+		var ResourceId = 0x5c3de841c3068fe9
+	}
+}
