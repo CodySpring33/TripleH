@@ -20,7 +20,7 @@ class DrawLines : ZilchComponent
     this.MyLines[this.LineIndex].AttachTo(this.Owner);
     //randomize color if color mode is on
     if(this.Brush.Draw.DoColor)
-          this.MyLines[this.LineIndex].Sprite.VertexColor = Real4(this.Rand.Range(0,1),this.Rand.Range(0,1),this.Rand.Range(0,1),1);
+      this.MyLines[this.LineIndex].Sprite.VertexColor = Real4(this.Rand.Range(0,1),this.Rand.Range(0,1),this.Rand.Range(0,1),1);
   }
 
   function OnLogicUpdate(event : UpdateEvent)

@@ -14,7 +14,7 @@ class Draw : ZilchComponent
   var Rand : Random = Random();
   
   [Property]
-  var MaxPaintAmt : Real = 100;
+  var MaxPaintAmt : Real = 1000;
   
   var PaintAmt : Real = 0;
   
@@ -146,7 +146,7 @@ class Draw : ZilchComponent
           
       }
     }      
-    Console.WriteLine(this.PaintAmt);
+    //Console.WriteLine(this.PaintAmt);
     if(!this.DoMousePosUpdate)
     {
       //once the mouse has calmed down, let it start lerping. it tends to get excited on the first frame
