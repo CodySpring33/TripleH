@@ -131,6 +131,9 @@ class Draw : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
+    Zero.Mouse.Cursor = Cursor.Invisible;
+    
+    this.Owner.Sprite.CurrentFrame = Math.Round(this.PaintAmt / this.MaxPaintAmt * 10) as Integer;
     //get mouse position
     this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
     if(!Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.PaintAmt < this.MaxPaintAmt)
@@ -159,7 +162,7 @@ class Draw : ZilchComponent
     //Console.WriteLine(this.MousePosition);
     //set position to mouse, act as a cursor
     if(this.DoMousePosUpdate)
-      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,Real3(this.MousePosition.XY, this.MousePosition.Z - 0.1) - this.Camera.Transform.Translation,this.LerpMultiplier * event.Dt);
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,Real3(this.MousePosition.XY, 4) - this.Camera.Transform.Translation,this.LerpMultiplier * event.Dt);
     
      
     

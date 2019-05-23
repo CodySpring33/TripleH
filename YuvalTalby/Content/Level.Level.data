@@ -18,7 +18,7 @@ Level
 			var Active = true
 			var WakeUpOnChange = false
 			var DebugDrawEffect = false
-			var LinearDamping = 0.200000003
+			var LinearDamping = 0.400000006
 			var AngularDamping = 0
 			var LinearDrag = 0
 			var AngularDrag = 0
@@ -77,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{0, 0, 20.8999996}
+			var Translation = Real3{44.9307899, -7.38438654, 20.9000015}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 45.1661339
+			var Size = 82.2979736
 		}
 		EditorCameraController 
 		{
@@ -139,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{0, 0, 0.899999976}
+			var LookTarget = Real3{44.9307899, -7.38438654, 0.900002003}
 			var MoveSensitivity = 1
 		}
 	}
@@ -227,9 +227,9 @@ Level
 				var Name = "Brush"
 				Transform 
 				{
-					var Translation = Real3{0, 0, -11}
+					var Translation = Real3{0, 0, 0.800000012}
 					var Scale = Real3{0.25, 0.25, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
+					var Rotation = Quaternion{0, 0, 0.258819044, 0.965925813}
 				}
 				Sprite 
 				{
@@ -243,22 +243,22 @@ Level
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
-					var SpriteSource = "5c130f76841ebbbb:brushblack"
+					var SpriteSource = "5c3dfb984fb3c969:HArtJoeCursor_0"
 					var FlipX = false
 					var FlipY = false
-					var AnimationActive = true
+					var AnimationActive = false
 					var AnimationSpeed = 1
 					var StartFrame = 0
 				}
 				Draw 
 				{
-					var MaxPaintAmt = 1000
+					var MaxPaintAmt = 25
 					var LerpMultiplier = 10
 				}
 			}
 		}
 	}
-	Cog [InheritId:"5c695a5b6c1f7918:Ball"][ContextId:6]
+	Cog [InheritId:"5c695a5b6c1f7918:Ball"][ChildOrderOverride][ContextId:6]
 	{
 		Transform 
 		{
@@ -266,9 +266,20 @@ Level
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
-		SphereCollider 
+		Sprite 
 		{
-			var Material = "5c3e8ac1e9ac9730:Firm"
+		}
+		RigidBody 
+		{
+		}
+		DebugBall 
+		{
+		}
+		CylinderCollider 
+		{
+		}
+		Hierarchy 
+		{
 		}
 	}
 	Cog [ContextId:7]
@@ -404,7 +415,7 @@ Level
 		var Name = "Block"
 		Transform 
 		{
-			var Translation = Real3{56.575016, 1.02650738, 0}
+			var Translation = Real3{56.575016, -13.9570913, 0}
 			var Scale = Real3{30.0233154, 2.58190536, 1}
 			var Rotation = Quaternion{0, 0, -0.707106829, 0.707106829}
 		}
@@ -452,7 +463,7 @@ Level
 		var Name = "Block"
 		Transform 
 		{
-			var Translation = Real3{84.5322495, 1.08787727, 0}
+			var Translation = Real3{84.5322495, -13.8957214, 0}
 			var Scale = Real3{30.0233154, 2.58190536, 1}
 			var Rotation = Quaternion{0, 0, -0.707106829, 0.707106829}
 		}
@@ -500,7 +511,7 @@ Level
 		var Name = "Block"
 		Transform 
 		{
-			var Translation = Real3{70.7168732, 14.9621696, 0}
+			var Translation = Real3{70.7168732, -0.0214290619, 0}
 			var Scale = Real3{30.0233154, 2.58190536, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
