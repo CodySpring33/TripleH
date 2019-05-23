@@ -18,14 +18,25 @@ class TimerScript : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
+    //increases timer if player isnt dead
+    if(this.LevelSettings.LevelVars.PlayerDead == false){
     this.Timer += event.Dt;
+    }
+    //
     if(this.Timer >= this.Delay){
       this.Delay += 0.1;
       this.Time += 1;
     }
+    //
     if(this.Time == 10){
       this.Time = 0;
     }
+    //
     this.Owner.SpriteText.Text = "Time: `this.Timer as Integer`.`this.Time as Integer`";
+    //
+    if(this.LevelSettings.LevelVars.PlayerDead == true){
+      this.Owner.Transform.Translation = Real3(0,0,-1);
+      this.Owner.Transform.Scale = Real3(10, 10, 0);
+    }
   }
 }
