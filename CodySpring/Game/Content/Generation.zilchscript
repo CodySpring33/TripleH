@@ -19,8 +19,8 @@ class Generation : ZilchComponent
   {
     // Creating a new chunk
     var chunk_spawn_x = this.CurrChunk.Transform.Translation.X + this.CurrChunk.Chunk.ChunkLength;
-    var chunk_end_x = chunk_spawn_x - this.PlayerStartingX -40;
-    if (this.Player.Transform.Translation.X >= chunk_end_x)
+    var chunk_end_x = chunk_spawn_x - this.PlayerStartingX - 40;
+    if (this.Player.Transform.Translation.X >= chunk_end_x - 20)
     {
       this.OldChunks.Push(this.CurrChunk);
       this.CurrChunk = this.Space.CreateAtPosition(this.GetNextChunk(), Real3(chunk_spawn_x, -90, 0));
@@ -29,7 +29,7 @@ class Generation : ZilchComponent
     var chunks_to_delete : Array[Cog] = Array[Cog](); 
     for (var i = 0; i < this.OldChunks.Count; ++i)
     {
-      var chunk_remove_x = this.OldChunks[i].Transform.Translation.X + this.OldChunks[i].Chunk.ChunkLength + this.PlayerStartingX;
+      var chunk_remove_x = this.OldChunks[i].Transform.Translation.X + this.OldChunks[i].Chunk.ChunkLength + this.PlayerStartingX + 40;
       if (this.Player.Transform.Translation.X >= chunk_remove_x)
       {
         chunks_to_delete.Push(this.OldChunks[i]);

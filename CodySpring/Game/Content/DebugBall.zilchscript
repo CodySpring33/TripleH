@@ -9,6 +9,8 @@ class DebugBall : ZilchComponent
   //multiplied when recovering
   var Boost : Real = 1;
   
+  var MyBoostParticles : Cog = null;
+  
   [Property]
   var BoostDuration : Real = 2;
   
@@ -51,28 +53,30 @@ class DebugBall : ZilchComponent
     }
     else if(this.DeathTimer > 0)
       this.DeathTimer -= event.Dt;
-    /* unfinished
-    if(this.Owner.RigidBody.Velocity.X > 5 && this.LastFrameXVelocities.X < 0 && this.LastFrameXVelocities.Y <= 0)
+    
+    if(this.Owner.RigidBody.Velocity.X > 5 && this.LastFrameXVelocities.X < 0 && this.LastFrameXVelocities.Y <= 0 && false) //remove last thing to enable
     {
       this.Boost = 2;
-//      Console.WriteLine("RECOVERY DETECTED");
-    } */
+      //this.MyBoostParticles = this.Space.CreateAtPosition(Archetype.Vroom, this.Owner.Transform.Translation);
+      Console.WriteLine("RECOVERY DETECTED");
+    }
     
-//    Console.WriteLine(this.LastFrameXVelocities);
-//    Console.WriteLine(this.Owner.RigidBody.Velocity.X);
+    //Console.WriteLine(this.LastFrameXVelocities);
+    //Console.WriteLine(this.Owner.RigidBody.Velocity.X);
     
     if(this.Boost != 1)
     {
       this.BoostTimer += event.Dt;
       if(this.BoostTimer > this.BoostDuration)
       {
-//      Console.WriteLine("it works kinda");
+        Console.WriteLine("it works kinda");
         this.BoostTimer = 0;
+        this.MyBoostParticles.Destroy();
         this.Boost = 1;
       }
     }
     
-//    Console.WriteLine(this.Boost);
+    Console.WriteLine(this.Boost);
     /***************************************************/ 
     
     if(this.Dying)
