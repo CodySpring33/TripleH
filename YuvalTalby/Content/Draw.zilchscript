@@ -100,6 +100,8 @@ class Draw : ZilchComponent
     
     if(this.MyDrawings[this.DrawIndex].Sprite.SpriteSource == SpriteSource.Square)
       this.MyDrawings[this.DrawIndex].DrawSquare.Active = false;
+      
+    this.Space.SoundSpace.Paused = true;
   }
 
   function OnMouseDown(event : ViewportMouseEvent)
@@ -127,6 +129,13 @@ class Draw : ZilchComponent
     //moving index up such that the correct drawing is accessed
     if(this.Shape != -1)
       this.DrawIndex += 1;
+      
+    //AUDIO  
+    if(this.PaintAmt > 0)
+    {
+      this.Space.SoundSpace.Paused = false;
+      this.Space.SoundSpace.PlayCue(SoundCue.HIsabellaSoundPlayerPaint);
+    }
   }
 
   function OnLogicUpdate(event : UpdateEvent)
@@ -136,6 +145,10 @@ class Draw : ZilchComponent
     this.Owner.Sprite.CurrentFrame = Math.Round(this.PaintAmt / this.MaxPaintAmt * 10) as Integer;
     //get mouse position
     this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
+    
+    if(this.PaintAmt <= 0)
+      this.Space.SoundSpace.Paused = true;
+    
     if(!Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.PaintAmt < this.MaxPaintAmt)
     {
       foreach(var contact in this.Player.Collider.Contacts)

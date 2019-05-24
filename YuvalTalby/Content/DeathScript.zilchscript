@@ -17,6 +17,7 @@ class DeathScript : ZilchComponent
     if(this.Owner.Sprite.VertexColor.W == 1)
       {
         this.LevelSettings.LevelVars.PlayerDead = true;
+        this.Space.SoundSpace.Paused = true;
       }
   }
 }
