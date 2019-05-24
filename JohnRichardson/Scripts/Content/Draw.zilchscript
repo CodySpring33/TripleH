@@ -96,7 +96,6 @@ class Draw : ZilchComponent
     //setting Z manually so the square doesn't go over the brush   
     if(this.Shape == 1)
       this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.SquareDraw, Real3(this.MousePosition.XY, -3)));
-    Console.WriteLine(this.MyDrawings[this.DrawIndex]);
   }
 
   function OnLogicUpdate(event : UpdateEvent)

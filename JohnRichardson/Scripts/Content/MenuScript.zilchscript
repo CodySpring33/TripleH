@@ -55,8 +55,6 @@ class MenuScript : ZilchComponent
 
   function OnMouseDown(event : ViewportMouseEvent)
   {
-    Console.WriteLine("Down");
-    
     if(this.MousePosition.Y < this.OriginalPositionY + 2 && this.MousePosition.X < this.OriginalPositionX + 4){
       if(this.MousePosition.Y > this.OriginalPositionY - 1 && this.MousePosition.X > this.OriginalPositionX - 4){
           if(this.NextLevel != null){
@@ -76,7 +74,6 @@ class MenuScript : ZilchComponent
     this.Owner.SpriteText.VertexColor = Real4(this.Owner.SpriteText.VertexColor.XYZ, this.Timer); 
     //
   this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
-  //Console.WriteLine("`this.MousePosition`");
     //
     if(this.MousePosition.Y < this.OriginalPositionY + 2 && this.MousePosition.X < this.OriginalPositionX + 4){
       if(this.MousePosition.Y > this.OriginalPositionY - 1 && this.MousePosition.X > this.OriginalPositionX - 4){

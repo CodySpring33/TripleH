@@ -21,6 +21,7 @@ var HUDSpace : Space = null;
     }
   }
   //should destroy the hudspace if this object is being destroyed.
+  
   function Destroyed()
   {
     
@@ -29,4 +30,5 @@ var HUDSpace : Space = null;
     this.HUDSpace.Destroy();
     }
   }
+  
 }

@@ -32,7 +32,6 @@ class DrawLines : ZilchComponent
     {    
       var mousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
       var brushPosition = this.Brush.Transform.Translation;
-      Console.WriteLine(mousePosition);
       
       var currentLine = this.MyLines[this.LineIndex];
       //vector between line and mouse, used to find angle to point at
@@ -43,7 +42,7 @@ class DrawLines : ZilchComponent
       var currentLineDistMouse = Math.Distance(brushPosition, currentLine.Transform.WorldTranslation);
       currentLine.Transform.SetEulerAnglesXYZ(0,0,currentLineAngle);
       currentLine.Transform.Scale = Real3(currentLineDistMouse * 129, currentLine.Transform.Scale.YZ);
-      Console.WriteLine(this.Brush.Draw.Color);
+      //Console.WriteLine(this.Brush.Draw.Color);
       
         
       //starting a new line when the stated length is reached, as to chain them together

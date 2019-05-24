@@ -58,21 +58,17 @@ class DebugBall : ZilchComponent
       Console.WriteLine("RECOVERY DETECTED");
     } */
     
-    Console.WriteLine(this.LastFrameXVelocities);
-    Console.WriteLine(this.Owner.RigidBody.Velocity.X);
     
     if(this.Boost != 1)
     {
       this.BoostTimer += event.Dt;
       if(this.BoostTimer > this.BoostDuration)
       {
-      Console.WriteLine("it works kinda");
         this.BoostTimer = 0;
         this.Boost = 1;
       }
     }
     
-    Console.WriteLine(this.Boost);
     /***************************************************/ 
     
     if(this.Dying)
