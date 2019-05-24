@@ -1,0 +1,24 @@
+class DeathOnCollision : ZilchComponent
+{
+  [Property]
+  var Player : CogPath = null;
+  
+  var RAND : Random = Random();
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+  }
+
+  function OnCollisionEnded(event : CollisionEvent)
+  {
+    this.Player.RigidBody.Velocity *= 3;
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    this.Player.DebugBall.Dead = true;
+    
+    //this.Player.RigidBody.Velocity 
+  }
+}

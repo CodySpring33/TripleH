@@ -38,6 +38,10 @@ Level
 			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
+		SoundCreator 
+		{
+			var HUDLevel = "5c32bde9bd26e135:SoundLevel"
+		}
 	}
 	Cog [ContextId:2]
 	{

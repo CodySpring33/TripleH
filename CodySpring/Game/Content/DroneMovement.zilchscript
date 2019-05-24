@@ -1,0 +1,40 @@
+class DroneMovement : ZilchComponent
+{
+  //How quickly he goes when he's not tracking the player 
+  [Property]
+  var NotTrackSpeed : Real = 0.5; 
+  //How Quickly he goes when he IS tracking the player
+  [Property]
+  var TrackBaseSpeed : Real = 0.1; 
+  //True: Changes his speed based on his relative position to the player
+  [Property]
+  var IsTracker : Boolean = false;  
+  
+  //The Player the tracker tracks
+  [Property]
+  var Tracked : CogPath = null; 
+  //Determines the Y Position 
+  var YPos : Real; 
+  function Initialize(init : CogInitializer)
+  {
+    //my Y Pos:
+    this.YPos = this.Owner.Transform.Translation.Y;
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    var x : Real = this.Owner.Transform.Translation.X; 
+    var pX : Real = this.Tracked.Transform.Translation.X;
+    Console.WriteLine(x);
+    //if he is a tracker
+    if(this.IsTracker){
+       this.Owner.Transform.Translation = Real3(x + (Math.Abs(x-pX) / 50) + 0.05, this.YPos, 0);
+      }
+    //if it's not tracker
+    else{
+    //His movement won't change 
+    this.Owner.Transform.Translation = Real3(x + this.NotTrackSpeed, this.YPos, 0); 
+    }
+  }
+}

@@ -29,6 +29,6 @@ Cog
 	}
 	DrawLines 
 	{
-		var Precision = 0.25
+		var Precision = 0.100000001
 	}
 }

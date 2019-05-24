@@ -4,7 +4,7 @@ Cog
 	var Name = "Level1"
 	Transform 
 	{
-		var Translation = Real3{0.857536316, -90.4749832, 0}
+		var Translation = Real3{638.942383, -90, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -72,6 +72,24 @@ Cog
 				var Translation = Real3{102.679703, 41.3049469, 0}
 				var Rotation = Quaternion{0, 0, 0, 1}
 				var Scale = Real3{39.8686867, 122.947662, 1}
+			}
+		}
+		Cog [Id:0x5c32b0d6b8ff8018][InheritId:"5c32b03798f9447f:Wreckingball"]
+		{
+			Transform 
+			{
+				var Translation = Real3{68.7351456, 101.770546, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{3, 3, 1}
+			}
+			RigidBody 
+			{
+				var AngularVelocity = Real3{0, 0, 0}
+			}
+			Pendulum 
+			{
+				var Speed = 0.0199999996
+				var Amplitude = 6
 			}
 		}
 	}
