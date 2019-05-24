@@ -1,11 +1,11 @@
 [Version:1]
 Cog 
 {
-	var Name = "Paint"
+	var Name = "Block"
 	Transform 
 	{
-		var Translation = Real3{-0.00390625, 0, 0}
-		var Scale = Real3{1, 32, 5}
+		var Translation = Real3{321.638428, 23.9103546, 0}
+		var Scale = Real3{66.3362656, 92.8706818, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	Sprite 
@@ -20,7 +20,7 @@ Cog
 		var Material = "582c575af53d18c9:AlphaSprite"
 		var VertexColor = Real4{1, 1, 1, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
-		var SpriteSource = "5c6ef6ce7c3f4835:Pixel"
+		var SpriteSource = "5275aa4d802dd6dc:Square"
 		var FlipX = false
 		var FlipY = false
 		var AnimationActive = true
@@ -33,7 +33,17 @@ Cog
 		var SendsEvents = true
 		var Material = "5c3e8ac1e9ac9730:Firm"
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"
-		var Offset = Real3{0.00389999989, 0, 0}
-		var HalfSize = Real3{0.00499999989, 0.00389999989, 0.5}
+		var Offset = Real3{0, 0, 0}
+		var HalfSize = Real3{0.5, 0.5, 0.5}
+	}
+	RigidBody 
+	{
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Static
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.InheritFromSpace
 	}
 }

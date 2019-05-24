@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "DifficultySettings"
+		var ResourceId = 0x5c7b096b38580bf7
+		var LoaderType = "Level"
+		var Version = 0
+	}
+}

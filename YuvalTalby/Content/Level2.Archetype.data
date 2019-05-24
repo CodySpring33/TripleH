@@ -1,0 +1,88 @@
+[Version:1]
+Cog 
+{
+	var Name = "Level2"
+	Transform 
+	{
+		var Translation = Real3{286.048035, -170.904221, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
+	{
+		var Visible = false
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	Chunk 
+	{
+		var ChunkLength = 390
+		var OutBiome = ChunkOutBiome.Level1
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5c3de9de3c2d6ca2][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{28.2218933, 41.9942627, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{66.3362656, 92.8706818, 1}
+			}
+		}
+		Cog [Id:0x5c3de9de3c2d6cea][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{115.843384, 53.2741852, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{66.3362656, 92.8706818, 1}
+			}
+		}
+		Cog [Id:0x5c3dfde83b8f531f][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{321.638428, 23.9103546, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{66.3362656, 92.8706818, 1}
+			}
+		}
+		Cog [Id:0x5c3dfde73ac8a206][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{242.401215, 13.3654709, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{66.3362656, 92.8706818, 1}
+			}
+		}
+		Cog [Id:0x5c3dfdc223c2c405][InheritId:"5c3dfdc223c18e84:BBoard"]
+		{
+			var Name = "BlockO"
+			Transform 
+			{
+				var Translation = Real3{177.963516, 87.2927551, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{8.26534557, 46.5591507, 1}
+			}
+		}
+	}
+}

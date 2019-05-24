@@ -4,7 +4,7 @@ Cog
 	var Name = "Ball"
 	Transform 
 	{
-		var Translation = Real3{0, 0, 0}
+		var Translation = Real3{25.4531364, 7.91604567, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -37,12 +37,7 @@ Cog
 		var RotationLocked = false
 		var Mode2D = Mode2DStates.InheritFromSpace
 	}
-	DebugBall 
-	{
-		var GracePeriod = 1
-		var BoostDuration = 2
-	}
-	CylinderCollider 
+	SphereCollider 
 	{
 		var Ghost = false
 		var SendsEvents = true
@@ -50,8 +45,9 @@ Cog
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"
 		var Offset = Real3{0, 0, 0}
 		var Radius = 0.5
-		var Height = 10
-		var Direction = AxisDirection.Z
+	}
+	DebugBall 
+	{
 	}
 	Hierarchy 
 	{

@@ -14,13 +14,13 @@ class Draw : ZilchComponent
   var Rand : Random = Random();
   
   [Property]
-  var MaxPaintAmt : Real = 1000;
+  var MaxPaintAmt : Real = 40;
   
   var PaintAmt : Real = 0;
   
   var Color : Real4 = Real4(0,0,0,0);
   
-  var RefillMultiplier : Real = 25.0;
+  var RefillMultiplier : Real = 12.5; // old: 25
   
   var Player : Cog = null;
   
@@ -114,7 +114,7 @@ class Draw : ZilchComponent
       
     else if(this.Shape == 2)
     {
-      Console.WriteLine("this number is greater than 0 : `this.PaintAmt`");
+//      Console.WriteLine("this number is greater than 0 : `this.PaintAmt`");
       this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.WaterFather, this.MousePosition));      
     }
     
@@ -162,7 +162,7 @@ class Draw : ZilchComponent
     //Console.WriteLine(this.MousePosition);
     //set position to mouse, act as a cursor
     if(this.DoMousePosUpdate)
-      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,Real3(this.MousePosition.XY, 4) - this.Camera.Transform.Translation,this.LerpMultiplier * event.Dt);
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,this.MousePosition - this.Camera.Transform.Translation,this.LerpMultiplier * event.Dt);
     
      
     

@@ -4,7 +4,7 @@ ImageContent
 	SpriteSourceBuilder 
 	{
 		var Name = "HArtJoeCursor_0"
-		var ResourceId = 0x5c3dfb984fb3c969
+		var ResourceId = 0x5c7b041600567095
 		var FrameSizeX = 300
 		var FrameSizeY = 300
 		var FrameCount = 11

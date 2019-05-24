@@ -57,7 +57,7 @@ class DebugBall : ZilchComponent
     if(this.Owner.RigidBody.Velocity.X > 5 && this.LastFrameXVelocities.X < 0 && this.LastFrameXVelocities.Y <= 0 && false) //remove last thing to enable
     {
       this.Boost = 2;
-      this.MyBoostParticles = this.Space.CreateAtPosition(Archetype.Vroom, this.Owner.Transform.Translation);
+      //this.MyBoostParticles = this.Space.CreateAtPosition(Archetype.Vroom, this.Owner.Transform.Translation);
       Console.WriteLine("RECOVERY DETECTED");
     }
     

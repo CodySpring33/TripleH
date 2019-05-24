@@ -6,6 +6,7 @@ class DrawLines : ZilchComponent
   var MyLines : Array[Cog] = Array[Cog](1){};
   var LineIndex : Integer = 0;
   var Active : Boolean = true;
+  var Player : Cog = null;
   var Brush : Cog = null;
   var Rand : Random = Random();
   [Property]
@@ -16,7 +17,8 @@ class DrawLines : ZilchComponent
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     this.Camera = this.Space.FindObjectByName("GameCamera");
     this.Brush = this.Space.FindObjectByName("Brush");
-    this.MyLines[this.LineIndex] = this.Space.CreateAtPosition(Archetype.Paint, this.Brush.Transform.WorldTranslation);
+    this.Player = this.Space.FindObjectByName("Ball");
+    this.MyLines[this.LineIndex] = this.Space.CreateAtPosition(Archetype.Paint, Real3(this.Brush.Transform.WorldTranslation.XY, this.Player.Transform.Translation.Z));
     this.MyLines[this.LineIndex].AttachTo(this.Owner);
     //randomize color if color mode is on
     if(this.Brush.Draw.DoColor)
@@ -60,7 +62,7 @@ class DrawLines : ZilchComponent
         this.LineIndex += 1;
         
         //make another line and attach it and move it to the right rotation
-        this.MyLines.Add(this.Space.CreateAtPosition(Archetype.Paint, brushPosition));
+        this.MyLines.Add(this.Space.CreateAtPosition(Archetype.Paint, Real3(brushPosition.XY, this.Player.Transform.Translation.Z)));
         this.MyLines[this.LineIndex].AttachTo(this.Owner);
         this.MyLines[this.LineIndex].Transform.SetEulerAnglesXYZ(0,0,this.MyLines[this.LineIndex-1].Transform.EulerAngles.Z);
         //randomize color if color mode is on
