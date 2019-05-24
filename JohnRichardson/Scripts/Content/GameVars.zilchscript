@@ -5,6 +5,8 @@
 /////////////////////////////////////
 class GameVars : ZilchComponent
 {
+  var ToggleSound : Boolean = false;
+  var ToggleMusic : Boolean = false;
   function Initialize(init : CogInitializer)
   {
   }

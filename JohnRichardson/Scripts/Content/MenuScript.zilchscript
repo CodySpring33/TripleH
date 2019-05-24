@@ -8,8 +8,6 @@
 
 class MenuScript : ZilchComponent
 {
-  var MouseX : Real = 0;
-  var MouseY : Real = 0; 
   var MousePosition : Real3;
   var Camera : Cog = null;
   //saves original positions of the object

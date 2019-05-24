@@ -13,7 +13,7 @@ var HUDLevel : Level = null;
 var HUDSpace : Space = null;
   function Initialize(init : CogInitializer)
   {
-    if(this.GameSession.FindSpaceByName("SoundSpace") == null){
+    if(this.GameSession.FindSpaceByName("SoundSpace") == null && this.GameSession.GameVars.ToggleMusic == false){
       this.HUDSpace = this.GameSession.CreateNamedSpace("SoundSpace", Archetype.Space);
       if(this.HUDSpace != null)
       {
