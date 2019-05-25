@@ -60,7 +60,10 @@ class DebugBall : ZilchComponent
       //this.MyBoostParticles = this.Space.CreateAtPosition(Archetype.Vroom, this.Owner.Transform.Translation);
       Console.WriteLine("RECOVERY DETECTED");
     }
-    
+    if(Zero.Keyboard.KeyIsPressed(Keys.R))
+    {
+      this.Space.ReloadLevel();
+    }
     //Console.WriteLine(this.LastFrameXVelocities);
     //Console.WriteLine(this.Owner.RigidBody.Velocity.X);
     

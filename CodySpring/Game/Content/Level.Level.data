@@ -41,6 +41,8 @@ Level
 		Generation 
 		{
 			var NameOfFirstChunk = "Level1"
+			var Background = "5c74a8d9107a695f:Background"
+			var BackgroundW = 255.800003
 		}
 		LevelVars 
 		{
@@ -87,7 +89,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{51.2408104, -1.38051033, 30}
+			var Translation = Real3{98.0605164, 14.7706213, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -140,7 +142,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 60.9681778
+			var Size = 247.23793
 		}
 		EditorCameraController 
 		{
@@ -149,7 +151,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{51.2408104, -1.38051033, 9.99999905}
+			var LookTarget = Real3{98.0605164, 14.7706213, 0}
 			var MoveSensitivity = 1
 		}
 	}
@@ -304,7 +306,7 @@ Level
 		var Name = "Ball"
 		Transform 
 		{
-			var Translation = Real3{0, 0, 0}
+			var Translation = Real3{-0.0284423828, -6.39241314, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -352,110 +354,13 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-1.05758286, -95.2173767, 0}
+			var Translation = Real3{-4.40788078, -98.6031799, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
-		Hierarchy 
+		Chunk 
 		{
-			Cog [Id:0x5c32b0d6b8ff8018][InheritId:"5c32b03798f9447f:Wreckingball"][ContextId:10]
-			{
-				Transform 
-				{
-					var Translation = Real3{71.2160797, 105.645958, 0}
-					var Scale = Real3{3, 3, 1}
-				}
-			}
-		}
-	}
-	Cog [ContextId:11]
-	{
-		var Name = "Value"
-		Transform 
-		{
-			var Translation = Real3{107.177155, -3.44788694, -10}
-			var Scale = Real3{4, 4, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c328a3d8571d6c3:first"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Hierarchy 
-		{
-		}
-	}
-	Cog [ContextId:12]
-	{
-		var Name = "second"
-		Transform 
-		{
-			var Translation = Real3{106.889709, -1.22588348, -20}
-			var Scale = Real3{4, 4, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c328b8ee7f101cc:second"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-	}
-	Cog [ContextId:13]
-	{
-		var Name = "third"
-		Transform 
-		{
-			var Translation = Real3{107.385864, -2.55745935, -25}
-			var Scale = Real3{5, 5, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c328ac6a1e1f78d:third"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
+			var OutBiome = ChunkOutBiome.Level2
 		}
 	}
 }

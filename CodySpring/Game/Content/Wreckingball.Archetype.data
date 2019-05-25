@@ -4,7 +4,7 @@ Cog
 	var Name = "WreckingBall"
 	Transform 
 	{
-		var Translation = Real3{68.7351456, 101.770546, 0}
+		var Translation = Real3{72.2666779, 106.866737, 0}
 		var Scale = Real3{3, 3, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
