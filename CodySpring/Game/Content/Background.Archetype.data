@@ -4,7 +4,7 @@ Cog
 	var Name = "Transform"
 	Transform 
 	{
-		var Translation = Real3{307.892517, 35.9426842, 0}
+		var Translation = Real3{-281.720886, -65, -1.90734863e-06}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -15,7 +15,7 @@ Cog
 			var Name = "third"
 			Transform 
 			{
-				var Translation = Real3{128.318115, 56.8725014, -25}
+				var Translation = Real3{128.318115, 31.2443237, -25}
 				var Rotation = Quaternion{0, 0, 0, 1}
 				var Scale = Real3{4, 4, 1}
 			}
@@ -24,17 +24,16 @@ Cog
 		{
 			Transform 
 			{
-				var Translation = Real3{128.055054, 47.4055061, -20}
+				var Translation = Real3{128.055054, 27.8175774, -18}
 				var Rotation = Quaternion{0, 0, 0, 1}
 				var Scale = Real3{4, 4, 1}
 			}
 		}
-		Cog [Id:0x5c74ad1502c624c0][InheritId:"5c74a73a09971e8d:first"]
+		Cog [Id:0x5c3771603db7a2e4][InheritId:"5c74a73a09971e8d:first"]
 		{
-			var Name = "first"
 			Transform 
 			{
-				var Translation = Real3{128.138733, 42.3310585, -10.000001}
+				var Translation = Real3{128.139008, -9.54176331, -10}
 				var Rotation = Quaternion{0, 0, 0, 1}
 				var Scale = Real3{4, 4, 1}
 			}

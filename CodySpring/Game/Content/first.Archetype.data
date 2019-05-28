@@ -1,10 +1,10 @@
 [Version:1]
 Cog 
 {
-	var Name = "first"
+	var Name = "newFirst"
 	Transform 
 	{
-		var Translation = Real3{105.525818, -3.27706146, -10}
+		var Translation = Real3{128.139008, -9.54176331, -10}
 		var Scale = Real3{4, 4, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -20,14 +20,11 @@ Cog
 		var Material = "582c575af53d18c9:AlphaSprite"
 		var VertexColor = Real4{1, 1, 1, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
-		var SpriteSource = "5c328a3d8571d6c3:first"
+		var SpriteSource = "5c37735193ca42f6:newFirst"
 		var FlipX = false
 		var FlipY = false
 		var AnimationActive = true
 		var AnimationSpeed = 1
 		var StartFrame = 0
-	}
-	Hierarchy 
-	{
 	}
 }

@@ -25,7 +25,7 @@ class PendulumString : ZilchComponent
   function Initialize(init : CogInitializer)
   {
 
-    //The Position of the ball
+    //The Starting Position of the wrecking ball
     this.BallStartX = this.Ball.Pendulum.StartingX;
     this.BallStartY = this.Ball.Pendulum.StartingY; 
   
@@ -34,10 +34,10 @@ class PendulumString : ZilchComponent
     
 
     //Sets the scale of the object
-    this.Owner.Transform.Scale = Real3(0.0293657, this.Length / 10, 1); 
+    this.Owner.Transform.Scale = Real3(0.34625, this.Length, 1); 
     //Sets the Position of the object
     this.Owner.Transform.Translation = Real3(this.BallStartX, this.BallStartY, -2);
-   
+    Console.WriteLine("`this.BallStartY`");
     
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
   }

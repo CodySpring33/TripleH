@@ -4,7 +4,7 @@ Cog
 	var Name = "second"
 	Transform 
 	{
-		var Translation = Real3{105.442139, 1.79738617, -20}
+		var Translation = Real3{128.055054, 42.2079811, -18}
 		var Scale = Real3{4, 4, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}

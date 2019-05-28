@@ -1,0 +1,20 @@
+[Version:1]
+BinaryContent 
+{
+	BinaryBuilder 
+	{
+		var Name = "GBuilding1"
+		var ResourceId = 0x5c377ccbb9d11f40
+		var LoaderType = "MultiConvexMesh"
+		var Version = 0
+		var FilterTag = ""
+		var ResourceOwner = ""
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"MultiConvexMesh"
+		}
+	}
+}
