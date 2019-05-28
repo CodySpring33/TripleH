@@ -18,7 +18,7 @@ class TimerScript : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    Console.WriteLine(this.Owner);
+    //Console.WriteLine(this.Owner);
     //increases timer if player isnt dead
     if(this.LevelSettings.LevelVars.PlayerDead == false){
     this.Timer += event.Dt;

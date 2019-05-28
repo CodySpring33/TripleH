@@ -42,10 +42,10 @@ class ScreenShake : ZilchComponent
     {
       //scale with the square
      var actualShake = (playerVelDelta * this.ShakeAmpContant) * (playerVelDelta * this.ShakeAmpContant);
-     if(actualShake < 5)
+     if(actualShake < 100)
       this.ShakeLevel += actualShake;
      else
-      this.ShakeLevel += 5;
+      this.ShakeLevel += 100;
     }
     this.LastVel = this.Player.RigidBody.Velocity;
     this.Timer += event.Dt;
