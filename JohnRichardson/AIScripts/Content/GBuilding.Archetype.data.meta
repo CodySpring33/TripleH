@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "GBuilding"
+		var ResourceId = 0x5c3c108a4b521324
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

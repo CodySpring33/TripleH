@@ -1,0 +1,125 @@
+class DebugBall : ZilchComponent
+{
+  var DeathTimer : Real = 0;
+  var BoostTimer : Real = 0;
+  
+  [Property]
+  var GracePeriod : Real = 1;
+  
+  //multiplied when recovering
+  var Boost : Real = 1;
+  
+  [Property]
+  var BoostDuration : Real = 2;
+  
+  var Dying : Boolean = false;
+  
+  //to see whether you changed positions, used for recovery
+  var LastFrameXVelocities : Real2 = Real2(0,0);
+  
+  var Dead : Boolean = false;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    
+    //basic velocity controls
+    if(Zero.Keyboard.KeyIsDown(Keys.W))
+      this.Owner.RigidBody.Velocity += Real3(0,20,0) * event.Dt;
+    if(Zero.Keyboard.KeyIsDown(Keys.A))
+      this.Owner.RigidBody.Velocity += Real3(-20,0,0) * event.Dt;
+    if(Zero.Keyboard.KeyIsDown(Keys.D))
+      this.Owner.RigidBody.Velocity += Real3(20,0,0) * event.Dt;  
+      
+      
+    if(Zero.Keyboard.KeyIsDown(Keys.Q))
+      this.Owner.RigidBody.AngularVelocity += Real3(0,0,100) * event.Dt;  
+    if(Zero.Keyboard.KeyIsDown(Keys.E))
+      this.Owner.RigidBody.AngularVelocity += Real3(0,0,-100) * event.Dt;
+      
+    /***************************************************/  
+    if(this.Owner.RigidBody.Velocity.X < 0)
+    {
+      this.DeathTimer += event.Dt;
+      //Console.WriteLine(this.DeathTimer);
+      //if(this.DeathTimer > this.GracePeriod)
+        //this.Dying = true;
+    }
+    else if(this.DeathTimer > 0)
+      this.DeathTimer -= event.Dt;
+    /* unfinished
+    if(this.Owner.RigidBody.Velocity.X > 5 && this.LastFrameXVelocities.X < 0 && this.LastFrameXVelocities.Y <= 0)
+    {
+      this.Boost = 2;
+      Console.WriteLine("RECOVERY DETECTED");
+    } */
+    
+    
+    if(this.Boost != 1)
+    {
+      this.BoostTimer += event.Dt;
+      if(this.BoostTimer > this.BoostDuration)
+      {
+        this.BoostTimer = 0;
+        this.Boost = 1;
+      }
+    }
+    
+    /***************************************************/ 
+    
+    if(this.Dying)
+    {
+      this.Owner.Sprite.VertexColor = Math.Lerp(this.Owner.Sprite.VertexColor, Real4(this.Owner.Sprite.VertexColor.XYZ, 0),event.Dt * 10);
+      this.Owner.RigidBody.Velocity = Math.Lerp(this.Owner.RigidBody.Velocity, Real3(0,this.Owner.RigidBody.Velocity.Y,0), event.Dt * 2);
+      if(this.Owner.Sprite.VertexColor.W < 0.05)
+      {
+        this.Dead = true;
+      }
+    }
+    
+    if(this.Dead)
+    {
+      this.Owner.Transform.Translation += Real3(0,0,10);
+    }
+    this.LastFrameXVelocities.Y = this.LastFrameXVelocities.X;
+    this.LastFrameXVelocities.X = this.Owner.RigidBody.Velocity.X;
+      
+    foreach(var contact in this.Owner.Collider.Contacts)
+    {
+      if(contact.OtherObject.Name == "Paint" || contact.OtherObject.Name == "Block")
+      {
+        var thrustDirection = contact.OtherObject.Transform.EulerAngles.Z;
+        this.Owner.RigidBody.Velocity = Real3(event.Dt * Math.Cos(thrustDirection) * 50,event.Dt * Math.Sin(thrustDirection) * 50 * this.Boost,0) * 40;
+      }
+    } 
+    
+    
+    /****END****/
+    
+    /*  
+    //vertical and horizontal looping, teleporting back once out of screen  
+    if(this.Owner.Transform.Translation.X > 18.5 && this.Owner.Parent == null)
+      this.Owner.Transform.Translation += Real3(-39,0,0);
+      
+    if(this.Owner.Transform.Translation.X < -18.5 && this.Owner.Parent == null)
+      this.Owner.Transform.Translation += Real3(39,0,0);  
+      
+    if(this.Owner.Transform.Translation.Y > 12 && this.Owner.Parent == null)
+      this.Owner.Transform.Translation += Real3(0,-23,0);
+      
+    if(this.Owner.Transform.Translation.Y < -12 && this.Owner.Parent == null)
+      this.Owner.Transform.Translation += Real3(0,23,0);
+      
+    */
+    /*
+    if(this.Owner.Transform.Translation.Y < -25)
+    {
+      this.Owner.RigidBody.Velocity = Real3(this.Owner.RigidBody.Velocity.X, 5, 0);
+    } 
+    */ 
+  }
+}

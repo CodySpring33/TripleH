@@ -1,0 +1,170 @@
+class Draw : ZilchComponent
+{
+  //lights
+  var Camera : Cog = null;
+  //action
+  
+  var MousePosition : Real3 = Real3();
+  
+  //note: drawings comprise lines
+  var MyDrawings : Array[Cog] = Array[Cog](){};  
+  //which drawing is being operated on currently
+  var DrawIndex : Integer = -1;
+  
+  var Rand : Random = Random();
+  
+  [Property]
+  var MaxPaintAmt : Real = 40;
+  
+  var PaintAmt : Real = 0;
+  
+  var Color : Real4 = Real4(0,0,0,0);
+  
+  var RefillMultiplier : Real = 25.0;
+  
+  var Player : Cog = null;
+  
+  var DoColor : Boolean = false;
+  
+  //the first measurement of the mouse's position is always something really dumb for whatever reason. this fixes that
+  var DoMousePosUpdate : Boolean = false;
+  
+  //what shape is being drawn
+  var Shape : Integer = 0;
+  
+  [Property]
+  var LerpMultiplier : Real = 5;
+    
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
+    Zero.Connect(this.Space, Events.MouseUp, this.OnMouseUp);
+    Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    this.Camera = this.Space.FindObjectByName("GameCamera");
+    this.Player = this.Space.FindObjectByName("Ball");
+    this.PaintAmt = this.MaxPaintAmt;
+    
+  }
+
+  function OnKeyDown(event : KeyboardEvent)
+  {
+    //removing the most recent drawing
+    if((event.Key == Keys.Delete || event.Key == Keys.Back) && this.DrawIndex > -1)
+    {
+      this.MyDrawings[this.DrawIndex].Destroy();
+      this.DrawIndex -= 1;
+      this.MyDrawings.Pop();
+    }
+    
+    if(event.Key == Keys.Space)
+    {
+      var lines = this.Space.FindAllObjectsByName("Paint");
+      
+      if(!this.DoColor)
+      {
+        foreach(var line in lines)
+        {
+          line.Sprite.VertexColor = Real4(this.Rand.Range(0,1),this.Rand.Range(0,1),this.Rand.Range(0,1),1);        
+        }
+        this.DoColor = true;
+      }
+      else
+      {
+        foreach(var line in lines)
+        {
+          line.Sprite.VertexColor = Real4(1,1,1,1);
+        }
+        this.DoColor = false;
+      }
+    }
+    
+    //curves
+    if(event.Key == Keys.One)
+      this.Shape = 0;
+      
+    //square  
+    if(event.Key == Keys.Two)
+      this.Shape = 1;
+      
+    //hydro, homies
+    if(event.Key == Keys.Three)
+      this.Shape = 2;
+  }
+
+  function OnMouseUp(event : ViewportMouseEvent)
+  {
+    //stoping drawing when you let go of the mouse
+    if(this.MyDrawings[this.DrawIndex].Sprite.SpriteSource == SpriteSource.Pixel)
+      this.MyDrawings[this.DrawIndex].DrawLines.Active = false;
+    
+    if(this.MyDrawings[this.DrawIndex].Sprite.SpriteSource == SpriteSource.Square)
+      this.MyDrawings[this.DrawIndex].DrawSquare.Active = false;
+  }
+
+  function OnMouseDown(event : ViewportMouseEvent)
+  {
+    //spawning appropriate object
+    if(this.Shape == 0 && this.PaintAmt > 0)
+      this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.Drawer, this.MousePosition));
+      
+    //setting Z manually so the square doesn't go over the brush   
+    else if(this.Shape == 1)
+      this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.SquareDraw, Real3(this.MousePosition.XY, -3)));
+      
+    else if(this.Shape == 2)
+    {
+//      Console.WriteLine("this number is greater than 0 : `this.PaintAmt`");
+      this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.WaterFather, this.MousePosition));      
+    }
+    
+    else
+    {
+      this.Shape = -1;
+    }
+    
+    //Console.WriteLine(this.MyDrawings[this.DrawIndex]);
+    //moving index up such that the correct drawing is accessed
+    if(this.Shape != -1)
+      this.DrawIndex += 1;
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    Zero.Mouse.Cursor = Cursor.Invisible;
+    
+    this.Owner.Sprite.CurrentFrame = Math.Round(this.PaintAmt / this.MaxPaintAmt * 10) as Integer;
+    //get mouse position
+    this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
+    if(!Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.PaintAmt < this.MaxPaintAmt)
+    {
+      foreach(var contact in this.Player.Collider.Contacts)
+      {
+        
+        if(contact.OtherObject.Name.Contains("Block"))
+        {
+          this.PaintAmt += event.Dt * this.RefillMultiplier;
+          this.Shape = 0;
+        }
+          
+      }
+    }      
+    //Console.WriteLine(this.PaintAmt);
+    if(!this.DoMousePosUpdate)
+    {
+      //once the mouse has calmed down, let it start lerping. it tends to get excited on the first frame
+      //try deleting this every once in a while to see if it's still necessary
+      if(Math.Abs(this.MousePosition.X * this.MousePosition.Y) < 1000000)
+      {
+        this.DoMousePosUpdate = true;
+      }
+    }
+    //Console.WriteLine(this.MousePosition);
+    //set position to mouse, act as a cursor
+    if(this.DoMousePosUpdate)
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,Real3(this.MousePosition.XY, this.MousePosition.Z - 0.1) - this.Camera.Transform.Translation,this.LerpMultiplier * event.Dt);
+    
+     
+    
+  }
+}

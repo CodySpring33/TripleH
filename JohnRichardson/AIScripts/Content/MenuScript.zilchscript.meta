@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "MenuScript"
+		var ResourceId = 0x5c7b08adee5a6737
+	}
+}

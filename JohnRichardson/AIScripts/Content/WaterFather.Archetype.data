@@ -1,0 +1,35 @@
+[Version:1]
+Cog 
+{
+	var Name = "WaterFather"
+	Transform 
+	{
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
+	{
+		var Visible = false
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{0, 0.627450705, 0.878431439, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "59a4f6f4a01bac09:SoftCircle"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	DrawWater 
+	{
+		var Delay = 0.0199999996
+		var Detail = 3
+	}
+}
