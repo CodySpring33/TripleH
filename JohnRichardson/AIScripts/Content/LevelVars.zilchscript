@@ -6,6 +6,8 @@
 class LevelVars : ZilchComponent
 {
   var PlayerDead : Boolean = false;
+  var PlayerXCoordinate : Real = 0;
+  var PlayerYCoordinate : Real = 0;
   function Initialize(init : CogInitializer)
   {
   }

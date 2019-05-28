@@ -1,0 +1,18 @@
+/////////////////////////////
+//Name: John Richardson
+//Date: 5/28/19
+//Brief: Records the Coordinates of the Player
+/////////////////////////////
+class PlayerCoordinateRecorder : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    this.LevelSettings.LevelVars.PlayerXCoordinate = this.Owner.Transform.Translation.X;
+    this.LevelSettings.LevelVars.PlayerYCoordinate = this.Owner.Transform.Translation.Y;
+  }
+}

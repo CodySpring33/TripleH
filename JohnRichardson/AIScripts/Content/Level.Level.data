@@ -84,7 +84,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-5.76478243, 7.53099918, 30}
+			var Translation = Real3{-0.0367702246, -0.828821957, 30}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -137,7 +137,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 45.1661568
+			var Size = 55.1660309
 		}
 		EditorCameraController 
 		{
@@ -146,7 +146,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{-5.76478243, 7.53099918, 10}
+			var LookTarget = Real3{-0.0367702246, -0.828821957, 10}
 			var MoveSensitivity = 1
 		}
 	}
@@ -305,10 +305,6 @@ Level
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
-		SphereCollider 
-		{
-			var Material = "5c3e8ac1e9ac9730:Firm"
-		}
 	}
 	Cog [ContextId:8]
 	{
@@ -352,6 +348,40 @@ Level
 			var Translation = Real3{-0.896492004, -91.8157349, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [ContextId:10]
+	{
+		var Name = "Enemy"
+		Transform 
+		{
+			var Translation = Real3{-4, 0, 0.899999976}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{0.949999928, 1, 0, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5274db4c2e7c11f9:Circle"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		AIChase 
+		{
+			var LerpSpeed = 2
+			var Range = 0.600000024
 		}
 	}
 }

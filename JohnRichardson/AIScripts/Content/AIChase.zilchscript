@@ -1,0 +1,38 @@
+//////////////////////////
+//Name: John Richardson
+//Date: 5/28/19
+//Brief: Creates an AI that chsases the player
+/////////////////////////
+class AIChase : ZilchComponent
+{
+  var StartingDistance : Real = 10;
+  var XLocation : Real = 0;
+  var YLocation : Real = 0;
+  [Property]
+  //sets the speed of the Enemy's lerp
+  var LerpSpeed : Real = 2;
+  [Property]
+  //sets the range that the player is killed in
+  var Range : Real = 0.6;
+  var Player : Cog = null;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    this.Player = this.Space.FindObjectByName("Ball");
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    //Sets the Coordinates of the AI
+    this.XLocation = this.LevelSettings.LevelVars.PlayerXCoordinate + Math.Sqrt(this.GameSession.GameVars.Timer * 50)  - this.StartingDistance;
+    if(this.XLocation >= this.LevelSettings.LevelVars.PlayerXCoordinate - this.Range){
+      this.XLocation = this.LevelSettings.LevelVars.PlayerXCoordinate - this.Range;
+    }
+    this.YLocation =  Math.Lerp(this.Owner.Transform.Translation.Y, this.LevelSettings.LevelVars.PlayerYCoordinate, event.Dt * this.LerpSpeed);
+    this.Owner.Transform.Translation = Real3(this.XLocation, this.YLocation, this.Owner.Transform.Translation.Z);
+    //kills the player if its coordinate is within the range of the player's Coordinate
+    if(this.XLocation >= this.LevelSettings.LevelVars.PlayerXCoordinate - this.Range && (this.YLocation >= this.LevelSettings.LevelVars.PlayerYCoordinate - this.Range && this.YLocation <= this.LevelSettings.LevelVars.PlayerYCoordinate + this.Range)){
+      this.Player.DebugBall.Dead = true;
+    }
+  }
+}

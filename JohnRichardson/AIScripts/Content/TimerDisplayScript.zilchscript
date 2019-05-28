@@ -1,0 +1,24 @@
+/////////////////////////////////////
+//Name: John Richardson
+//Date: 5/28/19
+//Brief: Displays the Score on the Death Screen
+/////////////////////////////////////
+class TimerDisplayScript : ZilchComponent
+{
+  var Timer : Real = 0;
+  var Delay: Real = 1;
+  function Initialize(init : CogInitializer)
+  {
+    //sets the sprite text
+    this.Owner.SpriteText.Text = "Time Survived: `this.GameSession.GameVars.Timer as Integer`.`this.GameSession.GameVars.Time as Integer`";
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+   //fade in effect
+    if(this.Timer <= this.Delay){
+    this.Timer += event.Dt;
+    }
+    this.Owner.SpriteText.VertexColor = Real4(this.Owner.SpriteText.VertexColor.XYZ,  this.Timer);
+  } 
+}

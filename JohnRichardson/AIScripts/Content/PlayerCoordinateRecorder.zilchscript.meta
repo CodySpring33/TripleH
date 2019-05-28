@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "PlayerCoordinateRecorder"
+		var ResourceId = 0x5c374803e40a0a0b
+	}
+}
