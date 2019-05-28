@@ -14,6 +14,9 @@ class AIChase : ZilchComponent
   [Property]
   //sets the range that the player is killed in
   var Range : Real = 0.6;
+  [Property]
+  //Sets the Speed of the AI
+  var ChaseSpeed : Real = 1;
   var Player : Cog = null;
   function Initialize(init : CogInitializer)
   {
@@ -24,7 +27,7 @@ class AIChase : ZilchComponent
   function OnLogicUpdate(event : UpdateEvent)
   {
     //Sets the Coordinates of the AI
-    this.XLocation = this.LevelSettings.LevelVars.PlayerXCoordinate + Math.Sqrt(this.GameSession.GameVars.Timer * 50)  - this.StartingDistance;
+    this.XLocation = this.LevelSettings.LevelVars.PlayerXCoordinate + Math.Sqrt(this.GameSession.GameVars.Timer * this.ChaseSpeed)  - this.StartingDistance;
     if(this.XLocation >= this.LevelSettings.LevelVars.PlayerXCoordinate - this.Range){
       this.XLocation = this.LevelSettings.LevelVars.PlayerXCoordinate - this.Range;
     }
