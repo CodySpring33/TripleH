@@ -20,7 +20,7 @@ class Draw : ZilchComponent
   
   var Color : Real4 = Real4(0,0,0,0);
   
-  var RefillMultiplier : Real = 12.5; // old: 25
+  var RefillMultiplier : Real = 6; // old: 25
   
   var Player : Cog = null;
   
@@ -44,6 +44,8 @@ class Draw : ZilchComponent
     this.Camera = this.Space.FindObjectByName("GameCamera");
     this.Player = this.Space.FindObjectByName("Ball");
     this.PaintAmt = this.MaxPaintAmt;
+    this.Space.SoundSpace.PlayCue(SoundCue.HIsabellaSoundPlayerPaint);
+    this.Space.SoundSpace.Paused = true;
     
   }
 
@@ -101,7 +103,8 @@ class Draw : ZilchComponent
     if(this.MyDrawings[this.DrawIndex].Sprite.SpriteSource == SpriteSource.Square)
       this.MyDrawings[this.DrawIndex].DrawSquare.Active = false;
       
-    this.Space.SoundSpace.Paused = true;
+    
+    
   }
 
   function OnMouseDown(event : ViewportMouseEvent)
@@ -134,7 +137,7 @@ class Draw : ZilchComponent
     if(this.PaintAmt > 0)
     {
       this.Space.SoundSpace.Paused = false;
-      this.Space.SoundSpace.PlayCue(SoundCue.HIsabellaSoundPlayerPaint);
+      
     }
   }
 
@@ -142,11 +145,12 @@ class Draw : ZilchComponent
   {
     Zero.Mouse.Cursor = Cursor.Invisible;
     
+    
     this.Owner.Sprite.CurrentFrame = Math.Round(this.PaintAmt / this.MaxPaintAmt * 10) as Integer;
     //get mouse position
     this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
     
-    if(this.PaintAmt <= 0)
+    if(this.PaintAmt <= 0 || !Zero.Mouse.IsButtonDown(MouseButtons.Left))
       this.Space.SoundSpace.Paused = true;
     
     if(!Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.PaintAmt < this.MaxPaintAmt)

@@ -54,7 +54,7 @@ class DrawLines : ZilchComponent
       {
         this.Brush.Draw.PaintAmt -= currentLineDistMouse;
         
-        Console.WriteLine(this.Brush.Draw.PaintAmt);
+        //Console.WriteLine(this.Brush.Draw.PaintAmt);
         
         if(this.Brush.Draw.PaintAmt <= 0)
           this.Active = false;
