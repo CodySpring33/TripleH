@@ -7,6 +7,8 @@ class GameVars : ZilchComponent
 {
   var ToggleSound : Boolean = false;
   var ToggleMusic : Boolean = false;
+  var Timer : Real = 0;
+  var Time : Real = 0;
   function Initialize(init : CogInitializer)
   {
   }
