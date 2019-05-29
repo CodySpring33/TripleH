@@ -1,13 +1,25 @@
 class RooftopObsticle : ZilchComponent
 {
+  [Property] var NameOfPlayer : String = "Ball";
+  var Player : Cog = null;
   function Initialize(init : CogInitializer)
   {
     //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-    
-    
+    this.Player = this.Space.FindObjectByName(this.NameOfPlayer);
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    if(event.OtherObject.Name == "Ball")
+    {
+      this.Player.RigidBody.Velocity /= 2;
+    }
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
+    
+    
   }
 }

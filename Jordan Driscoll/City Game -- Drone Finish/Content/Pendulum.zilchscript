@@ -1,0 +1,67 @@
+class Pendulum : ZilchComponent
+{
+  //STRING OF PENDULUM 
+  //How long the string is
+
+  //BALL OF PENDULUM 
+  
+  var Radius : Real = 16; 
+  //The X which the graph is based off of
+  var X : Real = 0; 
+  //The balls current Y Position
+  var Y : Real = 0;
+  //The current X Position
+  var XPos : Real = 0; 
+  
+  //The Y Position where the Ball Starts at 
+  var StartingY : Real; 
+  //The Starting X Where the ball starts at 
+  var StartingX : Real; 
+  //The Speed At Which the Ball goes
+  [Property]
+  var Speed : Real; 
+  //How High the Ball goes
+  [Property]
+  var Amplitude : Real; 
+  //How far the ball goes on the X Axis
+  [Property]
+  var Distance : Real;
+
+  
+  function Initialize(init : CogInitializer)
+  {
+    //Sets the balls starting values
+    this.StartingY = this.Owner.Transform.Translation.Y; 
+    this.StartingX = this.Owner.Transform.Translation.X; 
+    
+    //Makes the code run 
+    //Gets the distance to be how it seems
+    this.Distance = Math.Pow(this.Distance, 2);
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    
+    
+    //Moves the ball at all
+    this.X += this.Speed; 
+    //This gets the balls X Position
+    this.XPos = (this.Amplitude * Math.Sin(this.X)); 
+    //Gets the balls Y position
+    this.Y = -Math.Sqrt(64-Math.Pow(this.XPos, 2));
+    //Testing Stuff
+   
+    //onsole.WriteLine("\n`this.Y`"); 
+ 
+    //Moves the balls position 
+    //this.XPos -= this.StartingX;
+    
+    
+      //change it's position as if it swings on a pendulum 
+    this.Owner.Transform.Translation = Real3(this.XPos + this.StartingX, this.Y + this.StartingY, 0);
+   
+    
+
+  }
+}

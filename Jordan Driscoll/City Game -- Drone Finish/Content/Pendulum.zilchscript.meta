@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "Pendulum"
+		var ResourceId = 0x5c3eb18c4db47a55
+	}
+}
