@@ -1,0 +1,129 @@
+/***************************
+Jordan Driscoll
+May 28th, 2019
+Is The Bird That Moves and Points at the character
+***************************/
+class Bird : ZilchComponent
+{
+    //The Player Game Object
+  [Property]
+  var Player : CogPath; 
+  //How far the bird starts from the player on the Y-axis
+  [Property]
+  var YDistance : Real; 
+  //The Speed of the bird
+  [Property]
+  var Speed : Real; 
+  //Distance from the player at which the bird will attack
+  [Property]
+  var AttackDis : Real;
+  //The Rotation of the bird
+  var BirdRotation : Real;
+  //Determines if the bird is attacking the player
+  [Property]
+  var IsAttacking : Boolean = false; 
+  
+  
+  /*Getting the bird to actually move*/
+  //Gets the player position
+  var PlayerPos : Real3; 
+  //Gets the bird's position
+  var BirdPos : Real3; 
+  //Moving left
+  var MovingLeft : Integer = -1; 
+  
+  //Is the bird still able to attack the character
+  [Property]
+  var IsAlive : Boolean = true; 
+  //How long it is until it dies
+  var DeathTimer : Integer = 0; 
+  
+  [Property]
+  var BounceVelocity = Real3(5, 5, 0);  
+  
+  //How far the bird shoots in front of the player
+  var PlayerDistance : Real = -4;
+  var X : Real = 0; 
+  function Initialize(init : CogInitializer)
+  {
+    if(this.Player.Transform.Translation.X > this.Owner.Transform.Translation.X){
+      //the bird will move left
+      this.MovingLeft = 1;  
+    }
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  //if it collides with teh player or wall, it will bounce off
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+
+    this.Owner.RigidBody.Velocity = Real3(this.MovingLeft*this.BounceVelocity.X, this.BounceVelocity.Y, 0);
+     
+    this.Owner.BoxCollider.Ghost = true;
+    this.Owner.BoxCollider.SendsEvents = false; 
+    this.IsAlive = false; 
+  }
+ 
+ 
+ 
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    
+    
+    if(this.IsAlive){
+  
+      if(this.IsAttacking){
+      //The Cos 
+      var a : Real = this.BirdPos.X - (this.PlayerPos.X + this.PlayerDistance); 
+      //the Sin
+      var b : Real = this.BirdPos.Y - this.PlayerPos.Y; 
+    
+      //Change the rotation smoothly 
+      //The Goal: Math.Atan2(b,a)
+      var finalRotation : Real = Math.ATan2(b, a);
+
+      this.X += this.Speed; 
+          
+      
+      
+    
+      //Transform Euler Angle
+      this.Owner.Transform.SetEulerAnglesXYZ(0, 0, finalRotation);
+      //Change position based on the a and b. 
+      //Starting Pos = Bird Pos
+      //Bird Pos = Player Pos... Confusing, right
+      this.Owner.Transform.Translation = Real3((this.MovingLeft * this.X) + this.BirdPos.X, 
+      this.BirdPos.Y + ((this.BirdPos.Y - this.PlayerPos.Y) / (this.BirdPos.X - this.PlayerPos.X + this.PlayerDistance) * this.X), 0);
+      }
+    //if it's not attacking
+      else{
+        //The player's X & Y Position
+        this.PlayerPos = this.Player.Transform.Translation; 
+        //My X & Y Position
+        this.BirdPos = this.Owner.Transform.Translation; 
+        //Decides if I move left or right, at first it will move right
+        //Am I within the bird distance
+     
+        if(Math.Abs(this.PlayerPos.X - this.BirdPos.X) < this.AttackDis){
+          this.IsAttacking = true; 
+        
+        }
+        this.Owner.Transform.Translation = Real3(this.BirdPos.X + this.MovingLeft*this.Speed, this.PlayerPos.Y + this.YDistance, 0); 
+      
+    }
+    }
+    //if it's not alive
+    else{
+        
+        this.DeathTimer += 1; 
+        if(this.DeathTimer > 600)
+        {
+            this.Owner.Destroy();
+          
+        }
+      
+      }
+  }
+}

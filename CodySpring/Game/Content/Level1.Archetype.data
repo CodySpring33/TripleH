@@ -66,5 +66,15 @@ Cog
 				var Visible = true
 			}
 		}
+		Cog [Id:0x5c35e955a35df840][InheritId:"5c3414cb23ac125a:DeathObsticle"]
+		{
+			var Name = "DO"
+			Transform 
+			{
+				var Translation = Real3{89.6754532, 97.1010895, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{0.800000012, 0.800000012, 1}
+			}
+		}
 	}
 }

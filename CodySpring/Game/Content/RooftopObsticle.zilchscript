@@ -2,11 +2,35 @@ class RooftopObsticle : ZilchComponent
 {
   [Property] var NameOfPlayer : String = "Ball";
   var Player : Cog = null;
+  var Brush : Cog = null;
+  var Fade : Boolean = false;
   function Initialize(init : CogInitializer)
   {
     //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     this.Player = this.Space.FindObjectByName(this.NameOfPlayer);
     Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    Zero.Connect(this.Owner,Events.CollisionEnded, this.OnCollisionEnded);
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : Event)
+  {
+    if(this.Fade == true)
+    {
+      this.Owner.Sprite.VertexColor -= Real4(0,0,0,0.1);
+    }
+    if(this.Owner.Sprite.VertexColor.W == 0)
+    {
+      this.Owner.Destroy();
+    }
+  }
+
+  function OnCollisionEnded(event : CollisionEvent)
+  {
+    if(event.OtherObject.Name == "Ball")
+    {
+      this.Player.DebugBall.ThrustStrengthM = 1;
+    }
   }
 
   function OnCollisionStarted(event : CollisionEvent)
@@ -14,12 +38,12 @@ class RooftopObsticle : ZilchComponent
     if(event.OtherObject.Name == "Ball")
     {
       this.Player.RigidBody.Velocity /= 2;
+      this.Player.DebugBall.ThrustStrengthM = 0.5;
+      this.Owner.RigidBody.Velocity = Real3(4,4,0);
+      this.Fade = true;
     }
+    
   }
 
-  function OnLogicUpdate(event : UpdateEvent)
-  {
-    
-    
-  }
+ 
 }

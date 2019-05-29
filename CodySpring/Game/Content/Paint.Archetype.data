@@ -4,7 +4,7 @@ Cog
 	var Name = "Paint"
 	Transform 
 	{
-		var Translation = Real3{-0.00390315056, 0, 0}
+		var Translation = Real3{-0.00390625, 0, 0}
 		var Scale = Real3{1, 32, 5}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -32,8 +32,8 @@ Cog
 		var Ghost = false
 		var SendsEvents = true
 		var Material = "5c3e8ac1e9ac9730:Firm"
-		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var CollisionGroup = "5c3410a3df02994a:Player"
 		var Offset = Real3{0.00389999989, 0, 0}
-		var HalfSize = Real3{0.00499999989, 0.00389999989, 0.5}
+		var HalfSize = Real3{0.00389999989, 0.00389999989, 0.5}
 	}
 }

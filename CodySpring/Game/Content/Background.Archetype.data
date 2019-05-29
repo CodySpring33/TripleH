@@ -10,16 +10,6 @@ Cog
 	}
 	Hierarchy 
 	{
-		Cog [Id:0x5c74ad1502c62470][InheritId:"5c74a7370cf63ca7:second"]
-		{
-			var Name = "second"
-			Transform 
-			{
-				var Translation = Real3{128.055054, 27.8175774, -18}
-				var Rotation = Quaternion{0, 0, 0, 1}
-				var Scale = Real3{4, 4, 1}
-			}
-		}
 		Cog [Id:0x5c3403c9e86a16ad]
 		{
 			var Name = "resized1final"
@@ -54,7 +44,7 @@ Cog
 			var Name = "resized3"
 			Transform 
 			{
-				var Translation = Real3{127.819962, 34.6203117, -25}
+				var Translation = Real3{127.819962, 37.0821228, -25}
 				var Scale = Real3{15.1000004, 15, 1}
 				var Rotation = Quaternion{0, 0, 0, 1}
 			}
@@ -71,6 +61,35 @@ Cog
 				var VertexColor = Real4{1, 1, 1, 1}
 				var GeometryMode = SpriteGeometryMode.ZPlane
 				var SpriteSource = "5c34007014177621:resized3"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+		}
+		Cog [Id:0x5c34197589a1e291]
+		{
+			var Name = "Layer2spritesheet_0"
+			Transform 
+			{
+				var Translation = Real3{127.521408, 35.3503265, -18}
+				var Scale = Real3{256, 256, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
+			{
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "5c3406a3d3f06d66:Layer2spritesheet_0"
 				var FlipX = false
 				var FlipY = false
 				var AnimationActive = true

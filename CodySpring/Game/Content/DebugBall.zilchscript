@@ -25,6 +25,7 @@ class DebugBall : ZilchComponent
   var Dead : Boolean = false;
   
   var ThrustStrength : Real = 50;
+  var ThrustStrengthM : Real = 1;
   
   function Initialize(init : CogInitializer)
   {
@@ -173,8 +174,9 @@ class DebugBall : ZilchComponent
     this.LastFrameXVelocities.Y = this.LastFrameXVelocities.X;
     this.LastFrameXVelocities.X = this.Owner.RigidBody.Velocity.X;
     
+    
     this.ThrustStrength = 50 + Math.Pow(this.TimeBoy.TimerScript.Timer, 0.5); //scales with three squarters power
-      
+    this.ThrustStrength *= this.ThrustStrengthM;
     foreach(var contact in this.Owner.Collider.Contacts)
     {
       if(contact.OtherObject.Name == "Paint" || contact.OtherObject.Name == "Block")
