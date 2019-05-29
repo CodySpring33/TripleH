@@ -14,12 +14,12 @@ class MenuScript : ZilchComponent
   var OriginalPositionY : Real = 0;
   var OriginalPositionX : Real = 0;
   var UpOne : Real = 0;
-  //
   [Property]
+  //Sets the Level the Object Switches Too
   var NextLevel : Level = null;
-  //
+  //If True then Switch Level
   var SwitchLevel : Boolean = false;
-  //
+  //Timer for Fade in Effect
   var Timer: Real = 0;
   var Delay : Real = 1;
   
@@ -29,17 +29,19 @@ class MenuScript : ZilchComponent
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
     Zero.Connect(this.Space, Events.MouseUp, this.OnMouseUp);
-    //
+    //Finds the Game Camera
     this.Camera = this.Space.FindObjectByName("GameCamera");
-    //
+    //Staves the Original Position of the Object
     this.OriginalPositionY = this.Owner.Transform.Translation.Y;
     this.OriginalPositionX = this.Owner.Transform.Translation.X;
-    //
+    //Sets the Shift of the Object
     this.UpOne = this.Owner.Transform.Translation.Y + 1;
   }
 
   function OnMouseUp(event : ViewportMouseEvent)
   {
+    //If curser is within range when mouse goes up then switch level if SwitchLevel is true
+    this.Owner.Transform.Translation = Real3(0, this.OriginalPositionY, 0);
     if(this.MousePosition.Y < this.OriginalPositionY + 2 && this.MousePosition.X < this.OriginalPositionX + 4){
       if(this.MousePosition.Y > this.OriginalPositionY - 1 && this.MousePosition.X > this.OriginalPositionX - 4){
           if(this.SwitchLevel == true){
@@ -53,8 +55,10 @@ class MenuScript : ZilchComponent
 
   function OnMouseDown(event : ViewportMouseEvent)
   {
+    //If Curser is within range and mouse goes down then set SwitchLevel to True when NextLevel is not null
     if(this.MousePosition.Y < this.OriginalPositionY + 2 && this.MousePosition.X < this.OriginalPositionX + 4){
       if(this.MousePosition.Y > this.OriginalPositionY - 1 && this.MousePosition.X > this.OriginalPositionX - 4){
+        this.Owner.Transform.Translation = Real3(0, this.UpOne, 0);
           if(this.NextLevel != null){
           this.SwitchLevel = true;
           }
@@ -65,24 +69,26 @@ class MenuScript : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    //
-    if(this.Timer != this.Delay){
+    //Increases the Owner's Opacity based upon the Time
+    if(this.Timer <= this.Delay){
       this.Timer += event.Dt;
+      this.Owner.SpriteText.VertexColor = Real4(this.Owner.SpriteText.VertexColor.XYZ, this.Timer);
     }
-    this.Owner.SpriteText.VertexColor = Real4(this.Owner.SpriteText.VertexColor.XYZ, this.Timer); 
-    //
+    //Finds the Position of the Curser in Coordinates instead of Pixels
   this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
-    //
+    //Moves the Object up One if the curser hovers over the Object
     if(this.MousePosition.Y < this.OriginalPositionY + 2 && this.MousePosition.X < this.OriginalPositionX + 4){
       if(this.MousePosition.Y > this.OriginalPositionY - 1 && this.MousePosition.X > this.OriginalPositionX - 4){
-        this.Owner.Transform.Translation = Real3(0, this.UpOne, 0);
+        this.Owner.SpriteText.VertexColor = Real4(this.Owner.SpriteText.VertexColor.XYZ, this.Timer / 2);
       }
       else{
         this.Owner.Transform.Translation = Real3(0, this.OriginalPositionY, 0);
+        this.Owner.SpriteText.VertexColor = Real4(this.Owner.SpriteText.VertexColor.XYZ, this.Timer);
       }
     }
     else{
       this.Owner.Transform.Translation = Real3(0, this.OriginalPositionY, 0);
+      this.Owner.SpriteText.VertexColor = Real4(this.Owner.SpriteText.VertexColor.XYZ, this.Timer);
     }
   }
 }
