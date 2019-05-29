@@ -251,7 +251,7 @@ Level
 		}
 		MenuScript 
 		{
-			var NextLevel = "59097123da28242a:Level"
+			var NextLevel = "5c3f5c02a207cc9a:DifficultySettings"
 		}
 	}
 	Cog [ContextId:6]
@@ -259,7 +259,7 @@ Level
 		var Name = "SettingsButton"
 		Transform 
 		{
-			var Translation = Real3{0, -12, 0}
+			var Translation = Real3{0, -8, 0}
 			var Scale = Real3{10, 10, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -287,38 +287,6 @@ Level
 		}
 	}
 	Cog [ContextId:7]
-	{
-		var Name = "DifficultyButton"
-		Transform 
-		{
-			var Translation = Real3{0, -8, 0}
-			var Scale = Real3{10, 10, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SpriteText 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Difficulty"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
-			var FontSize = 32
-			var PixelsPerUnit = 128
-			var TextAlign = TextAlign.Center
-		}
-		MenuScript 
-		{
-			var NextLevel = "5c3f5c02a207cc9a:DifficultySettings"
-		}
-	}
-	Cog [ContextId:8]
 	{
 		var Name = "CityLights"
 		Transform 

@@ -247,12 +247,12 @@ Level
 		}
 		MenuScript 
 		{
-			var NextLevel = "null"
+			var NextLevel = "59097123da28242a:Level"
 		}
 	}
 	Cog [ContextId:6]
 	{
-		var Name = "Fast"
+		var Name = "Hard"
 		Transform 
 		{
 			var Translation = Real3{0, -8, 0}
@@ -271,7 +271,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Fast"
+			var Text = "Hard"
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 32
 			var PixelsPerUnit = 128
@@ -279,7 +279,7 @@ Level
 		}
 		MenuScript 
 		{
-			var NextLevel = "null"
+			var NextLevel = "5c3400cdbce8a142:Temp"
 		}
 	}
 	Cog [ContextId:7]

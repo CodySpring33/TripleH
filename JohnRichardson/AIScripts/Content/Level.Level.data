@@ -383,6 +383,7 @@ Level
 			var LerpSpeed = 2
 			var Range = 0.600000024
 			var ChaseSpeed = 1
+			var VelocityRate = 0.25
 		}
 		RigidBody 
 		{

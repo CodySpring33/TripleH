@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 60.0832596
+			var Size = 19.9999905
 		}
 		EditorCameraController 
 		{
@@ -216,101 +216,6 @@ Level
 		{
 			var Active = true
 			var AttenuationScale = 1
-		}
-	}
-	Cog [ContextId:5]
-	{
-		var Name = "PlayAgainButton"
-		Transform 
-		{
-			var Translation = Real3{0, -4, 0}
-			var Scale = Real3{10, 10, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SpriteText 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Play Again?"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
-			var FontSize = 32
-			var PixelsPerUnit = 128
-			var TextAlign = TextAlign.Center
-		}
-		MenuScript 
-		{
-			var NextLevel = "59097123da28242a:Level"
-		}
-	}
-	Cog [ContextId:6]
-	{
-		var Name = "TimeSurvived"
-		Transform 
-		{
-			var Translation = Real3{0, 4, 0}
-			var Scale = Real3{7.5, 7.5, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SpriteText 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "ERROR"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
-			var FontSize = 64
-			var PixelsPerUnit = 128
-			var TextAlign = TextAlign.Center
-		}
-		TimerDisplayScript 
-		{
-		}
-	}
-	Cog [ContextId:7]
-	{
-		var Name = "GoBackToMenuButton"
-		Transform 
-		{
-			var Translation = Real3{0, -8, 0}
-			var Scale = Real3{10, 10, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SpriteText 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Menu"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
-			var FontSize = 32
-			var PixelsPerUnit = 128
-			var TextAlign = TextAlign.Center
-		}
-		MenuScript 
-		{
-			var NextLevel = "5c3e8448c398981f:Menu"
 		}
 	}
 }
