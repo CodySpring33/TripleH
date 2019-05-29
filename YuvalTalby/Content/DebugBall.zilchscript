@@ -25,6 +25,7 @@ class DebugBall : ZilchComponent
   var Dead : Boolean = false;
   
   var ThrustStrength : Real = 50;
+  var ThrustStrengthM : Real = 1;
   
   function Initialize(init : CogInitializer)
   {
@@ -88,19 +89,19 @@ class DebugBall : ZilchComponent
 
   function OnCollisionStarted(event : CollisionEvent)
   {
-    var acceptable = false; // shift up a bit when you're both colliding with a line for the first time and is currently in collision with building
-    if(event.OtherObject.Name == "Paint")
-    {
-      foreach(var collidee in this.Owner.Collider.Contacts)
-      {
-        if(collidee.OtherObject.Name.Contains("Block"))
-        {
-          acceptable = true;
-        }
-      }
-      if(acceptable) // asking for consent
-        this.Owner.Transform.Translation += Real3(0,0.1,0);
-    }
+    //var acceptable = false; // shift up a bit when you're both colliding with a line for the first time and is currently in collision with building
+    //if(event.OtherObject.Name == "Paint")
+    //{
+    //  foreach(var collidee in this.Owner.Collider.Contacts)
+    //  {
+    //    if(collidee.OtherObject.Name.Contains("Block"))
+    //    {
+    //      acceptable = true;
+    //    }
+    //  }
+    //  //if(acceptable) // asking for consent
+    //    //this.Owner.Transform.Translation += Real3(0,0.25,0);
+    //}
   }
 
   function OnLogicUpdate(event : UpdateEvent)
@@ -174,6 +175,7 @@ class DebugBall : ZilchComponent
     this.LastFrameXVelocities.X = this.Owner.RigidBody.Velocity.X;
     
     this.ThrustStrength = 50 + Math.Pow(this.TimeBoy.TimerScript.Timer, 0.5); //scales with three squarters power
+    this.ThrustStrength *= this.ThrustStrengthM;
       
     foreach(var contact in this.Owner.Collider.Contacts)
     {

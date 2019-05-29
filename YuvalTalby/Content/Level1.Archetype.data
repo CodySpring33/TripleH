@@ -4,8 +4,8 @@ Cog
 	var Name = "Level1"
 	Transform 
 	{
-		var Translation = Real3{0.857536316, -90.4749832, 0}
-		var Scale = Real3{1, 1, 1}
+		var Translation = Real3{-2.41701126, -75.6343384, 0}
+		var Scale = Real3{0.5, 0.5, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	Sprite 
@@ -29,49 +29,41 @@ Cog
 	}
 	Chunk 
 	{
-		var ChunkLength = 250
+		var ChunkLength = 92
 		var OutBiome = ChunkOutBiome.Level2
 	}
 	Hierarchy 
 	{
-		Cog [Id:0x5c3de9de3c2d6ca2][InheritId:"5c3c108a4b521324:GBuilding"]
+		Cog [Id:0x5c74b2b7b93862e0][InheritId:"5c3c108a4b521324:GBuilding"]
 		{
 			var Name = "Block"
 			Transform 
 			{
-				var Translation = Real3{28.2218933, 41.9942627, 0}
+				var Translation = Real3{32.7528419, 22.8500671, 0}
 				var Rotation = Quaternion{0, 0, 0, 1}
-				var Scale = Real3{66.3362656, 92.8706818, 1}
+				var Scale = Real3{3.5, 3.5, 1}
+			}
+			Sprite 
+			{
+				var Visible = true
+			}
+			RigidBody 
+			{
+				var AngularVelocity = Real3{0, 0, 0}
 			}
 		}
-		Cog [Id:0x5c3de9de3c2d6cea][InheritId:"5c3c108a4b521324:GBuilding"]
+		Cog [Id:0x5c74b2b7b938636c][InheritId:"5c3c108a4b521324:GBuilding"]
 		{
 			var Name = "Block"
 			Transform 
 			{
-				var Translation = Real3{194.480774, 41.2960663, 0}
+				var Translation = Real3{129.516953, 22.7730484, 0}
 				var Rotation = Quaternion{0, 0, 0, 1}
-				var Scale = Real3{66.3362656, 92.8706818, 1}
+				var Scale = Real3{3.5, 3.5, 1}
 			}
-		}
-		Cog [Id:0x5c3de9de3c2d6d1c][InheritId:"5c3c1276290bb50b:Blimp"]
-		{
-			var Name = "BlockO"
-			Transform 
+			Sprite 
 			{
-				var Translation = Real3{171.623322, 117.929176, 0}
-				var Rotation = Quaternion{0, 0, 0, 1}
-				var Scale = Real3{66.3362656, 44.973526, 1}
-			}
-		}
-		Cog [Id:0x5c3de9de3c2d6d4d][InheritId:"5c3c1061b3c9cb7d:Skyscraper"]
-		{
-			var Name = "Block"
-			Transform 
-			{
-				var Translation = Real3{102.679703, 41.3049469, 0}
-				var Rotation = Quaternion{0, 0, 0, 1}
-				var Scale = Real3{39.8686867, 122.947662, 1}
+				var Visible = true
 			}
 		}
 	}

@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "SoundLevel"
+		var ResourceId = 0x5c32bde9bd26e135
+		var LoaderType = "Level"
+		var Version = 0
+	}
+}

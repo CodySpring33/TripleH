@@ -1,0 +1,68 @@
+[Version:1]
+Cog 
+{
+	var Name = "Level3"
+	Transform 
+	{
+		var Translation = Real3{-73.5719681, -35.5466766, 0}
+		var Scale = Real3{0.5, 0.5, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
+	{
+		var Visible = false
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	Chunk 
+	{
+		var ChunkLength = 150
+		var OutBiome = ChunkOutBiome.Level4
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5c374b6239121886][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{245.47583, 71.0933456, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{3.5, 5, 1}
+			}
+		}
+		Cog [Id:0x5c374b62391218d5][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{173.197296, 54.8274918, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{3.5, 4, 1}
+			}
+		}
+		Cog [Id:0x5c374b6239121906][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{37.8745422, 48.922348, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{3.5, 3.5, 1}
+			}
+		}
+	}
+}

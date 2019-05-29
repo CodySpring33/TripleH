@@ -41,8 +41,13 @@ Level
 		Generation 
 		{
 			var NameOfFirstChunk = "Level1"
+			var Background = "5c74a8d9107a695f:Background"
+			var BackgroundW = 255.800003
 		}
 		LevelVars 
+		{
+		}
+		DestroySoundLevel 
 		{
 		}
 	}
@@ -84,7 +89,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{0.683394134, -1.37438834, 30}
+			var Translation = Real3{-78.2314224, -9.32574368, -20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -137,7 +142,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 3.70747042
+			var Size = 82.2995071
 		}
 		EditorCameraController 
 		{
@@ -146,7 +151,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{0.683394134, -1.37438834, 10}
+			var LookTarget = Real3{-78.2314224, -9.32574368, -40}
 			var MoveSensitivity = 1
 		}
 	}
@@ -227,19 +232,9 @@ Level
 		CameraScript 
 		{
 		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Dynamic
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
 		ScreenShake 
 		{
-			var ShakeAmpContant = 3
+			var ShakeAmpContant = 2
 		}
 		Hierarchy 
 		{
@@ -273,7 +268,7 @@ Level
 				}
 				Draw 
 				{
-					var MaxPaintAmt = 240
+					var MaxPaintAmt = 120
 					var LerpMultiplier = 20
 				}
 			}
@@ -308,23 +303,97 @@ Level
 				{
 				}
 			}
+			Cog [Id:0x5c3740bea316f01a][ContextId:7]
+			{
+				var Name = "HArtJoeSkybox"
+				Transform 
+				{
+					var Translation = Real3{0, -15, -50}
+					var Scale = Real3{15, 15, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				Sprite 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var SpriteSource = "5c374fbb1aef8ea3:HArtJoeSkybox"
+					var FlipX = false
+					var FlipY = false
+					var AnimationActive = true
+					var AnimationSpeed = 1
+					var StartFrame = 0
+				}
+			}
 		}
 	}
-	Cog [InheritId:"5c695a5b6c1f7918:Ball"][ContextId:7]
+	Cog [InheritId:"5c695a5b6c1f7918:Ball"][ContextId:8]
 	{
 		var Name = "Ball"
 		Transform 
 		{
-			var Translation = Real3{0, 0, 0}
+			var Translation = Real3{-1.42887878, -26.8802185, 9.99999975e-06}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
-		SphereCollider 
+		Sprite 
 		{
-			var Material = "5c3e8ac1e9ac9730:Firm"
+			var Visible = false
+		}
+		Hierarchy 
+		{
+			Cog [Id:0x5c341367e13799e3][LocallyAdded][ContextId:9]
+			{
+				var Name = "VisiblePlayer"
+				Transform 
+				{
+					var Translation = Real3{0, 0, 0.00999999978}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				Sprite 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var SpriteSource = "5c3410bc838db1b6:Value_0"
+					var FlipX = false
+					var FlipY = false
+					var AnimationActive = true
+					var AnimationSpeed = 1
+					var StartFrame = 0
+				}
+				PlayerAnimationController 
+				{
+				}
+				RigidBody 
+				{
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Static
+					var AllowSleep = true
+					var Asleep = false
+					var RotationLocked = false
+					var Mode2D = Mode2DStates.InheritFromSpace
+				}
+			}
 		}
 	}
-	Cog [ContextId:8]
+	Cog [ContextId:10]
 	{
 		var Name = "Curtain"
 		Transform 
@@ -359,11 +428,20 @@ Level
 		{
 		}
 	}
-	Cog [InheritId:"5c3de9e73d781087:Level1"][ContextId:9]
+	Cog [InheritId:"5c3de9e73d781087:Level1"][ContextId:11]
 	{
 		Transform 
 		{
-			var Translation = Real3{-0.896492004, -91.8157349, 0}
+			var Translation = Real3{-2.41701126, -75.6343384, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.5, 0.5, 1}
+		}
+	}
+	Cog [InheritId:"5c74a8d9107a695f:Background"][ContextId:12]
+	{
+		Transform 
+		{
+			var Translation = Real3{-281.720886, -65, -1.90734863e-06}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}

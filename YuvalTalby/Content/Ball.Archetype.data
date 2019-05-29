@@ -4,7 +4,7 @@ Cog
 	var Name = "Ball"
 	Transform 
 	{
-		var Translation = Real3{25.4531364, 7.91604567, 0}
+		var Translation = Real3{-1.42887878, -26.8802185, 9.99999975e-06}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -41,13 +41,15 @@ Cog
 	{
 		var Ghost = false
 		var SendsEvents = true
-		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var Material = "5c3e8ac1e9ac9730:Firm"
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"
 		var Offset = Real3{0, 0, 0}
 		var Radius = 0.5
 	}
 	DebugBall 
 	{
+		var GracePeriod = 1
+		var BoostDuration = 2
 	}
 	Hierarchy 
 	{

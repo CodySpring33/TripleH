@@ -1,11 +1,11 @@
 [Version:1]
 Cog 
 {
-	var Name = "Skyscraper"
+	var Name = "Block"
 	Transform 
 	{
-		var Translation = Real3{143.146515, -9.52450752, 0}
-		var Scale = Real3{73.7115097, 8.22733784, 1}
+		var Translation = Real3{103.730301, 42.5257263, 0}
+		var Scale = Real3{39.8686867, 122.947662, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	Sprite 

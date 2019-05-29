@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "DestroySoundLevel"
+		var ResourceId = 0x5c32bd6d9473f675
+	}
+}

@@ -111,7 +111,7 @@ class Draw : ZilchComponent
   {
     //spawning appropriate object
     if(this.Shape == 0 && this.PaintAmt > 0)
-      this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.Drawer, this.MousePosition));
+      this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.Drawer, Real3(this.MousePosition.XY,0.01)));
       
     //setting Z manually so the square doesn't go over the brush   
     else if(this.Shape == 1)
