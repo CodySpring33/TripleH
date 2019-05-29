@@ -1,8 +1,0 @@
-[Version:1]
-ContentLibrary 
-{
-	var Name = "Spike"
-	var LibraryId = 0x5c39e767f74c8ef9
-	var SourceControlType = ""
-	var ReadOnly = false
-}
