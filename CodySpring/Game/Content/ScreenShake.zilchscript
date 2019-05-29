@@ -1,0 +1,53 @@
+class ScreenShake : ZilchComponent
+{
+  var Player : Cog = null;
+  var Brush : Cog = null;
+  var LastVel : Real3 = Real3(0,0,0);
+  [Property]
+  var ShakeAmpContant : Real = 5;
+  var ShakeLevel : Real = 1;
+  var Shake : Real3 = Real3(0,0,0);
+  var Rand : Random = Random();
+  var Timer : Real = 0;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    this.Player = this.Space.FindObjectByName("Ball");
+    this.Brush = this.Space.FindObjectByName("Brush");
+    this.ShakeLevel = 1;
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    var playerVelDelta = Math.Distance(this.LastVel, this.Player.RigidBody.Velocity) * event.Dt;
+    var touchingBlock = false;
+    foreach(var collidee in this.Player.Collider.Contacts)
+    {
+      if(collidee.OtherObject.Name.Contains("Block"))
+        touchingBlock = true;//CODY THE BUG IS HERE IT'S THE WRONG NAME
+    }
+    if(this.Timer > 0.05)
+    {
+      if(Zero.Mouse.IsButtonDown(MouseButtons.Left))
+        this.ShakeLevel *= 0.5;
+      else
+        this.ShakeLevel *= 0.9;
+      this.Shake = this.Rand.Real3(-this.ShakeLevel,this.ShakeLevel);
+      if(touchingBlock)
+        this.Owner.Transform.Translation += Real3(this.Shake.XY,0);
+      //this.Brush.Transform.Translation -= Real3(this.Shake.XY,0);
+    }
+    if(playerVelDelta > 0.4)
+    {
+      //scale with the square
+     var actualShake = (playerVelDelta * this.ShakeAmpContant) * (playerVelDelta * this.ShakeAmpContant);
+     if(actualShake < 100)
+      this.ShakeLevel += actualShake;
+     else
+      this.ShakeLevel += 100;
+    }
+    this.LastVel = this.Player.RigidBody.Velocity;
+    this.Timer += event.Dt;
+  }
+}

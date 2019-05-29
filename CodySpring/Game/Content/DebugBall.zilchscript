@@ -6,6 +6,9 @@ class DebugBall : ZilchComponent
   [Property]
   var GracePeriod : Real = 1;
   
+  var TimeBoy : Cog = null;
+  var Brush : Cog = null;
+  
   //multiplied when recovering
   var Boost : Real = 1;
   
@@ -21,9 +24,83 @@ class DebugBall : ZilchComponent
   
   var Dead : Boolean = false;
   
+  var ThrustStrength : Real = 50;
+  
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+    this.TimeBoy = this.Space.FindObjectByName("Time");
+    this.Brush = this.Space.FindObjectByName("Brush");
+  }
+
+  function OnCollisionEnded(event : CollisionEvent)
+  {
+    //if(this.Owner.Collider.Contacts.IsEmpty)
+      //this.Snap();
+    
+  }
+  
+  function Snap2()
+  {
+    
+  }
+  
+  function Snap()
+  {
+    var min = -1.0;
+    var minDex = -1;
+    var minDexL = -1; //min index for lines
+    var drawIndex = -1;
+    var lineIndex = -1;
+    var currentDrawer = null;
+    for(var i = 0; i < this.Brush.Draw.MyDrawings.Capacity - 1; ++i)
+    {
+      var myDistance = Math.Distance(this.Owner.Transform.Translation.XY, this.Brush.Draw.MyDrawings[i].Transform.Translation.XY);
+      if((myDistance < min || min < 0) && this.Brush.Draw.MyDrawings[i].DrawLines.MyLines[0] != null)
+      {
+        min = myDistance;
+        minDex = i;
+      }
+    }    
+    
+    min = -1.0;
+    var myLines = this.Brush.Draw.MyDrawings[minDex].DrawLines.MyLines;
+    for(var i = 0; i < myLines.Capacity; ++i)
+    {
+      
+      Console.WriteLine("`i` of `myLines.Capacity - 1`");
+      if(myLines[i] != null)
+      {
+        Console.WriteLine(myLines[i]);
+      }
+      /*
+      if(myLines[i+1] != null)
+      {
+        
+        this.Owner.RigidBody.Velocity = Real3(Math.Cos(myLines[i+1].Transform.EulerAngles.Z), Math.Sin(myLines[i+1].Transform.EulerAngles.Z), 0);
+        //this.Owner.RigidBody.Velocity = Real3(0,5, 0);
+      }
+      */
+    }
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    var acceptable = false; // shift up a bit when you're both colliding with a line for the first time and is currently in collision with building
+    if(event.OtherObject.Name == "Paint")
+    {
+      foreach(var collidee in this.Owner.Collider.Contacts)
+      {
+        if(collidee.OtherObject.Name.Contains("Block"))
+        {
+          acceptable = true;
+        }
+      }
+      if(acceptable) // asking for consent
+        this.Owner.Transform.Translation += Real3(0,0.1,0);
+    }
   }
 
   function OnLogicUpdate(event : UpdateEvent)
@@ -60,10 +137,7 @@ class DebugBall : ZilchComponent
       //this.MyBoostParticles = this.Space.CreateAtPosition(Archetype.Vroom, this.Owner.Transform.Translation);
       Console.WriteLine("RECOVERY DETECTED");
     }
-    if(Zero.Keyboard.KeyIsPressed(Keys.R))
-    {
-      this.Space.ReloadLevel();
-    }
+    
     //Console.WriteLine(this.LastFrameXVelocities);
     //Console.WriteLine(this.Owner.RigidBody.Velocity.X);
     
@@ -79,7 +153,7 @@ class DebugBall : ZilchComponent
       }
     }
     
-    Console.WriteLine(this.Boost);
+    //Console.WriteLine(this.Boost);
     /***************************************************/ 
     
     if(this.Dying)
@@ -98,13 +172,15 @@ class DebugBall : ZilchComponent
     }
     this.LastFrameXVelocities.Y = this.LastFrameXVelocities.X;
     this.LastFrameXVelocities.X = this.Owner.RigidBody.Velocity.X;
+    
+    this.ThrustStrength = 50 + Math.Pow(this.TimeBoy.TimerScript.Timer, 0.5); //scales with three squarters power
       
     foreach(var contact in this.Owner.Collider.Contacts)
     {
       if(contact.OtherObject.Name == "Paint" || contact.OtherObject.Name == "Block")
       {
         var thrustDirection = contact.OtherObject.Transform.EulerAngles.Z;
-        this.Owner.RigidBody.Velocity = Real3(event.Dt * Math.Cos(thrustDirection) * 50,event.Dt * Math.Sin(thrustDirection) * 50 * this.Boost,0) * 40;
+        this.Owner.RigidBody.Velocity = Real3(event.Dt * Math.Cos(thrustDirection) * this.ThrustStrength,event.Dt * Math.Sin(thrustDirection) * this.ThrustStrength * this.Boost,0) * 40;
       }
     } 
     
