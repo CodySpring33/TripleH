@@ -15,21 +15,25 @@ class AIChase : ZilchComponent
   //sets the range that the player is killed in
   var Range : Real = 0.6;
   [Property]
-  //Sets the Speed of the AI
+  //Sets How Fast the AI Speeds Up
   var ChaseSpeed : Real = 1;
   var Player : Cog = null;
+  var Velocity : Real = 0;
+  [Property]
+  //Sets the Velocity of the AI
+  var VelocityRate : Real = 0.25;
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     this.Player = this.Space.FindObjectByName("Ball");
   }
-
   function OnLogicUpdate(event : UpdateEvent)
   {
+    this.Velocity += this.VelocityRate;
     //Sets the Coordinates of the AI
-    this.XLocation = this.LevelSettings.LevelVars.PlayerXCoordinate + Math.Sqrt(this.GameSession.GameVars.Timer * this.ChaseSpeed)  - this.StartingDistance;
-    if(this.XLocation >= this.LevelSettings.LevelVars.PlayerXCoordinate - this.Range){
-      this.XLocation = this.LevelSettings.LevelVars.PlayerXCoordinate - this.Range;
+    this.XLocation = Math.Sqrt(this.GameSession.GameVars.Timer * this.ChaseSpeed)  - this.StartingDistance + this.Velocity;
+    if(this.XLocation >= this.LevelSettings.LevelVars.PlayerXCoordinate){
+      this.XLocation = this.LevelSettings.LevelVars.PlayerXCoordinate;
     }
     this.YLocation =  Math.Lerp(this.Owner.Transform.Translation.Y, this.LevelSettings.LevelVars.PlayerYCoordinate, event.Dt * this.LerpSpeed);
     this.Owner.Transform.Translation = Real3(this.XLocation, this.YLocation, this.Owner.Transform.Translation.Z);

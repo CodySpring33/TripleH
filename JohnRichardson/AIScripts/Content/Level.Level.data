@@ -355,7 +355,7 @@ Level
 		var Name = "Enemy"
 		Transform 
 		{
-			var Translation = Real3{-4, 0, 0.899999976}
+			var Translation = Real3{-6.30820274, 1.03869128, 0.899999976}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -383,6 +383,16 @@ Level
 			var LerpSpeed = 2
 			var Range = 0.600000024
 			var ChaseSpeed = 1
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Kinematic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
 		}
 	}
 }
