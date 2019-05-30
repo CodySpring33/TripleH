@@ -220,7 +220,91 @@ Level
 	}
 	Cog [ContextId:5]
 	{
-		var Name = "ToggleSound"
+		var Name = "TurnSoundOff"
+		Transform 
+		{
+			var Translation = Real3{0, 4, 0}
+			var Scale = Real3{10, 10, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SpriteText 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "TurnSoundOff"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
+			var FontSize = 32
+			var PixelsPerUnit = 128
+			var TextAlign = TextAlign.Center
+		}
+		MenuScript 
+		{
+			var NextLevel = "null"
+			var XBorder = 9
+			var YBorder = 1
+		}
+		ToggleSoundScript 
+		{
+			var XBorder = 4
+			var YBorder = 2
+		}
+	}
+	Cog [ContextId:6]
+	{
+		var Name = "TurnSoundOn"
+		Transform 
+		{
+			var Translation = Real3{0, 0, 0}
+			var Scale = Real3{10, 10, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SpriteText 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "TurnSoundOn"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
+			var FontSize = 32
+			var PixelsPerUnit = 128
+			var TextAlign = TextAlign.Center
+		}
+		MenuScript 
+		{
+			var NextLevel = "null"
+			var XBorder = 9
+			var YBorder = 1
+		}
+		ToggleSoundScript 
+		{
+			var XBorder = 4
+			var YBorder = 2
+		}
+		ToggleSoundOn 
+		{
+			var HUDLevel = "null"
+			var XBorder = 4
+			var YBorder = 2
+		}
+	}
+	Cog [ContextId:7]
+	{
+		var Name = "TurnMusicOff"
 		Transform 
 		{
 			var Translation = Real3{0, -4, 0}
@@ -239,8 +323,8 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Toggle Sound"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Text = "Turn Music Off"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -248,11 +332,18 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "null"
+			var XBorder = 9
+			var YBorder = 1
+		}
+		ToggleMusic 
+		{
+			var XBorder = 4
+			var YBorder = 2
 		}
 	}
-	Cog [ContextId:6]
+	Cog [ContextId:8]
 	{
-		var Name = "ToggleMusic"
+		var Name = "TurnMusicOn"
 		Transform 
 		{
 			var Translation = Real3{0, -8, 0}
@@ -271,8 +362,8 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Toggle Music"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Text = "Turn Music On"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -280,11 +371,24 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "null"
+			var XBorder = 9
+			var YBorder = 1
+		}
+		ToggleMusic 
+		{
+			var XBorder = 4
+			var YBorder = 2
+		}
+		ToggleMusicOn 
+		{
+			var HUDLevel = "5c3de7a974e95797:SoundLevel"
+			var XBorder = 4
+			var YBorder = 2
 		}
 	}
-	Cog [ContextId:7]
+	Cog [ContextId:9]
 	{
-		var Name = "EasterEgg"
+		var Name = "GoBack"
 		Transform 
 		{
 			var Translation = Real3{0, -12, 0}
@@ -303,40 +407,8 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "EasterEgg"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
-			var FontSize = 32
-			var PixelsPerUnit = 128
-			var TextAlign = TextAlign.Center
-		}
-		MenuScript 
-		{
-			var NextLevel = "null"
-		}
-	}
-	Cog [ContextId:8]
-	{
-		var Name = "GoBack"
-		Transform 
-		{
-			var Translation = Real3{0, -16, 0}
-			var Scale = Real3{10, 10, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SpriteText 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "Go Back"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -344,9 +416,11 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "5c3e8448c398981f:Menu"
+			var XBorder = 5
+			var YBorder = 1
 		}
 	}
-	Cog [ContextId:9]
+	Cog [ContextId:10]
 	{
 		var Name = "CityLights"
 		Transform 
@@ -364,7 +438,7 @@ Level
 			var LocalAabbCenter = Real3{0, 0, 0}
 			var LocalAabbHalfExtents = Real3{1, 1, 1}
 			var GroupSortValue = 0
-			var Material = "582c50d330d372c3:AdditiveSprite"
+			var Material = "582c575af53d18c9:AlphaSprite"
 			var BoundingBoxSize = 2
 			var ChildSystem = false
 			var SystemSpace = SystemSpace.WorldSpace
@@ -418,12 +492,41 @@ Level
 		}
 		SelectionIcon 
 		{
-			var Visible = true
+			var Visible = false
 			var VisibilityEvents = true
 			var Material = "56581e2bb81777be:DebugDrawOnTop"
 			var SpriteSource = "59937d65f2659971:ParticleIcon"
 			var ViewScale = 1
 			var OverrideSelections = true
+		}
+	}
+	Cog [ContextId:11]
+	{
+		var Name = "Background"
+		Transform 
+		{
+			var Translation = Real3{0, 0, -1}
+			var Scale = Real3{5.1500001, 5.1500001, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c2aa98fd5bb69bb:StartScreenBackground"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
 		}
 	}
 }

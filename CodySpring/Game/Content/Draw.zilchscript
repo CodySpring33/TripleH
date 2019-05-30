@@ -20,9 +20,12 @@ class Draw : ZilchComponent
   
   var Color : Real4 = Real4(0,0,0,0);
   
+  [Property]
   var RefillMultiplier : Real = 6; // old: 25
   
   var Player : Cog = null;
+  
+  var MyParticles : Cog = null;
   
   var DoColor : Boolean = false;
   
@@ -41,13 +44,17 @@ class Draw : ZilchComponent
     Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
     Zero.Connect(this.Space, Events.MouseUp, this.OnMouseUp);
     Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    Zero.Connect(Zero.Mouse, Events.MouseDown, this.OnMouseDown);
+    Zero.Connect(Zero.Mouse, Events.MouseUp, this.OnMouseUp);
     this.Camera = this.Space.FindObjectByName("GameCamera");
     this.Player = this.Space.FindObjectByName("Ball");
     this.PaintAmt = this.MaxPaintAmt;
-    this.Space.SoundSpace.PlayCue(SoundCue.HIsabellaSoundPlayerPaint);
-    this.Space.SoundSpace.Paused = true;
+    this.Owner.SoundEmitter.PlayCue(SoundCue.HIsabellaSoundPlayerPaint);
+    this.Owner.SoundEmitter.Paused = true;
     
   }
+
+
 
   function OnKeyDown(event : KeyboardEvent)
   {
@@ -103,12 +110,13 @@ class Draw : ZilchComponent
     if(this.MyDrawings[this.DrawIndex].Sprite.SpriteSource == SpriteSource.Square)
       this.MyDrawings[this.DrawIndex].DrawSquare.Active = false;
       
-    
+    this.MyParticles.Destroy();
     
   }
 
   function OnMouseDown(event : ViewportMouseEvent)
   {
+    this.MyParticles = this.Space.CreateAtPosition(Archetype.Vroom, this.Owner.Transform.WorldTranslation);
     //spawning appropriate object
     if(this.Shape == 0 && this.PaintAmt > 0)
       this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.Drawer, Real3(this.MousePosition.XY,0.01)));
@@ -136,7 +144,7 @@ class Draw : ZilchComponent
     //AUDIO  
     if(this.PaintAmt > 0)
     {
-      this.Space.SoundSpace.Paused = false;
+      this.Owner.SoundEmitter.Paused = false;
       
     }
   }
@@ -151,7 +159,7 @@ class Draw : ZilchComponent
     this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
     
     if(this.PaintAmt <= 0 || !Zero.Mouse.IsButtonDown(MouseButtons.Left))
-      this.Space.SoundSpace.Paused = true;
+      this.Owner.SoundEmitter.Paused = true;
     
     if(!Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.PaintAmt < this.MaxPaintAmt)
     {
@@ -179,7 +187,7 @@ class Draw : ZilchComponent
     //Console.WriteLine(this.MousePosition);
     //set position to mouse, act as a cursor
     if(this.DoMousePosUpdate)
-      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,this.MousePosition - this.Camera.Transform.Translation,this.LerpMultiplier * event.Dt);
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,Real3(this.MousePosition.XY - this.Camera.Transform.Translation.XY, -9.9),this.LerpMultiplier * event.Dt);
     
      
     

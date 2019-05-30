@@ -1,0 +1,21 @@
+class PlayerAnimationController : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);  
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Owner.Sprite.SpriteSource == SpriteSource.Run_0_0)
+    {
+      var targetAngle = -Math.ATan2(this.Owner.Parent.RigidBody.Velocity.X, this.Owner.Parent.RigidBody.Velocity.Y);
+      this.Owner.Transform.SetEulerAnglesXYZ(this.Owner.Transform.EulerAngles.X, this.Owner.Transform.EulerAngles.Y, targetAngle - this.Owner.Parent.Transform.EulerAngles.Z + Math.Pi / 2);
+    }
+    else
+    {
+      this.Owner.Transform.SetEulerAnglesXYZ(this.Owner.Transform.EulerAngles.X, this.Owner.Transform.EulerAngles.Y, -this.Owner.Parent.Transform.EulerAngles.Z);
+    }
+    
+  }
+}

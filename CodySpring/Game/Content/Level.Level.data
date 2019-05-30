@@ -89,7 +89,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{219.925339, -17.1976624, 1.99999809}
+			var Translation = Real3{-10.0690022, -5.18914509, 1.99998856}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -142,7 +142,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 223.716766
+			var Size = 82.3011169
 		}
 		EditorCameraController 
 		{
@@ -151,7 +151,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{219.925339, -17.1976624, -18.0000019}
+			var LookTarget = Real3{-10.0690022, -5.18914509, -18.0000114}
 			var MoveSensitivity = 1
 		}
 	}
@@ -236,6 +236,21 @@ Level
 		{
 			var ShakeAmpContant = 2
 		}
+		SoundEmitter 
+		{
+			var Volume = 1
+			var Pitch = 0
+			var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+			var Directional = false
+			var EmitAngle = 90
+			var RearVolume = 0.200000003
+		}
+		SimpleSound 
+		{
+			var StartPlaying = true
+			var Positional = false
+			var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
+		}
 		Hierarchy 
 		{
 			Cog [Id:0x5c319d9c342059f4][ContextId:5]
@@ -269,7 +284,23 @@ Level
 				Draw 
 				{
 					var MaxPaintAmt = 120
+					var RefillMultiplier = 6
 					var LerpMultiplier = 20
+				}
+				SoundEmitter 
+				{
+					var Volume = 1
+					var Pitch = 0
+					var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+					var Directional = false
+					var EmitAngle = 90
+					var RearVolume = 0.200000003
+				}
+				SimpleSound 
+				{
+					var StartPlaying = true
+					var Positional = false
+					var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
 				}
 			}
 			Cog [Id:0x5c7b0fb065822a21][ContextId:6]
@@ -277,7 +308,7 @@ Level
 				var Name = "Time"
 				Transform 
 				{
-					var Translation = Real3{-30.2246056, 16.3698254, -10}
+					var Translation = Real3{25.7745476, 16.8699207, -10}
 					var Scale = Real3{10, 10, 1}
 					var Rotation = Quaternion{0, 0, 0, 1}
 				}
@@ -294,16 +325,48 @@ Level
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
 					var Text = "Time: 2.0"
-					var Font = "57343753bb4eaaec:NotoSans-Regular"
+					var Font = "5c2aa02478fca154:StencilArmyWWI"
 					var FontSize = 32
 					var PixelsPerUnit = 300
-					var TextAlign = TextAlign.Center
+					var TextAlign = TextAlign.Left
 				}
 				TimerScript 
 				{
 				}
+				Hierarchy 
+				{
+					Cog [Id:0x5c2ab96be91bffd1][ContextId:7]
+					{
+						var Name = "HThaneArtCounterBackground"
+						Transform 
+						{
+							var Translation = Real3{0.271906644, -0.0167638063, -0.00999999978}
+							var Scale = Real3{0.0799999982, 0.0799999982, 1}
+							var Rotation = Quaternion{0, 0, 0, 1}
+						}
+						Sprite 
+						{
+							var Visible = true
+							var ViewCulling = true
+							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
+							var Material = "582c575af53d18c9:AlphaSprite"
+							var VertexColor = Real4{1, 1, 1, 1}
+							var GeometryMode = SpriteGeometryMode.ZPlane
+							var SpriteSource = "5c2ab942d1477fd1:HThaneArtCounterBackground"
+							var FlipX = false
+							var FlipY = false
+							var AnimationActive = true
+							var AnimationSpeed = 1
+							var StartFrame = 0
+						}
+					}
+				}
 			}
-			Cog [Id:0x5c3740bea316f01a][ContextId:7]
+			Cog [Id:0x5c3740bea316f01a][ContextId:8]
 			{
 				var Name = "HArtJoeSkybox"
 				Transform 
@@ -334,17 +397,17 @@ Level
 			}
 		}
 	}
-	Cog [InheritId:"5c695a5b6c1f7918:Ball"][ContextId:8]
+	Cog [InheritId:"5c695a5b6c1f7918:Ball"][ContextId:9]
 	{
 		var Name = "Ball"
 		Transform 
 		{
-			var Translation = Real3{1.86915207, -26.8802185, 9.99999975e-06}
+			var Translation = Real3{1.86915207, -26.8802185, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 	}
-	Cog [ContextId:9]
+	Cog [ContextId:10]
 	{
 		var Name = "Curtain"
 		Transform 
@@ -377,9 +440,10 @@ Level
 		}
 		DeathScript 
 		{
+			var NextLevel = "5c2aae8eab23544b:DeathScreen"
 		}
 	}
-	Cog [InheritId:"5c3de9e73d781087:Level1"][ContextId:10]
+	Cog [InheritId:"5c3de9e73d781087:Level1"][ContextId:11]
 	{
 		Transform 
 		{
@@ -388,7 +452,7 @@ Level
 			var Scale = Real3{0.5, 0.5, 1}
 		}
 	}
-	Cog [InheritId:"5c74a8d9107a695f:Background"][ContextId:11]
+	Cog [InheritId:"5c74a8d9107a695f:Background"][ContextId:12]
 	{
 		Transform 
 		{
@@ -397,7 +461,7 @@ Level
 			var Scale = Real3{1, 1, 1}
 		}
 	}
-	Cog [ContextId:12]
+	Cog [ContextId:13]
 	{
 		var Name = "Transform"
 		Transform 

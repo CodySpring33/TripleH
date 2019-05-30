@@ -7,6 +7,8 @@
 
 class DeathScript : ZilchComponent
 {
+  [Property]
+  var NextLevel : Level = null;
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -17,7 +19,9 @@ class DeathScript : ZilchComponent
     if(this.Owner.Sprite.VertexColor.W == 1)
       {
         this.LevelSettings.LevelVars.PlayerDead = true;
-        this.Space.SoundSpace.Paused = true;
+        if(this.NextLevel != null){
+          this.Space.LoadLevel(this.NextLevel);
+        }
       }
   }
 }

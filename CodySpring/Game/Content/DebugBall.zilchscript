@@ -1,13 +1,20 @@
+/*
+Yuval Talby
+*/
+
 class DebugBall : ZilchComponent
 {
   var DeathTimer : Real = 0;
   var BoostTimer : Real = 0;
+  var AnimeTimer : Real = 0.35;
+  //called AnimeTimer strictly for character length consistency
   
   [Property]
   var GracePeriod : Real = 1;
   
   var TimeBoy : Cog = null;
   var Brush : Cog = null;
+  var VisiblePlayer : Cog = null;
   
   //multiplied when recovering
   var Boost : Real = 1;
@@ -34,11 +41,16 @@ class DebugBall : ZilchComponent
     Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
     this.TimeBoy = this.Space.FindObjectByName("Time");
     this.Brush = this.Space.FindObjectByName("Brush");
+    foreach(var child in this.Owner.Children)
+    {
+      if(child.Name == "VisiblePlayer")
+        this.VisiblePlayer = child;
+    }
   }
 
   function OnCollisionEnded(event : CollisionEvent)
   {
-    //if(this.Owner.Collider.Contacts.IsEmpty)
+    //if(this.Owner.Collider.Contacts.IsEmpty) 
       //this.Snap();
     
   }
@@ -89,19 +101,23 @@ class DebugBall : ZilchComponent
 
   function OnCollisionStarted(event : CollisionEvent)
   {
-    var acceptable = false; // shift up a bit when you're both colliding with a line for the first time and is currently in collision with building
-    if(event.OtherObject.Name == "Paint")
-    {
-      foreach(var collidee in this.Owner.Collider.Contacts)
-      {
-        if(collidee.OtherObject.Name.Contains("Block"))
-        {
-          acceptable = true;
-        }
-      }
-      if(acceptable) // asking for consent
-        this.Owner.Transform.Translation += Real3(0,0.1,0);
-    }
+    
+    if(event.OtherObject.Name.Contains("Block"))
+      this.Owner.SoundEmitter.PlayCue(SoundCue.HIsabellaSoundPlayerLand);
+    //this isn't needed anymore    
+    //var acceptable = false; // shift up a bit when you're both colliding with a line for the first time and is currently in collision with building
+    //if(event.OtherObject.Name == "Paint")
+    //{
+    //  foreach(var collidee in this.Owner.Collider.Contacts)
+    //  {
+    //    if(collidee.OtherObject.Name.Contains("Block"))
+    //    {
+    //      acceptable = true;
+    //    }
+    //  }
+    //  //if(acceptable) // asking for consent
+    //    //this.Owner.Transform.Translation += Real3(0,0.25,0);
+    //}
   }
 
   function OnLogicUpdate(event : UpdateEvent)
@@ -174,17 +190,37 @@ class DebugBall : ZilchComponent
     this.LastFrameXVelocities.Y = this.LastFrameXVelocities.X;
     this.LastFrameXVelocities.X = this.Owner.RigidBody.Velocity.X;
     
-    
     this.ThrustStrength = 50 + Math.Pow(this.TimeBoy.TimerScript.Timer, 0.5); //scales with three squarters power
     this.ThrustStrength *= this.ThrustStrengthM;
+      
     foreach(var contact in this.Owner.Collider.Contacts)
     {
       if(contact.OtherObject.Name == "Paint" || contact.OtherObject.Name == "Block")
       {
         var thrustDirection = contact.OtherObject.Transform.EulerAngles.Z;
         this.Owner.RigidBody.Velocity = Real3(event.Dt * Math.Cos(thrustDirection) * this.ThrustStrength,event.Dt * Math.Sin(thrustDirection) * this.ThrustStrength * this.Boost,0) * 40;
+        
+        //seperate thing, for animation
+        
+        this.AnimeTimer = 0;
       }
+      else if(this.AnimeTimer < 0.35)
+        this.AnimeTimer += event.Dt;
+        
+    }
+    if(this.Owner.Collider.Contacts.IsEmpty && this.AnimeTimer < 0.35)
+      this.AnimeTimer += event.Dt;
+    
+    if(this.AnimeTimer >= 0.35)
+    { 
+      Console.WriteLine("moving to fall");
+      this.VisiblePlayer.Sprite.SpriteSource = SpriteSource.Falling;
     } 
+    else if(this.VisiblePlayer.Sprite.SpriteSource == SpriteSource.Falling)
+    {
+      Console.WriteLine(this.VisiblePlayer.Sprite.SpriteSource.Name);
+      this.VisiblePlayer.Sprite.SpriteSource = SpriteSource.Run_0_0; 
+    }
     
     
     /****END****/

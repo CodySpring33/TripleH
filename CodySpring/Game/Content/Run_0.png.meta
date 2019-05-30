@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "Run_0"
+		var ResourceId = 0x5c2aa45d422beae3
+		var FrameSizeX = 1170
+		var FrameSizeY = 1170
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 585
+		var OriginY = 585
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

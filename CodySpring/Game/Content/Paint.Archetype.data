@@ -18,7 +18,7 @@ Cog
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 1
 		var Material = "582c575af53d18c9:AlphaSprite"
-		var VertexColor = Real4{1, 1, 1, 1}
+		var VertexColor = Real4{0, 0.749019325, 0.952941239, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
 		var SpriteSource = "5c6ef6ce7c3f4835:Pixel"
 		var FlipX = false
