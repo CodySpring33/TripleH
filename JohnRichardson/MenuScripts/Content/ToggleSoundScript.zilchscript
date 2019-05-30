@@ -1,9 +1,9 @@
-///////////////////////////////////
+/////////////////////////////////////
 //Name: John Richardson
-//Date: 5/24/19
-//Brief: Turns Music Off for the Game
-//////////////////////////////////
-class ToggleMusic : ZilchComponent
+//Date: 5/30/19
+//Brief: Toggles the Sounds for the Game
+/////////////////////////////////////
+class ToggleSoundScript : ZilchComponent
 {
   var MouseX : Real = 0;
   var MouseY : Real = 0; 
@@ -41,11 +41,7 @@ class ToggleMusic : ZilchComponent
   {
       if(this.MousePosition.Y < this.OriginalPositionY + this.YBorder && this.MousePosition.X < this.OriginalPositionX + this.XBorder){
         if(this.MousePosition.Y > this.OriginalPositionY - this.YBorder - 1 && this.MousePosition.X > this.OriginalPositionX - this.XBorder){
-          this.GameSession.GameVars.ToggleMusic = true;
-          var soundSpace = this.GameSession.FindSpaceByName("SoundSpace");
-          if(soundSpace != null){
-            soundSpace.Destroy();
-          }
+          this.GameSession.GameVars.ToggleSound = true;
         }
     }
   }

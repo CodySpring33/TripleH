@@ -244,7 +244,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "Play Game"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -252,6 +252,8 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "5c3f5c02a207cc9a:DifficultySettings"
+			var XBorder = 7
+			var YBorder = 1
 		}
 	}
 	Cog [ContextId:6]
@@ -276,7 +278,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "Settings"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -284,6 +286,8 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "5c3f5c1e9d8d086f:Settings"
+			var XBorder = 6
+			var YBorder = 1
 		}
 	}
 	Cog [ContextId:7]
@@ -358,7 +362,7 @@ Level
 		}
 		SelectionIcon 
 		{
-			var Visible = true
+			var Visible = false
 			var VisibilityEvents = true
 			var Material = "56581e2bb81777be:DebugDrawOnTop"
 			var SpriteSource = "59937d65f2659971:ParticleIcon"

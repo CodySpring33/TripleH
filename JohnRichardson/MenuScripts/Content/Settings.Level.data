@@ -240,7 +240,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "TurnSoundOff"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -248,6 +248,13 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "null"
+			var XBorder = 9
+			var YBorder = 1
+		}
+		ToggleSoundScript 
+		{
+			var XBorder = 4
+			var YBorder = 2
 		}
 	}
 	Cog [ContextId:6]
@@ -272,7 +279,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "TurnSoundOn"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -280,6 +287,19 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "null"
+			var XBorder = 9
+			var YBorder = 1
+		}
+		ToggleSoundScript 
+		{
+			var XBorder = 4
+			var YBorder = 2
+		}
+		ToggleSoundOn 
+		{
+			var HUDLevel = "null"
+			var XBorder = 4
+			var YBorder = 2
 		}
 	}
 	Cog [ContextId:7]
@@ -304,7 +324,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "Turn Music Off"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -312,9 +332,13 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "null"
+			var XBorder = 9
+			var YBorder = 1
 		}
 		ToggleMusic 
 		{
+			var XBorder = 4
+			var YBorder = 2
 		}
 	}
 	Cog [ContextId:8]
@@ -339,7 +363,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "Turn Music On"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -347,13 +371,19 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "null"
+			var XBorder = 9
+			var YBorder = 1
 		}
 		ToggleMusic 
 		{
+			var XBorder = 4
+			var YBorder = 2
 		}
 		ToggleMusicOn 
 		{
 			var HUDLevel = "5c3de7a974e95797:SoundLevel"
+			var XBorder = 4
+			var YBorder = 2
 		}
 	}
 	Cog [ContextId:9]
@@ -377,8 +407,8 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "EasterEgg"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Text = "Easter Egg"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -386,6 +416,8 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "null"
+			var XBorder = 7
+			var YBorder = 1
 		}
 	}
 	Cog [ContextId:10]
@@ -410,7 +442,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "Go Back"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -418,6 +450,8 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "5c3e8448c398981f:Menu"
+			var XBorder = 5
+			var YBorder = 1
 		}
 	}
 	Cog [ContextId:11]
@@ -492,7 +526,7 @@ Level
 		}
 		SelectionIcon 
 		{
-			var Visible = true
+			var Visible = false
 			var VisibilityEvents = true
 			var Material = "56581e2bb81777be:DebugDrawOnTop"
 			var SpriteSource = "59937d65f2659971:ParticleIcon"

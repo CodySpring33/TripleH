@@ -240,7 +240,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "Normal"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -248,6 +248,8 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "59097123da28242a:Level"
+			var XBorder = 5
+			var YBorder = 1
 		}
 	}
 	Cog [ContextId:6]
@@ -272,7 +274,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "Hard"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -280,6 +282,8 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "5c3400cdbce8a142:Temp"
+			var XBorder = 3
+			var YBorder = 1
 		}
 	}
 	Cog [ContextId:7]
@@ -304,7 +308,7 @@ Level
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Text = "Go Back"
-			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
 			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
@@ -312,6 +316,8 @@ Level
 		MenuScript 
 		{
 			var NextLevel = "5c3e8448c398981f:Menu"
+			var XBorder = 6
+			var YBorder = 1
 		}
 	}
 	Cog [ContextId:8]
@@ -386,7 +392,7 @@ Level
 		}
 		SelectionIcon 
 		{
-			var Visible = true
+			var Visible = false
 			var VisibilityEvents = true
 			var Material = "56581e2bb81777be:DebugDrawOnTop"
 			var SpriteSource = "59937d65f2659971:ParticleIcon"

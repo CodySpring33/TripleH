@@ -22,7 +22,12 @@ class MenuScript : ZilchComponent
   //Timer for Fade in Effect
   var Timer: Real = 0;
   var Delay : Real = 1;
-  
+  [Property]
+  //Sets the ClickBox for the X
+  var XBorder : Real = 4;
+  [Property]
+  //sets the ClickBox for the Y
+  var YBorder : Real = 2;
   
   function Initialize(init : CogInitializer)
   {
@@ -42,8 +47,8 @@ class MenuScript : ZilchComponent
   {
     //If curser is within range when mouse goes up then switch level if SwitchLevel is true
     this.Owner.Transform.Translation = Real3(0, this.OriginalPositionY, 0);
-    if(this.MousePosition.Y < this.OriginalPositionY + 2 && this.MousePosition.X < this.OriginalPositionX + 4){
-      if(this.MousePosition.Y > this.OriginalPositionY - 1 && this.MousePosition.X > this.OriginalPositionX - 4){
+    if(this.MousePosition.Y < this.OriginalPositionY + this.YBorder && this.MousePosition.X < this.OriginalPositionX + this.XBorder){
+      if(this.MousePosition.Y > this.OriginalPositionY - this.YBorder - 1 && this.MousePosition.X > this.OriginalPositionX - this.XBorder){
           if(this.SwitchLevel == true){
             this.Space.LoadLevel(this.NextLevel);
           }
@@ -56,8 +61,8 @@ class MenuScript : ZilchComponent
   function OnMouseDown(event : ViewportMouseEvent)
   {
     //If Curser is within range and mouse goes down then set SwitchLevel to True when NextLevel is not null
-    if(this.MousePosition.Y < this.OriginalPositionY + 2 && this.MousePosition.X < this.OriginalPositionX + 4){
-      if(this.MousePosition.Y > this.OriginalPositionY - 1 && this.MousePosition.X > this.OriginalPositionX - 4){
+    if(this.MousePosition.Y < this.OriginalPositionY + this.YBorder && this.MousePosition.X < this.OriginalPositionX + this.XBorder){
+      if(this.MousePosition.Y > this.OriginalPositionY - this.YBorder - 1 && this.MousePosition.X > this.OriginalPositionX - this.XBorder){
         this.Owner.Transform.Translation = Real3(0, this.UpOne, 0);
           if(this.NextLevel != null){
           this.SwitchLevel = true;
@@ -77,8 +82,8 @@ class MenuScript : ZilchComponent
     //Finds the Position of the Curser in Coordinates instead of Pixels
   this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
     //Moves the Object up One if the curser hovers over the Object
-    if(this.MousePosition.Y < this.OriginalPositionY + 2 && this.MousePosition.X < this.OriginalPositionX + 4){
-      if(this.MousePosition.Y > this.OriginalPositionY - 1 && this.MousePosition.X > this.OriginalPositionX - 4){
+    if(this.MousePosition.Y < this.OriginalPositionY + this.YBorder && this.MousePosition.X < this.OriginalPositionX + this.XBorder){
+      if(this.MousePosition.Y > this.OriginalPositionY - this.YBorder - 1 && this.MousePosition.X > this.OriginalPositionX - this.XBorder){
         this.Owner.SpriteText.VertexColor = Real4(this.Owner.SpriteText.VertexColor.XYZ, this.Timer / 2);
       }
       else{
