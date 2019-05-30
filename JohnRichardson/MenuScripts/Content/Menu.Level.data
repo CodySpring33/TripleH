@@ -53,7 +53,7 @@ Level
 			var RenderDiffuse = true
 			var RenderSpecular = true
 			var RenderSkybox = false
-			var Skybox = "5822dec85e380cf1:SimpleSkybox"
+			var Skybox = "5826e695131c0f51:Black"
 			var ClearColor = Real4{0, 0, 0, 1}
 			var DirectLighting = true
 			var IndirectLighting = true
@@ -134,7 +134,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 66.4022293
+			var Size = 49.1919975
 		}
 		EditorCameraController 
 		{
@@ -255,8 +255,40 @@ Level
 			var XBorder = 7
 			var YBorder = 1
 		}
+		Hierarchy 
+		{
+			Cog [Id:0x5c2aab14a7485141][ContextId:6]
+			{
+				var Name = "PlayButton"
+				Transform 
+				{
+					var Translation = Real3{0, 0.5, 0}
+					var Scale = Real3{0.099999994, 0.099999994, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				Sprite 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var SpriteSource = "5c2aa998ebc6e436:PlaybuttonSprite"
+					var FlipX = false
+					var FlipY = false
+					var AnimationActive = true
+					var AnimationSpeed = 1
+					var StartFrame = 0
+				}
+			}
+		}
 	}
-	Cog [ContextId:6]
+	Cog [ContextId:7]
 	{
 		var Name = "SettingsButton"
 		Transform 
@@ -290,7 +322,7 @@ Level
 			var YBorder = 1
 		}
 	}
-	Cog [ContextId:7]
+	Cog [ContextId:8]
 	{
 		var Name = "CityLights"
 		Transform 
@@ -308,7 +340,7 @@ Level
 			var LocalAabbCenter = Real3{0, 0, 0}
 			var LocalAabbHalfExtents = Real3{1, 1, 1}
 			var GroupSortValue = 0
-			var Material = "582c50d330d372c3:AdditiveSprite"
+			var Material = "582c575af53d18c9:AlphaSprite"
 			var BoundingBoxSize = 2
 			var ChildSystem = false
 			var SystemSpace = SystemSpace.WorldSpace
@@ -368,6 +400,35 @@ Level
 			var SpriteSource = "59937d65f2659971:ParticleIcon"
 			var ViewScale = 1
 			var OverrideSelections = true
+		}
+	}
+	Cog [ContextId:9]
+	{
+		var Name = "Background"
+		Transform 
+		{
+			var Translation = Real3{0, 0, -1}
+			var Scale = Real3{5.1500001, 5.1500001, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c2aa98fd5bb69bb:StartScreenBackground"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
 		}
 	}
 }

@@ -335,7 +335,7 @@ Level
 			var LocalAabbCenter = Real3{0, 0, 0}
 			var LocalAabbHalfExtents = Real3{1, 1, 1}
 			var GroupSortValue = 0
-			var Material = "582c50d330d372c3:AdditiveSprite"
+			var Material = "582c575af53d18c9:AlphaSprite"
 			var BoundingBoxSize = 2
 			var ChildSystem = false
 			var SystemSpace = SystemSpace.WorldSpace
@@ -395,6 +395,35 @@ Level
 			var SpriteSource = "59937d65f2659971:ParticleIcon"
 			var ViewScale = 1
 			var OverrideSelections = true
+		}
+	}
+	Cog [ContextId:9]
+	{
+		var Name = "Background"
+		Transform 
+		{
+			var Translation = Real3{0, 0, -1}
+			var Scale = Real3{5.1500001, 5.1500001, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c2aa98fd5bb69bb:StartScreenBackground"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
 		}
 	}
 }
