@@ -4,7 +4,7 @@ Cog
 	var Name = "Level7"
 	Transform 
 	{
-		var Translation = Real3{557.846069, -376.109772, 0}
+		var Translation = Real3{137.964294, -60.1034508, -39.9949989}
 		var Scale = Real3{0.5, 0.5, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -71,6 +71,33 @@ Cog
 				var Translation = Real3{335.236694, 55.0727539, 0}
 				var Rotation = Quaternion{0, 0, 0, 1}
 				var Scale = Real3{4, 4, 1}
+			}
+		}
+		Cog [Id:0x5c2aad8b02b1be39][InheritId:"5c3414cb23ac125a:DeathObsticle"]
+		{
+			Transform 
+			{
+				var Translation = Real3{268.840759, 130.056946, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1.60000002, 1.60000002, 1}
+			}
+		}
+		Cog [Id:0x5c2aad8b02b1be89][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{407.118744, 121.906631, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+		}
+		Cog [Id:0x5c2aad8c02070b41][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{150.311768, 137.604767, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
 			}
 		}
 	}

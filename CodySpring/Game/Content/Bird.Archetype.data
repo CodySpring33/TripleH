@@ -4,8 +4,8 @@ Cog
 	var Name = "Bird"
 	Transform 
 	{
-		var Translation = Real3{51.8725624, -18.2729359, -17.9999886}
-		var Scale = Real3{1, 1, 1}
+		var Translation = Real3{91.8169174, -5.34656525, 0}
+		var Scale = Real3{0.699999988, 0.699999988, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	Sprite 
@@ -18,14 +18,23 @@ Cog
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 0
 		var Material = "582c575af53d18c9:AlphaSprite"
-		var VertexColor = Real4{0, 0.100000143, 1, 1}
+		var VertexColor = Real4{1, 1, 1, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
-		var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+		var SpriteSource = "5c2adc5b0e87c031:HThaneArtEnemyBirdIdle_0"
 		var FlipX = false
 		var FlipY = false
 		var AnimationActive = true
 		var AnimationSpeed = 1
 		var StartFrame = 0
+	}
+	BoxCollider 
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{-1.5, -0.300000012, 0}
+		var HalfSize = Real3{2.25, 0.649999976, 0.5}
 	}
 	RigidBody 
 	{
@@ -37,14 +46,23 @@ Cog
 		var RotationLocked = false
 		var Mode2D = Mode2DStates.InheritFromSpace
 	}
-	BoxCollider 
+	DeathOnCollision 
 	{
-		var Ghost = false
-		var SendsEvents = true
-		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-		var CollisionGroup = "4e740859314e5515:DefaultGroup"
-		var Offset = Real3{0, 0, 0}
-		var HalfSize = Real3{0.5, 0.5, 0.5}
+		var Player = CogPath
+		{
+			var Path = ":/Ball"
+			var ErrorOnResolveToNull = false
+			var ErrorOnPathCantCompute = false
+			var ErrorOnDirectLinkFail = false
+			var UpdateCogOnPathChange = true
+			var UpdatePathOnCogChange = true
+			var UpdateCogOnInitialize = true
+			var ResolvedNullErrorOccurred = false
+			var Cog = 4294967293
+			var PathPreference0 = CogPathPreference.CogRelative
+			var PathPreference1 = CogPathPreference.SpaceRelative
+			var PathPreference2 = CogPathPreference.Absolute
+		}
 	}
 	Bird 
 	{
@@ -63,11 +81,13 @@ Cog
 			var PathPreference1 = CogPathPreference.SpaceRelative
 			var PathPreference2 = CogPathPreference.Absolute
 		}
-		var YDistance = 5
+		var YDistance = 7
 		var Speed = 0.100000001
 		var AttackDis = 20
 		var IsAttacking = false
+		var AttackSprite = "5c2adc1f72976cb3:HThaneArtEnemyBirdAttack"
 		var IsAlive = true
 		var BounceVelocity = Real3{5, 5, 0}
+		var PlayerDistance = 6
 	}
 }
