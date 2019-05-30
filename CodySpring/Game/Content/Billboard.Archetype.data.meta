@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Billboard"
+		var ResourceId = 0x5c7372500b308395
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

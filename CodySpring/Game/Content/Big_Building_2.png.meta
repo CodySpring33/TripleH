@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "Big_Building_2"
+		var ResourceId = 0x5c736d2f1fad2af2
+		var FrameSizeX = 705
+		var FrameSizeY = 509
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 352.5
+		var OriginY = 254.5
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

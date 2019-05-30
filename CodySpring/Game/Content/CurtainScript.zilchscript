@@ -14,7 +14,7 @@ class CurtainScript : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    var goalOpacity =  1 / (this.Player.Transform.Translation.Y + 80);
+    var goalOpacity =  1 / (this.Player.Transform.Translation.Y + 60);
     if(goalOpacity < 0)
     {
       this.FadeToBlack = true;

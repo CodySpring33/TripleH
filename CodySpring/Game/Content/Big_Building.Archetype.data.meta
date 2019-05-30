@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Big_Building"
+		var ResourceId = 0x5c73725907256ad2
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

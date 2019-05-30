@@ -89,7 +89,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{44.4554482, -31.689764, 2.00001144}
+			var Translation = Real3{236.022919, -222.01593, 2.00001717}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -142,7 +142,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 24.7882462
+			var Size = 742.761108
 		}
 		EditorCameraController 
 		{
@@ -151,7 +151,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{44.4554482, -31.689764, -17.9999886}
+			var LookTarget = Real3{236.022919, -222.01593, -17.9999828}
 			var MoveSensitivity = 1
 		}
 	}
@@ -397,14 +397,14 @@ Level
 			var Scale = Real3{1, 1, 1}
 		}
 	}
-	Cog [InheritId:"5c3414cb23ac125a:DeathObsticle"][ContextId:12]
+	Cog [ContextId:12]
 	{
-		var Name = "DO"
+		var Name = "Transform"
 		Transform 
 		{
-			var Translation = Real3{42.4207153, -27.0837917, 0}
+			var Translation = Real3{776.378845, -371.825836, -17.9999752}
+			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{0.400000006, 0.400000006, 1}
 		}
 	}
 }

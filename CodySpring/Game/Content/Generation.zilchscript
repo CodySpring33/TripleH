@@ -71,54 +71,41 @@ class Generation : ZilchComponent
   // Returns an archetype that is the next chunk that should spawn
   function GetNextChunk() : Archetype
   {
-//    if (this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Dirt)
-//    {
-//      var roll = this.RNG.DieRoll(3);
-//      if (roll == 1)
-//      {
-//        return Archetype.Chunk0;
-//      }
-//      else if (roll == 2)
-//      {
-//        return Archetype.Chunk1;
-//      }
-//      else
-//      {
-//        return Archetype.Chunk3;
-//      }
-//    }
- //   else if (this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Grass)
- //   {
- //     var roll = this.RNG.DieRoll(3);
- //     if (roll == 1)
- //     {
- //       return Archetype.Chunk4;
- //     }
- //     else if (roll == 2)
- //     {
- //       return Archetype.Chunk5;
- //     }
- //     else
- //     {
- //       return Archetype.Chunk6;
- //     }
- //   }
     if (this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level1)
-    {
-      Console.WriteLine("changed");
-      return Archetype.Level1;
-      
-    }
-    else if(this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level2)
     {
       var roll = this.RNG.DieRoll(2);
       if(roll == 1)
       {
-      return Archetype.Level2; 
+      return Archetype.Level1;
       }
       else
       {
+      return Archetype.Level5;
+      }
+      
+    }
+    else if(this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level2)
+    {
+      var roll = this.RNG.DieRoll(5);
+      if(roll == 1)
+      {
+      return Archetype.Level2; 
+      }
+      else if(roll == 2)
+      {
       return Archetype.Level3;
+      }
+      else if(roll == 3)
+      {
+        return Archetype.Level5;
+      }
+      else if(roll == 4)
+      {
+        return Archetype.Level6;
+      }
+      else
+      {
+        return Archetype.Level7;
       }
     }
     else if(this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level4)
