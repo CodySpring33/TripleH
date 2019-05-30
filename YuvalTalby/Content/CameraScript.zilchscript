@@ -11,6 +11,7 @@ class CameraScript : ZilchComponent
     this.Camera = this.Space.FindObjectByName("GameCamera");
     this.Brush = this.Space.FindObjectByName("Brush");
     this.Owner.Transform.Translation = Real3(0,0,0);
+    this.Owner.SoundEmitter.PlayCue(SoundCue.HAJSoundGameplayTheme);
   }
 
   function OnLogicUpdate(event : UpdateEvent)

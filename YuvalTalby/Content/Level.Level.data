@@ -89,7 +89,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-155.220581, -2.30545592, -20}
+			var Translation = Real3{2.83748388, -4.02803707, 30.7999992}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -142,7 +142,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 202.424042
+			var Size = 12.3094368
 		}
 		EditorCameraController 
 		{
@@ -151,7 +151,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{-155.220581, -2.30545592, -40}
+			var LookTarget = Real3{2.83748388, -4.02803707, 10.8000002}
 			var MoveSensitivity = 1
 		}
 	}
@@ -236,6 +236,21 @@ Level
 		{
 			var ShakeAmpContant = 2
 		}
+		SoundEmitter 
+		{
+			var Volume = 1
+			var Pitch = 0
+			var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+			var Directional = false
+			var EmitAngle = 90
+			var RearVolume = 0.200000003
+		}
+		SimpleSound 
+		{
+			var StartPlaying = true
+			var Positional = false
+			var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
+		}
 		Hierarchy 
 		{
 			Cog [Id:0x5c319d9c342059f4][ContextId:5]
@@ -269,7 +284,23 @@ Level
 				Draw 
 				{
 					var MaxPaintAmt = 120
+					var RefillMultiplier = 6
 					var LerpMultiplier = 20
+				}
+				SoundEmitter 
+				{
+					var Volume = 1
+					var Pitch = 0
+					var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+					var Directional = false
+					var EmitAngle = 90
+					var RearVolume = 0.200000003
+				}
+				SimpleSound 
+				{
+					var StartPlaying = true
+					var Positional = false
+					var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
 				}
 			}
 			Cog [Id:0x5c7b0fb065822a21][ContextId:6]
@@ -346,6 +377,21 @@ Level
 		Sprite 
 		{
 			var Visible = false
+		}
+		SoundEmitter [LocallyAdded]
+		{
+			var Volume = 1
+			var Pitch = 0
+			var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+			var Directional = false
+			var EmitAngle = 90
+			var RearVolume = 0.200000003
+		}
+		SimpleSound [LocallyAdded]
+		{
+			var StartPlaying = true
+			var Positional = false
+			var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
 		}
 		Hierarchy 
 		{

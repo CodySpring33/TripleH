@@ -20,6 +20,7 @@ class Draw : ZilchComponent
   
   var Color : Real4 = Real4(0,0,0,0);
   
+  [Property]
   var RefillMultiplier : Real = 6; // old: 25
   
   var Player : Cog = null;
@@ -48,8 +49,8 @@ class Draw : ZilchComponent
     this.Camera = this.Space.FindObjectByName("GameCamera");
     this.Player = this.Space.FindObjectByName("Ball");
     this.PaintAmt = this.MaxPaintAmt;
-    this.Space.SoundSpace.PlayCue(SoundCue.HIsabellaSoundPlayerPaint);
-    this.Space.SoundSpace.Paused = true;
+    this.Owner.SoundEmitter.PlayCue(SoundCue.HIsabellaSoundPlayerPaint);
+    this.Owner.SoundEmitter.Paused = true;
     
   }
 
@@ -143,7 +144,7 @@ class Draw : ZilchComponent
     //AUDIO  
     if(this.PaintAmt > 0)
     {
-      this.Space.SoundSpace.Paused = false;
+      this.Owner.SoundEmitter.Paused = false;
       
     }
   }
@@ -158,7 +159,7 @@ class Draw : ZilchComponent
     this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
     
     if(this.PaintAmt <= 0 || !Zero.Mouse.IsButtonDown(MouseButtons.Left))
-      this.Space.SoundSpace.Paused = true;
+      this.Owner.SoundEmitter.Paused = true;
     
     if(!Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.PaintAmt < this.MaxPaintAmt)
     {

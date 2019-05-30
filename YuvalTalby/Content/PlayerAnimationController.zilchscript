@@ -7,7 +7,7 @@ class PlayerAnimationController : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    if(this.Owner.Sprite.SpriteSource == SpriteSource.Value_0)
+    if(this.Owner.Sprite.SpriteSource == SpriteSource.Run_0)
     {
       var targetAngle = -Math.ATan2(this.Owner.Parent.RigidBody.Velocity.X, this.Owner.Parent.RigidBody.Velocity.Y);
       this.Owner.Transform.SetEulerAnglesXYZ(this.Owner.Transform.EulerAngles.X, this.Owner.Transform.EulerAngles.Y, targetAngle - this.Owner.Parent.Transform.EulerAngles.Z + Math.Pi / 2);

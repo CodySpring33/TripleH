@@ -102,7 +102,8 @@ class DebugBall : ZilchComponent
   function OnCollisionStarted(event : CollisionEvent)
   {
     
-    
+    if(event.OtherObject.Name.Contains("Block"))
+      this.Owner.SoundEmitter.PlayCue(SoundCue.HIsabellaSoundPlayerLand);
     //this isn't needed anymore    
     //var acceptable = false; // shift up a bit when you're both colliding with a line for the first time and is currently in collision with building
     //if(event.OtherObject.Name == "Paint")
@@ -213,12 +214,12 @@ class DebugBall : ZilchComponent
     if(this.AnimeTimer >= 0.35)
     {
       Console.WriteLine("moving to fall");
-      this.VisiblePlayer.Sprite.SpriteSource = SpriteSource.FALLINJHG;
+      this.VisiblePlayer.Sprite.SpriteSource = SpriteSource.Falling;
     }
-    else if(this.VisiblePlayer.Sprite.SpriteSource == SpriteSource.FALLINJHG)
+    else if(this.VisiblePlayer.Sprite.SpriteSource == SpriteSource.Falling)
     {
       Console.WriteLine(this.VisiblePlayer.Sprite.SpriteSource.Name);
-      this.VisiblePlayer.Sprite.SpriteSource = SpriteSource.Value_0;
+      this.VisiblePlayer.Sprite.SpriteSource = SpriteSource.Run_0;
     }
     
     

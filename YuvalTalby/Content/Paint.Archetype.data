@@ -4,7 +4,7 @@ Cog
 	var Name = "Paint"
 	Transform 
 	{
-		var Translation = Real3{-0.00390315056, 0, 0}
+		var Translation = Real3{-0.00390625, 0, 0}
 		var Scale = Real3{1, 32, 5}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -18,7 +18,7 @@ Cog
 		var LocalAabbHalfExtents = Real3{1, 1, 1}
 		var GroupSortValue = 1
 		var Material = "582c575af53d18c9:AlphaSprite"
-		var VertexColor = Real4{1, 1, 1, 1}
+		var VertexColor = Real4{0, 0.749019086, 0.952941239, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
 		var SpriteSource = "5c6ef6ce7c3f4835:Pixel"
 		var FlipX = false
