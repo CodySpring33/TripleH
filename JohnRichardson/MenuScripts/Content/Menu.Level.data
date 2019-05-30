@@ -336,7 +336,7 @@ Level
 		var Name = "PlayButton"
 		Transform 
 		{
-			var Translation = Real3{-4, -4, 0}
+			var Translation = Real3{-4, -6, 0}
 			var Scale = Real3{0.99999994, 0.99999994, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -361,7 +361,7 @@ Level
 		}
 		MenuScriptScript 
 		{
-			var NextLevel = "5c3f5c02a207cc9a:DifficultySettings"
+			var NextLevel = "59097123da28242a:Level"
 			var XBorder = 2
 			var YBorder = 2
 		}
@@ -371,7 +371,7 @@ Level
 		var Name = "Settings"
 		Transform 
 		{
-			var Translation = Real3{4, -4, -6.04383459e-08}
+			var Translation = Real3{4, -6, -6.04383459e-08}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -399,6 +399,35 @@ Level
 			var NextLevel = "5c3f5c1e9d8d086f:Settings"
 			var XBorder = 2
 			var YBorder = 2
+		}
+	}
+	Cog [ContextId:9]
+	{
+		var Name = "Sprite"
+		Transform 
+		{
+			var Translation = Real3{0, 5, 8.44758041e-09}
+			var Scale = Real3{2.5, 2.5, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c2aaf3e8afa3e0b:HThaneArtLogo"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
 		}
 	}
 }
