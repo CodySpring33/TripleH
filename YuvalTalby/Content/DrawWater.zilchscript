@@ -33,7 +33,7 @@ class DrawWater : ZilchComponent
         var amt = Math.Ceil(event.Dt / this.Delay);
         for(var i = 0; i < amt; ++i)
         {
-          this.MyWaters.Add(this.Space.CreateAtPosition(Archetype.Water, Real3(this.Brush.Transform.WorldTranslation.XY, this.Brush.Transform.WorldTranslation.Z - 1)));          
+          this.MyWaters.Add(this.Space.CreateAtPosition(Archetype.Water, Real3(this.Brush.Transform.WorldTranslation.XY, this.Brush.Transform.WorldTranslation.Z - 0.01)));          
           ++this.WaterIndex;
           this.MyWaters[this.WaterIndex].AttachTo(this.Owner);
           this.MyWaters[this.WaterIndex].Transform.Scale = Real3(this.MyWaters[this.WaterIndex].Transform.Scale.XY / this.Detail, 5);

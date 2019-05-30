@@ -1,15 +1,16 @@
 class VroomScript : ZilchComponent
 {
-  var Player : Cog = null;
+  var Brush : Cog = null;
   
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-    this.Player = this.Space.FindObjectByName("Ball");
+    this.Brush = this.Space.FindObjectByName("Brush");
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    this.Owner.Transform.Translation = this.Player.Transform.Translation;
+    this.Owner.Transform.Translation = Real3(this.Brush.Transform.WorldTranslation.XY, this.Brush.Transform.WorldTranslation.Z);
+    Console.WriteLine(this.Owner.Transform.WorldTranslation);
   }
 }

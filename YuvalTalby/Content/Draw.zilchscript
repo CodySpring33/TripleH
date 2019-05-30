@@ -24,6 +24,8 @@ class Draw : ZilchComponent
   
   var Player : Cog = null;
   
+  var MyParticles : Cog = null;
+  
   var DoColor : Boolean = false;
   
   //the first measurement of the mouse's position is always something really dumb for whatever reason. this fixes that
@@ -41,6 +43,8 @@ class Draw : ZilchComponent
     Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
     Zero.Connect(this.Space, Events.MouseUp, this.OnMouseUp);
     Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    Zero.Connect(Zero.Mouse, Events.MouseDown, this.OnMouseDown);
+    Zero.Connect(Zero.Mouse, Events.MouseUp, this.OnMouseUp);
     this.Camera = this.Space.FindObjectByName("GameCamera");
     this.Player = this.Space.FindObjectByName("Ball");
     this.PaintAmt = this.MaxPaintAmt;
@@ -48,6 +52,8 @@ class Draw : ZilchComponent
     this.Space.SoundSpace.Paused = true;
     
   }
+
+
 
   function OnKeyDown(event : KeyboardEvent)
   {
@@ -103,12 +109,13 @@ class Draw : ZilchComponent
     if(this.MyDrawings[this.DrawIndex].Sprite.SpriteSource == SpriteSource.Square)
       this.MyDrawings[this.DrawIndex].DrawSquare.Active = false;
       
-    
+    this.MyParticles.Destroy();
     
   }
 
   function OnMouseDown(event : ViewportMouseEvent)
   {
+    this.MyParticles = this.Space.CreateAtPosition(Archetype.Vroom, this.Owner.Transform.WorldTranslation);
     //spawning appropriate object
     if(this.Shape == 0 && this.PaintAmt > 0)
       this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.Drawer, Real3(this.MousePosition.XY,0.01)));
@@ -179,7 +186,7 @@ class Draw : ZilchComponent
     //Console.WriteLine(this.MousePosition);
     //set position to mouse, act as a cursor
     if(this.DoMousePosUpdate)
-      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,this.MousePosition - this.Camera.Transform.Translation,this.LerpMultiplier * event.Dt);
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,Real3(this.MousePosition.XY - this.Camera.Transform.Translation.XY, -9.9),this.LerpMultiplier * event.Dt);
     
      
     

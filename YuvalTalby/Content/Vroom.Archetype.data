@@ -4,7 +4,7 @@ Cog
 	var Name = "Vroom"
 	Transform 
 	{
-		var Translation = Real3{0, 0, 0.899999976}
+		var Translation = Real3{0, 0, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -23,7 +23,7 @@ Cog
 		var SystemSpace = SystemSpace.WorldSpace
 		var WarmUpTime = 0
 		var PreviewInEditor = false
-		var VertexColor = Real4{1, 0, 0, 1}
+		var VertexColor = Real4{1, 1, 1, 1}
 		var GeometryMode = SpriteParticleGeometryMode.Billboarded
 		var SpriteSource = "5274db4c2e7c11f9:Circle"
 		var ParticleAnimation = SpriteParticleAnimationMode.Single
@@ -48,8 +48,8 @@ Cog
 		var RandomSpin = true
 		var Fill = 1
 		var EmitterVelocityPercent = 0
-		var StartVelocity = Real3{0, 0, 0}
-		var RandomVelocity = Real3{10, 10, 5}
+		var StartVelocity = Real3{-5, 0.5, 0}
+		var RandomVelocity = Real3{2, 2, 1}
 		var TangentVelocity = Real3{0, 0, 0}
 		var EmitterSize = Real3{0, 0, 0}
 		var FastMovingEmitter = false
@@ -71,7 +71,7 @@ Cog
 	}
 	SelectionIcon 
 	{
-		var Visible = false
+		var Visible = true
 		var VisibilityEvents = true
 		var Material = "56581e2bb81777be:DebugDrawOnTop"
 		var SpriteSource = "59937d65f2659971:ParticleIcon"

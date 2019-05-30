@@ -1,13 +1,20 @@
+/*
+Yuval Talby
+*/
+
 class DebugBall : ZilchComponent
 {
   var DeathTimer : Real = 0;
   var BoostTimer : Real = 0;
+  var AnimeTimer : Real = 0.35;
+  //called AnimeTimer strictly for character length consistency
   
   [Property]
   var GracePeriod : Real = 1;
   
   var TimeBoy : Cog = null;
   var Brush : Cog = null;
+  var VisiblePlayer : Cog = null;
   
   //multiplied when recovering
   var Boost : Real = 1;
@@ -34,6 +41,11 @@ class DebugBall : ZilchComponent
     Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
     this.TimeBoy = this.Space.FindObjectByName("Time");
     this.Brush = this.Space.FindObjectByName("Brush");
+    foreach(var child in this.Owner.Children)
+    {
+      if(child.Name == "VisiblePlayer")
+        this.VisiblePlayer = child;
+    }
   }
 
   function OnCollisionEnded(event : CollisionEvent)
@@ -89,6 +101,9 @@ class DebugBall : ZilchComponent
 
   function OnCollisionStarted(event : CollisionEvent)
   {
+    
+    
+    //this isn't needed anymore    
     //var acceptable = false; // shift up a bit when you're both colliding with a line for the first time and is currently in collision with building
     //if(event.OtherObject.Name == "Paint")
     //{
@@ -183,8 +198,28 @@ class DebugBall : ZilchComponent
       {
         var thrustDirection = contact.OtherObject.Transform.EulerAngles.Z;
         this.Owner.RigidBody.Velocity = Real3(event.Dt * Math.Cos(thrustDirection) * this.ThrustStrength,event.Dt * Math.Sin(thrustDirection) * this.ThrustStrength * this.Boost,0) * 40;
+        
+        //seperate thing, for animation
+        
+        this.AnimeTimer = 0;
       }
-    } 
+      else if(this.AnimeTimer < 0.35)
+        this.AnimeTimer += event.Dt;
+        
+    }
+    if(this.Owner.Collider.Contacts.IsEmpty && this.AnimeTimer < 0.35)
+      this.AnimeTimer += event.Dt;
+    
+    if(this.AnimeTimer >= 0.35)
+    {
+      Console.WriteLine("moving to fall");
+      this.VisiblePlayer.Sprite.SpriteSource = SpriteSource.FALLINJHG;
+    }
+    else if(this.VisiblePlayer.Sprite.SpriteSource == SpriteSource.FALLINJHG)
+    {
+      Console.WriteLine(this.VisiblePlayer.Sprite.SpriteSource.Name);
+      this.VisiblePlayer.Sprite.SpriteSource = SpriteSource.Value_0;
+    }
     
     
     /****END****/
