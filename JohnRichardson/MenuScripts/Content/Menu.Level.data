@@ -81,7 +81,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{0, -8.6438961, 20}
+			var Translation = Real3{0.193257898, -0.265621454, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -134,7 +134,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 49.1919975
+			var Size = 44.5107536
 		}
 		EditorCameraController 
 		{
@@ -143,7 +143,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{0, -8.6438961, 0}
+			var LookTarget = Real3{0.193257898, -0.265621454, 8.44758041e-09}
 			var MoveSensitivity = 1
 		}
 	}
@@ -224,77 +224,6 @@ Level
 	}
 	Cog [ContextId:5]
 	{
-		var Name = "PlayGameButton"
-		Transform 
-		{
-			var Translation = Real3{0, -4, 0}
-			var Scale = Real3{10, 10, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SpriteText 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Play Game"
-			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
-			var FontSize = 32
-			var PixelsPerUnit = 128
-			var TextAlign = TextAlign.Center
-		}
-		MenuScript 
-		{
-			var NextLevel = "5c3f5c02a207cc9a:DifficultySettings"
-			var XBorder = 7
-			var YBorder = 1
-		}
-		Hierarchy 
-		{
-		}
-	}
-	Cog [ContextId:6]
-	{
-		var Name = "SettingsButton"
-		Transform 
-		{
-			var Translation = Real3{0, -8, 0}
-			var Scale = Real3{10, 10, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SpriteText 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Settings"
-			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
-			var FontSize = 32
-			var PixelsPerUnit = 128
-			var TextAlign = TextAlign.Center
-		}
-		MenuScript 
-		{
-			var NextLevel = "5c3f5c1e9d8d086f:Settings"
-			var XBorder = 6
-			var YBorder = 1
-		}
-	}
-	Cog [ContextId:7]
-	{
 		var Name = "CityLights"
 		Transform 
 		{
@@ -373,7 +302,7 @@ Level
 			var OverrideSelections = true
 		}
 	}
-	Cog [ContextId:8]
+	Cog [ContextId:6]
 	{
 		var Name = "Background"
 		Transform 
@@ -402,12 +331,12 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [ContextId:9]
+	Cog [ContextId:7]
 	{
 		var Name = "PlayButton"
 		Transform 
 		{
-			var Translation = Real3{0, 1, 0}
+			var Translation = Real3{-4, -4, 0}
 			var Scale = Real3{0.99999994, 0.99999994, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -433,7 +362,42 @@ Level
 		MenuScriptScript 
 		{
 			var NextLevel = "5c3f5c02a207cc9a:DifficultySettings"
-			var XBorder = 4
+			var XBorder = 2
+			var YBorder = 2
+		}
+	}
+	Cog [ContextId:8]
+	{
+		var Name = "Settings"
+		Transform 
+		{
+			var Translation = Real3{4, -4, -6.04383459e-08}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c2aaab575c5ec55:Cogsprite"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		MenuScriptScript 
+		{
+			var NextLevel = "5c3f5c1e9d8d086f:Settings"
+			var XBorder = 2
 			var YBorder = 2
 		}
 	}
