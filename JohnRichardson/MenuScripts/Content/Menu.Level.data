@@ -429,5 +429,8 @@ Level
 			var AnimationSpeed = 1
 			var StartFrame = 0
 		}
+		FadeInEffect 
+		{
+		}
 	}
 }

@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "FadeInEffect"
+		var ResourceId = 0x5c2aa3e6e7a08f52
+	}
+}

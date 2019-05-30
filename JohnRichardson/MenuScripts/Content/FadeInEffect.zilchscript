@@ -1,0 +1,26 @@
+//////////////////////
+//Name: John Richardson
+//Date: 5/30/19
+//Brief: Fades in the Owner
+/////////////////////
+
+class FadeInEffect : ZilchComponent
+{
+  //Timer for Fade in Effect
+  var Timer: Real = 0;
+  var Delay : Real = 1;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    //Increases the Owner's Opacity based upon the Time
+    if(this.Timer <= this.Delay){
+      this.Timer += event.Dt;
+      this.Owner.Sprite.VertexColor = Real4(this.Owner.Sprite.VertexColor.XYZ, this.Timer);
+    }
+  }
+}

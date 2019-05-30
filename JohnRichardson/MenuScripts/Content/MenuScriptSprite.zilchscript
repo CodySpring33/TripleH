@@ -63,7 +63,7 @@ class MenuScriptScript : ZilchComponent
     //If Curser is within range and mouse goes down then set SwitchLevel to True when NextLevel is not null
     if(this.MousePosition.Y < this.OriginalPositionY + this.YBorder && this.MousePosition.X < this.OriginalPositionX + this.XBorder){
       if(this.MousePosition.Y > this.OriginalPositionY - this.YBorder - 1 && this.MousePosition.X > this.OriginalPositionX - this.XBorder){
-        this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.UpOne, 0);
+        this.Owner.Transform.Translation = Real3(this.OriginalPositionX, this.UpOne, 0);
           if(this.NextLevel != null){
           this.SwitchLevel = true;
           }
@@ -87,12 +87,12 @@ class MenuScriptScript : ZilchComponent
         this.Owner.Sprite.VertexColor = Real4(this.Owner.Sprite.VertexColor.XYZ, this.Timer / 2);
       }
       else{
-        this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.OriginalPositionY, 0);
+        this.Owner.Transform.Translation = Real3(this.OriginalPositionX, this.OriginalPositionY, 0);
         this.Owner.Sprite.VertexColor = Real4(this.Owner.Sprite.VertexColor.XYZ, this.Timer);
       }
     }
     else{
-      this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.OriginalPositionY, 0);
+      this.Owner.Transform.Translation = Real3(this.OriginalPositionX, this.OriginalPositionY, 0);
       this.Owner.Sprite.VertexColor = Real4(this.Owner.Sprite.VertexColor.XYZ, this.Timer);
     }
   }
