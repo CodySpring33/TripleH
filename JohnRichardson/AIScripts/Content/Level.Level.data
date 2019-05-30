@@ -137,7 +137,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 55.1660309
+			var Size = 30.2757759
 		}
 		EditorCameraController 
 		{
@@ -356,7 +356,7 @@ Level
 		Transform 
 		{
 			var Translation = Real3{-6.30820274, 1.03869128, 0.899999976}
-			var Scale = Real3{1, 1, 1}
+			var Scale = Real3{5, 5, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -369,9 +369,9 @@ Level
 			var LocalAabbHalfExtents = Real3{1, 1, 1}
 			var GroupSortValue = 0
 			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{0.949999928, 1, 0, 1}
+			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5274db4c2e7c11f9:Circle"
+			var SpriteSource = "5c2ad4cf59f6e9a4:SpotlightUh"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
@@ -381,7 +381,7 @@ Level
 		AIChase 
 		{
 			var LerpSpeed = 2
-			var Range = 0.600000024
+			var Range = 0.400000006
 			var ChaseSpeed = 1
 			var VelocityRate = 0.25
 		}

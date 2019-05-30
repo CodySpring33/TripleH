@@ -388,44 +388,10 @@ Level
 	}
 	Cog [ContextId:9]
 	{
-		var Name = "EasterEgg"
-		Transform 
-		{
-			var Translation = Real3{0, -12, 0}
-			var Scale = Real3{10, 10, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SpriteText 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Easter Egg"
-			var Font = "5c2ad1ec51d9270c:StencilArmyWWI"
-			var FontSize = 32
-			var PixelsPerUnit = 128
-			var TextAlign = TextAlign.Center
-		}
-		MenuScript 
-		{
-			var NextLevel = "null"
-			var XBorder = 7
-			var YBorder = 1
-		}
-	}
-	Cog [ContextId:10]
-	{
 		var Name = "GoBack"
 		Transform 
 		{
-			var Translation = Real3{0, -16, 0}
+			var Translation = Real3{0, -12, 0}
 			var Scale = Real3{10, 10, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -454,7 +420,7 @@ Level
 			var YBorder = 1
 		}
 	}
-	Cog [ContextId:11]
+	Cog [ContextId:10]
 	{
 		var Name = "CityLights"
 		Transform 
