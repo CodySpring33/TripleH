@@ -1,0 +1,117 @@
+class Generation : ZilchComponent
+{
+  [Property] var NameOfFirstChunk : String = "Level1";
+  var CurrChunk : Cog = null;
+  var OldChunks : Array[Cog] = Array[Cog]();
+  var Player : Cog = null;
+  var PlayerStartingX : Real = 0;
+  var RNG : Random = Random();
+  [Property]
+  var Background : Archetype = null;
+  
+  [Property]
+  var BackgroundW : Real = Real();
+  
+  var Spawnback : Boolean = true;
+  
+  var Firstback : Cog = null;
+  function Initialize(init : CogInitializer)
+  {
+    this.CurrChunk = this.Space.FindObjectByName(this.NameOfFirstChunk);
+    this.Player = this.Space.FindObjectByName("Ball");
+    this.PlayerStartingX = this.Player.Transform.Translation.X;
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+   this.Firstback = this.Space.CreateAtPosition(this.Background, Real3(-25.9209,-65,0));
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    // Creating a new chunk
+    var chunk_spawn_x = this.CurrChunk.Transform.Translation.X + this.CurrChunk.Chunk.ChunkLength;
+    var chunk_end_x = chunk_spawn_x - this.PlayerStartingX;
+    var background_spawn_x = this.Firstback.Transform.Translation.X + this.BackgroundW;
+    var background_end_x = background_spawn_x - this.PlayerStartingX;
+    
+    if (this.Player.Transform.Translation.X >= chunk_end_x - 90)
+    {
+      this.OldChunks.Push(this.CurrChunk);
+      this.CurrChunk = this.Space.CreateAtPosition(this.GetNextChunk(), Real3(chunk_spawn_x, -75, 0));
+      this.Spawnback = true;
+    }
+    if(this.Player.Transform.Translation.X >= background_end_x - 400 && this.Spawnback == true)
+    {
+      this.Firstback = this.Space.CreateAtPosition(this.Background, Real3(background_spawn_x, -65, 0));
+      this.Spawnback = false;
+      //background.Transform.Translation += Real3(2,0,0);
+    }
+    
+    // Removing an old chunk
+    var chunks_to_delete : Array[Cog] = Array[Cog](); 
+    for (var i = 0; i < this.OldChunks.Count; ++i)
+    {
+      var chunk_remove_x = this.OldChunks[i].Transform.Translation.X + this.OldChunks[i].Chunk.ChunkLength + this.PlayerStartingX + 40;
+      if (this.Player.Transform.Translation.X >= chunk_remove_x)
+      {
+        chunks_to_delete.Push(this.OldChunks[i]);
+        this.OldChunks.RemoveAt(i);
+      }
+      else
+      {
+        ++i;
+      }
+    }
+    
+    while (chunks_to_delete.Count > 0)
+    {
+      var to_delete = chunks_to_delete.Pop();
+      to_delete.Destroy(); 
+    }
+  }
+  
+  // Returns an archetype that is the next chunk that should spawn
+  function GetNextChunk() : Archetype
+  {
+    if (this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level1)
+    {
+      var roll = this.RNG.DieRoll(2);
+      if(roll == 1)
+      {
+      return Archetype.Level1;
+      }
+      else
+      {
+      return Archetype.Level5;
+      }
+      
+    }
+    else if(this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level2)
+    {
+      var roll = this.RNG.DieRoll(5);
+      if(roll == 1)
+      {
+      return Archetype.Level2; 
+      }
+      else if(roll == 2)
+      {
+      return Archetype.Level3;
+      }
+      else if(roll == 3)
+      {
+        return Archetype.Level5;
+      }
+      else if(roll == 4)
+      {
+        return Archetype.Level6;
+      }
+      else
+      {
+        return Archetype.Level7;
+      }
+    }
+    else if(this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level4)
+    {
+      return Archetype.Level4;
+    }
+    throw Exception("Could not determine the next chunk.");
+  }
+}

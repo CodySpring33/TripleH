@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "GapBuilding"
+		var ResourceId = 0x5c7378c2799fa3d3
+		var FrameSizeX = 759
+		var FrameSizeY = 3035
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 379
+		var OriginY = 1517
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

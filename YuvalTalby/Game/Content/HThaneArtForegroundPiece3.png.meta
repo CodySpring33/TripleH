@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "HThaneArtForegroundPiece3"
+		var ResourceId = 0x5c341de6ef841ca8
+		var FrameSizeX = 741
+		var FrameSizeY = 439
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 370
+		var OriginY = 219
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

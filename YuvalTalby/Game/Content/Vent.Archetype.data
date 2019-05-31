@@ -1,0 +1,53 @@
+[Version:1]
+Cog 
+{
+	var Name = "Vent"
+	Transform 
+	{
+		var Translation = Real3{150.311768, 137.604767, 21.994997}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
+	{
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "5c2ac4fe84e506a6:HThaneArtForegroundPiece1_0"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	RigidBody 
+	{
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.InheritFromSpace
+	}
+	BoxCollider 
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "5c3e8ac1e9ac9730:Firm"
+		var CollisionGroup = "5c3410b6d36460c1:Obsticle"
+		var Offset = Real3{-3, -0.200000003, 0}
+		var HalfSize = Real3{4.5, 3.75, 0.5}
+	}
+	RooftopObsticle 
+	{
+		var NameOfPlayer = "Ball"
+	}
+}

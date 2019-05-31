@@ -1,0 +1,12 @@
+class Spawner : ZilchComponent
+{
+  [Property]
+  var Bird : Archetype = null;
+  function Initialize(init : CogInitializer)
+  {
+   var bird = this.Space.CreateAtPosition(this.Bird, this.Owner.Transform.Translation);
+   bird.Bird.YDistance = 10;
+  }
+
+  
+}

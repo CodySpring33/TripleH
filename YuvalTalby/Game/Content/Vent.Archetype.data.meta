@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Vent"
+		var ResourceId = 0x5c2ac7a9a564a91d
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

@@ -1,0 +1,15 @@
+/////////////////////////////////////
+//Name: John Richardson
+//Date: 5/23/19
+//Brief: Stores Variables Across all levels
+/////////////////////////////////////
+class GameVars : ZilchComponent
+{
+  var ToggleSound : Boolean = false;
+  var ToggleMusic : Boolean = false;
+  var Timer : Real = 0;
+  var Time : Real = 0;
+  function Initialize(init : CogInitializer)
+  {
+  }
+}

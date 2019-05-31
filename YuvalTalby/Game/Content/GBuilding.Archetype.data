@@ -1,0 +1,70 @@
+[Version:1]
+Cog 
+{
+	var Name = "Block"
+	Transform 
+	{
+		var Translation = Real3{129.516953, 22.7730484, 0}
+		var Scale = Real3{3.5, 3.5, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
+	{
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "5c377dd6899e2eea:foreground_building"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	RigidBody 
+	{
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Static
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.InheritFromSpace
+	}
+	MultiConvexMeshCollider 
+	{
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "5c3e8ac1e9ac9730:Firm"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var Mesh = "5c377ccbb9d11f40:GBuilding1"
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5c6c44c4b6603519][InheritId:"5c6c4542e6cb05ca:WallDeathCollider"]
+		{
+			Transform 
+			{
+				var Translation = Real3{-11.5915089, 1.14307785, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{0.571428537, 1.15476096, 1}
+			}
+		}
+		Cog [Id:0x5c6c44c4b66035c7][InheritId:"5c6c4542e6cb05ca:WallDeathCollider"]
+		{
+			Transform 
+			{
+				var Translation = Real3{9.99240112, 1.14307785, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{0.571428537, 1.15476096, 1}
+			}
+		}
+	}
+}

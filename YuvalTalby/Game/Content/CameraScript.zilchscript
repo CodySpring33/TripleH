@@ -1,0 +1,36 @@
+/*
+Yuval Talby
+*/
+
+class CameraScript : ZilchComponent
+{
+  var Player : Cog = null;
+  var Camera : Cog = null;
+  var Brush : Cog = null;
+  var Curtain : Cog = null;
+  var StartVol : Real = 0;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    this.Player = this.Space.FindObjectByName("Ball");
+    this.Camera = this.Space.FindObjectByName("GameCamera");
+    this.Brush = this.Space.FindObjectByName("Brush");
+    this.Curtain = this.Space.FindObjectByName("Curtain");
+    this.Owner.Transform.Translation = Real3(0,0,0);
+    this.Owner.SoundEmitter.PlayCue(SoundCue.HAJSoundGameplayTheme);
+    this.StartVol = SoundCue.HAJSoundGameplayTheme.Volume;
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Player.Transform.Translation.Y < 40)
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, Real3(this.Player.Transform.Translation.X + 20, this.Player.Transform.Translation.Y + 5,10), 10 * event.Dt);
+    else
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, Real3(this.Player.Transform.Translation.X + 15, 40,10), 10 * event.Dt);
+    
+    this.Owner.SoundEmitter.Volume = 0.08 - this.Curtain.Sprite.VertexColor.W;
+    
+    //this.Owner.Transform.Translation += Real3(event.Dt,0,0);
+  }
+}

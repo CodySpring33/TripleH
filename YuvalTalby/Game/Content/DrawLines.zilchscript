@@ -1,0 +1,92 @@
+/*
+Yuval Talby
+*/
+
+class DrawLines : ZilchComponent
+{
+  [Dependency]
+  var Transform : Transform = null;
+  var Camera : Cog = null;
+  var MyLines : Array[Cog] = Array[Cog](1){};
+  var LineIndex : Integer = 0;
+  var Active : Boolean = true;
+  var HesAlreadyDead : Boolean = false;
+  var Player : Cog = null;
+  var Brush : Cog = null;
+  var Rand : Random = Random();
+  [Property]
+  var Precision : Real = 1;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    this.Camera = this.Space.FindObjectByName("GameCamera");
+    this.Brush = this.Space.FindObjectByName("Brush");
+    this.Player = this.Space.FindObjectByName("Ball");
+    this.MyLines[this.LineIndex] = this.Space.CreateAtPosition(Archetype.Paint, Real3(this.Brush.Transform.WorldTranslation.XY, this.Player.Transform.Translation.Z+0.01));
+    this.MyLines[this.LineIndex].AttachTo(this.Owner);
+    //randomize color if color mode is on
+    if(this.Brush.Draw.DoColor)
+      this.MyLines[this.LineIndex].Sprite.VertexColor = Real4(this.Rand.Range(0,1),this.Rand.Range(0,1),this.Rand.Range(0,1),1);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  { 
+    if(!Zero.Mouse.IsButtonDown(MouseButtons.Left))
+      this.Active = false;
+      
+    if(this.Active)
+    {    
+      var mousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
+      var brushPosition = this.Brush.Transform.WorldTranslation;
+      //Console.WriteLine(mousePosition);
+      
+      var currentLine = this.MyLines[this.LineIndex];
+      //vector between line and mouse, used to find angle to point at
+      var deltaVector = currentLine.Transform.WorldTranslation - brushPosition;
+      //determine angle
+      var currentLineAngle = -Math.ATan2(deltaVector.X, deltaVector.Y) - Math.Pi / 2;
+      //used to determine length of line
+      var currentLineDistMouse = Math.Distance(brushPosition, currentLine.Transform.WorldTranslation);
+      currentLine.Transform.SetEulerAnglesXYZ(0,0,currentLineAngle);
+      currentLine.Transform.Scale = Real3(currentLineDistMouse * 129, currentLine.Transform.Scale.YZ);
+      //Console.WriteLine(this.Brush.Draw.Color);
+      
+        
+      //starting a new line when the stated length is reached, as to chain them together
+      if(currentLineDistMouse > this.Precision)
+      {
+        this.Brush.Draw.PaintAmt -= currentLineDistMouse;
+        
+        //Console.WriteLine(this.Brush.Draw.PaintAmt);
+        
+        if(this.Brush.Draw.PaintAmt <= 0)
+          this.Active = false;
+        
+        //instruction to access next line
+        this.LineIndex += 1;
+        
+        //make another line and attach it and move it to the right rotation
+        this.MyLines.Add(this.Space.CreateAtPosition(Archetype.Paint, Real3(brushPosition.XY, this.Player.Transform.Translation.Z+0.01)));
+        this.MyLines[this.LineIndex].AttachTo(this.Owner);
+        this.MyLines[this.LineIndex].Transform.SetEulerAnglesXYZ(0,0,this.MyLines[this.LineIndex-1].Transform.EulerAngles.Z);
+        //randomize color if color mode is on
+        if(this.Brush.Draw.DoColor)
+          this.MyLines[this.LineIndex].Sprite.VertexColor = Real4(this.Rand.Range(0,1),this.Rand.Range(0,1),this.Rand.Range(0,1),1);
+      }
+    }
+    
+    else if(!this.HesAlreadyDead)
+    {
+      
+      
+      foreach(var child in this.Owner.Children)
+      {
+        child.Sprite.VertexColor = Math.Lerp(child.Sprite.VertexColor, Real4(child.Sprite.VertexColor.XYZ, 0), event.Dt * 3);
+        if(child.Sprite.VertexColor.W < 0.05)        
+          child.Destroy();
+      }
+      
+    }
+  }
+}

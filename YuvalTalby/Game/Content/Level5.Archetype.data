@@ -1,0 +1,56 @@
+[Version:1]
+Cog 
+{
+	var Name = "Level5"
+	Transform 
+	{
+		var Translation = Real3{121.919678, -192.720184, -18.0000134}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Chunk 
+	{
+		var ChunkLength = 90
+		var OutBiome = ChunkOutBiome.Level2
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5c7371f6f176ce53][InheritId:"5c7372450039e9ba:TallBuilding"]
+		{
+			Transform 
+			{
+				var Translation = Real3{6.65447998, 25.2225151, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1.70000005, 1.70000005, 1}
+			}
+		}
+		Cog [Id:0x5c7371f6f176cf03][InheritId:"5c7372450039e9ba:TallBuilding"]
+		{
+			Transform 
+			{
+				var Translation = Real3{34.1447449, 25.2224998, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1.70000005, 1.70000005, 1}
+			}
+		}
+		Cog [Id:0x5c7371f6f176cf63][InheritId:"5c7372450039e9ba:TallBuilding"]
+		{
+			Transform 
+			{
+				var Translation = Real3{61.2247009, 25.2224998, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1.70000005, 1.70000005, 1}
+			}
+		}
+		Cog [Id:0x5c73763ffd31ab73][InheritId:"5c3414cb23ac125a:DeathObsticle"]
+		{
+			var Name = "DO"
+			Transform 
+			{
+				var Translation = Real3{30.4963989, 63.1248779, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{0.400000006, 0.400000006, 1}
+			}
+		}
+	}
+}

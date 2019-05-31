@@ -1,0 +1,104 @@
+[Version:1]
+Cog 
+{
+	var Name = "Level7"
+	Transform 
+	{
+		var Translation = Real3{137.964294, -60.1034508, -39.9949989}
+		var Scale = Real3{0.5, 0.5, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
+	{
+		var Visible = false
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	Chunk 
+	{
+		var ChunkLength = 230
+		var OutBiome = ChunkOutBiome.Level2
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5c374b62391218d5][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{142.532379, 55.7282486, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{3.5, 4, 1}
+			}
+		}
+		Cog [Id:0x5c374b6239121906][InheritId:"5c3c108a4b521324:GBuilding"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{37.8745422, 48.922348, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{3.5, 3.5, 1}
+			}
+		}
+		Cog [Id:0x5c737bd72b60cabe][InheritId:"5c7372450039e9ba:TallBuilding"]
+		{
+			Transform 
+			{
+				var Translation = Real3{216.545654, 67.770874, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{3.4000001, 3.4000001, 1}
+			}
+		}
+		Cog [Id:0x5c737b3436f04473][InheritId:"5c73725907256ad2:Big_Building"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{335.236694, 55.0727539, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{4, 4, 1}
+			}
+		}
+		Cog [Id:0x5c2aad8b02b1be39][InheritId:"5c3414cb23ac125a:DeathObsticle"]
+		{
+			Transform 
+			{
+				var Translation = Real3{268.840759, 130.056946, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1.60000002, 1.60000002, 1}
+			}
+		}
+		Cog [Id:0x5c2aad8b02b1be89][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{407.118744, 121.906631, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+		}
+		Cog [Id:0x5c2aad8c02070b41][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{150.311768, 137.604767, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "Thin_Building_21"
+		var ResourceId = 0x5c7370ed29ce524e
+		var FrameSizeX = 1346
+		var FrameSizeY = 3092
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 673
+		var OriginY = 1546
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}
