@@ -1,7 +1,7 @@
 [Version:1]
 SoundCue 
 {
-	var PlayMode = SoundPlayMode.Looping
+	var PlayMode = SoundPlayMode.Single
 	var Volume = 1.5
 	var UseDecibelVariation = false
 	var VolumeVariation = 0
@@ -18,11 +18,11 @@ SoundCue
 	{
 		Object
 		{
-			var Sound = "5c3d4386384955a3:HIsabellaSoundPlayerPaint"
+			var Sound = "5c2b7fdfa5325655:HIsabellaSoundPlayerDeathThud"
 			var Weight = 1
 			var StartTime = 0
-			var EndTime = 5.31418753
-			var LoopEndTime = 5.31418753
+			var EndTime = 0.43370834
+			var LoopEndTime = 0.43370834
 			var LoopStartTime = 0
 			var LoopTailLength = 0
 			var CrossFadeLoopTail = false

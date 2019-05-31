@@ -62,6 +62,7 @@ class MenuScript : ZilchComponent
   {
     //If Curser is within range and mouse goes down then set SwitchLevel to True when NextLevel is not null
     if(this.MousePosition.Y < this.OriginalPositionY + this.YBorder && this.MousePosition.X < this.OriginalPositionX + this.XBorder){
+      this.Space.SoundSpace.PlayCue(SoundCue.HSoundIsabellaMenuClick);
       if(this.MousePosition.Y > this.OriginalPositionY - this.YBorder - 1 && this.MousePosition.X > this.OriginalPositionX - this.XBorder){
         this.Owner.Transform.Translation = Real3(0, this.UpOne, 0);
           if(this.NextLevel != null){

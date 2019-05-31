@@ -15,6 +15,7 @@ class DeathOnCollision : ZilchComponent
   {
     if(event.OtherObject.Name == "Ball")
     {
+      this.Space.SoundSpace.PlayCue(SoundCue.HIsabellaSoundPlayerDeathThud);
       this.Player.DebugBall.Dying = true;
     }
     

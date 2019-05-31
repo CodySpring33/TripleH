@@ -17,5 +17,10 @@ class PlayerAnimationController : ZilchComponent
       this.Owner.Transform.SetEulerAnglesXYZ(this.Owner.Transform.EulerAngles.X, this.Owner.Transform.EulerAngles.Y, -this.Owner.Parent.Transform.EulerAngles.Z);
     }
     
+    if(this.Owner.Parent.DebugBall.Dying)
+    {
+      this.Owner.Transform.SetEulerAnglesXYZ(0,0, Math.Pi / 2);
+    }
+    
   }
 }

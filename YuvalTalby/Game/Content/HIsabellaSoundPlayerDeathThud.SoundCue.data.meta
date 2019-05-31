@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "HIsabellaSoundPlayerDeathThud"
+		var ResourceId = 0x5c2b7fdfa533cebf
+		var LoaderType = "SoundCue"
+		var Version = 0
+	}
+}

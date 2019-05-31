@@ -19,6 +19,7 @@ class CameraScript : ZilchComponent
     this.Curtain = this.Space.FindObjectByName("Curtain");
     this.Owner.Transform.Translation = Real3(0,0,0);
     this.Owner.SoundEmitter.PlayCue(SoundCue.HAJSoundGameplayTheme);
+    this.Space.SoundSpace.PlayCue(SoundCue.HAJSoundLevelStart);
     this.StartVol = SoundCue.HAJSoundGameplayTheme.Volume;
   }
 

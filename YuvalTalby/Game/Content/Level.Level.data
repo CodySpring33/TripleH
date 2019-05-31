@@ -89,7 +89,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{3.31696153, -4.36318731, 34.9899979}
+			var Translation = Real3{-187.048279, -51.7302475, 34.989994}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -142,7 +142,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 8.25143242
+			var Size = 273.249542
 		}
 		EditorCameraController 
 		{
@@ -151,7 +151,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{3.31696153, -4.36318731, 14.9899998}
+			var LookTarget = Real3{-187.048279, -51.7302475, 14.989995}
 			var MoveSensitivity = 1
 		}
 	}
@@ -247,7 +247,7 @@ Level
 		}
 		SimpleSound 
 		{
-			var StartPlaying = true
+			var StartPlaying = false
 			var Positional = false
 			var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
 		}
@@ -298,7 +298,7 @@ Level
 				}
 				SimpleSound 
 				{
-					var StartPlaying = true
+					var StartPlaying = false
 					var Positional = false
 					var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
 				}
@@ -343,7 +343,7 @@ Level
 						}
 						SimpleSound 
 						{
-							var StartPlaying = true
+							var StartPlaying = false
 							var Positional = false
 							var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
 						}
@@ -438,6 +438,21 @@ Level
 				TimerScript 
 				{
 				}
+				SoundEmitter 
+				{
+					var Volume = 1
+					var Pitch = 0
+					var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+					var Directional = false
+					var EmitAngle = 90
+					var RearVolume = 0.200000003
+				}
+				SimpleSound 
+				{
+					var StartPlaying = false
+					var Positional = false
+					var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
+				}
 				Hierarchy 
 				{
 					Cog [Id:0x5c2ab96be91bffd1][ContextId:10]
@@ -511,6 +526,10 @@ Level
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
+		SimpleSound 
+		{
+			var StartPlaying = false
+		}
 	}
 	Cog [ContextId:13]
 	{
@@ -547,6 +566,21 @@ Level
 		{
 			var NextLevel = "5c2aae8eab23544b:DeathScreen"
 		}
+		SoundEmitter 
+		{
+			var Volume = 1
+			var Pitch = 0
+			var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+			var Directional = false
+			var EmitAngle = 90
+			var RearVolume = 0.200000003
+		}
+		SimpleSound 
+		{
+			var StartPlaying = false
+			var Positional = false
+			var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
+		}
 	}
 	Cog [InheritId:"5c3de9e73d781087:Level1"][ContextId:14]
 	{
@@ -561,7 +595,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-281.720886, -65, 0}
+			var Translation = Real3{-281.720917, -65, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}

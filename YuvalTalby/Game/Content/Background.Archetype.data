@@ -4,7 +4,7 @@ Cog
 	var Name = "Transform"
 	Transform 
 	{
-		var Translation = Real3{-281.720886, -65, 0}
+		var Translation = Real3{-281.720917, -65, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -15,7 +15,7 @@ Cog
 			var Name = "resized1final"
 			Transform 
 			{
-				var Translation = Real3{127.666901, -9.41740417, -10}
+				var Translation = Real3{126.924393, -9.41740417, -10}
 				var Scale = Real3{15.1999998, 15, 1}
 				var Rotation = Quaternion{0, 0, 0, 1}
 			}
@@ -44,8 +44,8 @@ Cog
 			var Name = "resized3"
 			Transform 
 			{
-				var Translation = Real3{127.819962, 37.0821228, -25}
-				var Scale = Real3{15.1000004, 15, 1}
+				var Translation = Real3{127.819977, 37.0821228, -25}
+				var Scale = Real3{15.1800003, 15, 1}
 				var Rotation = Quaternion{0, 0, 0, 1}
 			}
 			Sprite 
@@ -73,7 +73,7 @@ Cog
 			var Name = "Layer2spritesheet_0"
 			Transform 
 			{
-				var Translation = Real3{127.521408, 35.3503265, -18}
+				var Translation = Real3{127.150116, 34.2365341, -18}
 				var Scale = Real3{256, 256, 1}
 				var Rotation = Quaternion{0, 0, 0, 1}
 			}
