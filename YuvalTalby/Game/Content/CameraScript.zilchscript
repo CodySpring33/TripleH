@@ -27,7 +27,7 @@ class CameraScript : ZilchComponent
     if(this.Player.Transform.Translation.Y < 40)
       this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, Real3(this.Player.Transform.Translation.X + 20, this.Player.Transform.Translation.Y + 5,10), 10 * event.Dt);
     else
-      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, Real3(this.Player.Transform.Translation.X + 15, 40,10), 10 * event.Dt);
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, Real3(this.Player.Transform.Translation.X + 20, 45,10), 10 * event.Dt);
     
     this.Owner.SoundEmitter.Volume = 0.08 - this.Curtain.Sprite.VertexColor.W;
     

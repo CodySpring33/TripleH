@@ -15,7 +15,5 @@ class DeathScreenScript : ZilchComponent
     if(this.LevelSettings.LevelVars.PlayerDead == true){
       this.Owner.SpriteText.Visible = true;
     }
-    Zero.Mouse.Cursor = Cursor.Arrow;
-    Console.WriteLine("SUCCESS!");
   }
 }

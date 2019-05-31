@@ -12,6 +12,9 @@ class DebugBall : ZilchComponent
   [Property]
   var GracePeriod : Real = 1;
   
+  //prevents land sound from playing too often
+  var LandDebugGracePeriod : Real = 0.25;
+  
   var TimeBoy : Cog = null;
   var Brush : Cog = null;
   var VisiblePlayer : Cog = null;
@@ -53,6 +56,8 @@ class DebugBall : ZilchComponent
   {
     //if(this.Owner.Collider.Contacts.IsEmpty) 
       //this.Snap();
+      
+    this.LandDebugGracePeriod = 0.25;
     
   }
   
@@ -61,6 +66,7 @@ class DebugBall : ZilchComponent
     
   }
   
+  //this isn't used
   function Snap()
   {
     var min = -1.0;
@@ -103,8 +109,11 @@ class DebugBall : ZilchComponent
   function OnCollisionStarted(event : CollisionEvent)
   {
     
-    if(event.OtherObject.Name.Contains("Block"))
+    if(event.OtherObject.Name.Contains("Block") && this.LandDebugGracePeriod < 0)
+    {
       this.Owner.SoundEmitter.PlayCue(SoundCue.HIsabellaSoundPlayerLand);
+      Console.WriteLine("CHECK `event.OtherObject.Name`");
+    }
     //this isn't needed anymore    
     //var acceptable = false; // shift up a bit when you're both colliding with a line for the first time and is currently in collision with building
     //if(event.OtherObject.Name == "Paint")
@@ -209,12 +218,17 @@ class DebugBall : ZilchComponent
         this.AnimeTimer += event.Dt;
         
     }
+    
+    //doesn't matter if this goes past 0
+    this.LandDebugGracePeriod -= event.Dt;
+    
     if(this.Owner.Collider.Contacts.IsEmpty && this.AnimeTimer < 0.35)
       this.AnimeTimer += event.Dt;
     
+        
     if(this.AnimeTimer >= 0.35)
     { 
-      Console.WriteLine("moving to fall");
+      //Console.WriteLine("moving to fall");
       this.VisiblePlayer.Sprite.SpriteSource = SpriteSource.Falling;
     } 
     else if(this.VisiblePlayer.Sprite.SpriteSource == SpriteSource.Falling)
@@ -222,9 +236,6 @@ class DebugBall : ZilchComponent
       Console.WriteLine(this.VisiblePlayer.Sprite.SpriteSource.Name);
       this.VisiblePlayer.Sprite.SpriteSource = SpriteSource.Run_0_0; 
     }
-    
-    if(this.Owner.Transform.Translation.Y > 20)
-      Console.WriteLine("yee haw");
     
     
     /****END****/

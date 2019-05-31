@@ -11,6 +11,6 @@ class VroomScript : ZilchComponent
   function OnLogicUpdate(event : UpdateEvent)
   {
     this.Owner.Transform.Translation = Real3(this.Brush.Transform.WorldTranslation.XY, this.Brush.Transform.WorldTranslation.Z);
-    Console.WriteLine(this.Owner.Transform.WorldTranslation);
+    //Console.WriteLine(this.Owner.Transform.WorldTranslation);
   }
 }

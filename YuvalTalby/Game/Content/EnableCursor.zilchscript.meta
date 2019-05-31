@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "EnableCursor"
+		var ResourceId = 0x5c25d4ea2a9c2d79
+	}
+}

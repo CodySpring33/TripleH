@@ -38,6 +38,9 @@ Level
 			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
+		EnableCursor 
+		{
+		}
 	}
 	Cog [ContextId:2]
 	{
