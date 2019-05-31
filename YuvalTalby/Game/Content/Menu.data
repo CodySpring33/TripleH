@@ -134,7 +134,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 44.5107536
+			var Size = 36.4423294
 		}
 		EditorCameraController 
 		{
@@ -336,7 +336,7 @@ Level
 		var Name = "PlayButton"
 		Transform 
 		{
-			var Translation = Real3{-4, -6, 0}
+			var Translation = Real3{0.0406770706, -6, 0}
 			var Scale = Real3{0.99999994, 0.99999994, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -367,41 +367,6 @@ Level
 		}
 	}
 	Cog [ContextId:8]
-	{
-		var Name = "Settings"
-		Transform 
-		{
-			var Translation = Real3{4, -6, -6.04383459e-08}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c2aa1ae504aa18c:Cogsprite"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		MenuScriptScript 
-		{
-			var NextLevel = "5c7b096b385ea805:Settings"
-			var XBorder = 2
-			var YBorder = 2
-		}
-	}
-	Cog [ContextId:9]
 	{
 		var Name = "Sprite"
 		Transform 
