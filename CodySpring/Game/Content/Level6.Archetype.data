@@ -4,7 +4,7 @@ Cog
 	var Name = "Level6"
 	Transform 
 	{
-		var Translation = Real3{348.292847, -373.068329, 0}
+		var Translation = Real3{64.8987885, -217.225037, -18.0000134}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}

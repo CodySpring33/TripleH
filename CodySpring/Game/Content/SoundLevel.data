@@ -259,7 +259,7 @@ Level
 		{
 			var StartPlaying = true
 			var Positional = false
-			var Cue = "5c3d43e42225c564:HIsabellaSoundMainMenuTheme"
+			var Cue = "5c6c5707d2c0fb2e:HIsabellaSoundMainMenuTheme1"
 		}
 	}
 }

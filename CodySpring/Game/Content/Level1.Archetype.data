@@ -51,6 +51,15 @@ Cog
 			{
 				var AngularVelocity = Real3{0, 0, 0}
 			}
+			Hierarchy [ChildOrderOverride]
+			{
+				Cog [Id:0x5c6c44c4b6603519][InheritId:"5c6c4542e6cb05ca:WallDeathCollider"]
+				{
+				}
+				Cog [Id:0x5c6c44c4b66035c7][InheritId:"5c6c4542e6cb05ca:WallDeathCollider"]
+				{
+				}
+			}
 		}
 		Cog [Id:0x5c74b2b7b938636c][InheritId:"5c3c108a4b521324:GBuilding"]
 		{

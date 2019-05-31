@@ -26,7 +26,7 @@ class CurtainScript : ZilchComponent
     this.Owner.Sprite.VertexColor = Real4(this.Owner.Sprite.VertexColor.XYZ, goalOpacity);
     if(this.FadeToBlack)
     {  
-//      Console.WriteLine("ASS");    
+
       this.Owner.Sprite.VertexColor = Math.Lerp(this.Owner.Sprite.VertexColor, Real4(0,0,0,goalOpacity), event.Dt * 10);
     }
   }

@@ -2,7 +2,7 @@
 SoundCue 
 {
 	var PlayMode = SoundPlayMode.Looping
-	var Volume = 0.349999994
+	var Volume = 1
 	var UseDecibelVariation = false
 	var VolumeVariation = 0
 	var DecibelVariation = 0
@@ -18,7 +18,7 @@ SoundCue
 	{
 		Object
 		{
-			var Sound = "5c3d43e4222b1a51:HIsabellaSoundMainMenuTheme"
+			var Sound = "5c6c5707d2d79f5f:HIsabellaSoundMainMenuTheme1"
 			var Weight = 1
 			var StartTime = 0
 			var EndTime = 7.38460398

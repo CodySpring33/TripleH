@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "WallDeathCollider"
+		var ResourceId = 0x5c6c4542e6cb05ca
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

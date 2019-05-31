@@ -4,7 +4,7 @@ Cog
 	var Name = "Level3"
 	Transform 
 	{
-		var Translation = Real3{-36.5357742, -322.372833, 0}
+		var Translation = Real3{86.8312988, -161.629745, -18.0000134}
 		var Scale = Real3{0.5, 0.5, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -62,15 +62,6 @@ Cog
 				var Translation = Real3{37.8745422, 48.922348, 0}
 				var Rotation = Quaternion{0, 0, 0, 1}
 				var Scale = Real3{3.5, 3.5, 1}
-			}
-		}
-		Cog [Id:0x5c2ad7c268c2c4a4][InheritId:"5c2ad5e7891929fd:Spawner"]
-		{
-			Transform 
-			{
-				var Translation = Real3{65.7412949, 146.295441, 0}
-				var Rotation = Quaternion{0, 0, 0, 1}
-				var Scale = Real3{2, 2, 1}
 			}
 		}
 	}
