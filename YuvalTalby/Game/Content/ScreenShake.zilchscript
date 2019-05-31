@@ -35,10 +35,12 @@ class ScreenShake : ZilchComponent
         this.ShakeLevel *= 0.9;
       this.Shake = this.Rand.Real3(-this.ShakeLevel,this.ShakeLevel);
       if(touchingBlock)
+      {
         this.Owner.Transform.Translation += Real3(this.Shake.XY,0);
+      }
       //this.Brush.Transform.Translation -= Real3(this.Shake.XY,0);
     }
-    if(playerVelDelta > 0.4)
+    if(playerVelDelta > 0.4 && this.Player.RigidBody.Velocity.Y < 0.1 && this.Player.RigidBody.Velocity.Y > -0.1)
     {
       //scale with the square
      var actualShake = (playerVelDelta * this.ShakeAmpContant) * (playerVelDelta * this.ShakeAmpContant);
@@ -46,6 +48,11 @@ class ScreenShake : ZilchComponent
       this.ShakeLevel += actualShake;
      else
       this.ShakeLevel += 100;
+      
+     //also make appropriate sound
+     Console.WriteLine(actualShake); 
+     this.Player.SoundEmitter.PlayCue(SoundCue.HAJSoundPlayerLandShake);
+     this.Player.SoundEmitter.Volume = actualShake;
     }
     this.LastVel = this.Player.RigidBody.Velocity;
     this.Timer += event.Dt;

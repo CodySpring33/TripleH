@@ -15,7 +15,7 @@ class DeathOnCollision : ZilchComponent
   {
     if(event.OtherObject.Name == "Ball")
     {
-      this.Player.DebugBall.Dead = true;
+      this.Player.DebugBall.Dying = true;
     }
     
   }

@@ -89,7 +89,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-0.133293539, -79.620903, 1.99998665}
+			var Translation = Real3{3.31696153, -4.36318731, 34.9899979}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -142,7 +142,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 450.512115
+			var Size = 8.25143242
 		}
 		EditorCameraController 
 		{
@@ -151,7 +151,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{-0.133293539, -79.620903, -18.0000134}
+			var LookTarget = Real3{3.31696153, -4.36318731, 14.9899998}
 			var MoveSensitivity = 1
 		}
 	}
@@ -274,7 +274,7 @@ Level
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
-					var SpriteSource = "5c7b041600567095:HArtJoeCursor_0"
+					var SpriteSource = "5c247e2fdcf1e8d8:HArtCursorFilled"
 					var FlipX = false
 					var FlipY = false
 					var AnimationActive = false
@@ -302,8 +302,113 @@ Level
 					var Positional = false
 					var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
 				}
+				Hierarchy 
+				{
+					Cog [Id:0x5c25f629182bafc9][ContextId:6]
+					{
+						var Name = "SnappingHand"
+						Transform 
+						{
+							var Translation = Real3{0, 0, 0}
+							var Scale = Real3{4, 4, 1}
+							var Rotation = Quaternion{0, 0, -0.258819044, 0.965925872}
+						}
+						Sprite 
+						{
+							var Visible = false
+							var ViewCulling = true
+							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
+							var Material = "582c575af53d18c9:AlphaSprite"
+							var VertexColor = Real4{1, 1, 1, 1}
+							var GeometryMode = SpriteGeometryMode.ZPlane
+							var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+							var FlipX = false
+							var FlipY = false
+							var AnimationActive = true
+							var AnimationSpeed = 1
+							var StartFrame = 0
+						}
+						SoundEmitter 
+						{
+							var Volume = 1
+							var Pitch = 0
+							var Attenuator = "57ca8a6ad262efe5:DefaultNoAttenuation"
+							var Directional = false
+							var EmitAngle = 90
+							var RearVolume = 0.200000003
+						}
+						SimpleSound 
+						{
+							var StartPlaying = true
+							var Positional = false
+							var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
+						}
+					}
+					Cog [Id:0x5c2471ba36db68d7][ContextId:7]
+					{
+						var Name = "BlackBox"
+						Transform 
+						{
+							var Translation = Real3{-0.5, -6, -0.0199999996}
+							var Scale = Real3{5.5, 11.25, 1}
+							var Rotation = Quaternion{0, 0, 0, 1}
+						}
+						Sprite 
+						{
+							var Visible = true
+							var ViewCulling = true
+							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
+							var Material = "582c575af53d18c9:AlphaSprite"
+							var VertexColor = Real4{0, 0, 0, 1}
+							var GeometryMode = SpriteGeometryMode.ZPlane
+							var SpriteSource = "5275aa4d802dd6dc:Square"
+							var FlipX = false
+							var FlipY = false
+							var AnimationActive = true
+							var AnimationSpeed = 1
+							var StartFrame = 0
+						}
+					}
+					Cog [Id:0x5c247edefb7c569a][ContextId:8]
+					{
+						var Name = "BlueBox"
+						Transform 
+						{
+							var Translation = Real3{-0.5, -11.75, -0.00999999978}
+							var Scale = Real3{5.5, 11.25, 1}
+							var Rotation = Quaternion{0, 0, 0, 1}
+						}
+						Sprite 
+						{
+							var Visible = true
+							var ViewCulling = true
+							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
+							var Material = "582c575af53d18c9:AlphaSprite"
+							var VertexColor = Real4{0, 0.749019325, 0.952941239, 1}
+							var GeometryMode = SpriteGeometryMode.ZPlane
+							var SpriteSource = "5c247d8d0a877261:Palebluedot"
+							var FlipX = false
+							var FlipY = false
+							var AnimationActive = true
+							var AnimationSpeed = 1
+							var StartFrame = 0
+						}
+					}
+				}
 			}
-			Cog [Id:0x5c7b0fb065822a21][ContextId:6]
+			Cog [Id:0x5c7b0fb065822a21][ContextId:9]
 			{
 				var Name = "Time"
 				Transform 
@@ -335,7 +440,7 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog [Id:0x5c2ab96be91bffd1][ContextId:7]
+					Cog [Id:0x5c2ab96be91bffd1][ContextId:10]
 					{
 						var Name = "HThaneArtCounterBackground"
 						Transform 
@@ -366,7 +471,7 @@ Level
 					}
 				}
 			}
-			Cog [Id:0x5c3740bea316f01a][ContextId:8]
+			Cog [Id:0x5c3740bea316f01a][ContextId:11]
 			{
 				var Name = "HArtJoeSkybox"
 				Transform 
@@ -397,7 +502,7 @@ Level
 			}
 		}
 	}
-	Cog [InheritId:"5c695a5b6c1f7918:Ball"][ContextId:9]
+	Cog [InheritId:"5c695a5b6c1f7918:Ball"][ContextId:12]
 	{
 		var Name = "Ball"
 		Transform 
@@ -407,7 +512,7 @@ Level
 			var Scale = Real3{1, 1, 1}
 		}
 	}
-	Cog [ContextId:10]
+	Cog [ContextId:13]
 	{
 		var Name = "Curtain"
 		Transform 
@@ -443,7 +548,7 @@ Level
 			var NextLevel = "5c2aae8eab23544b:DeathScreen"
 		}
 	}
-	Cog [InheritId:"5c3de9e73d781087:Level1"][ContextId:11]
+	Cog [InheritId:"5c3de9e73d781087:Level1"][ContextId:14]
 	{
 		Transform 
 		{
@@ -452,7 +557,7 @@ Level
 			var Scale = Real3{0.5, 0.5, 1}
 		}
 	}
-	Cog [InheritId:"5c74a8d9107a695f:Background"][ContextId:12]
+	Cog [InheritId:"5c74a8d9107a695f:Background"][ContextId:15]
 	{
 		Transform 
 		{

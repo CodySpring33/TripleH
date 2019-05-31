@@ -31,6 +31,10 @@ class Draw : ZilchComponent
   
   var MyParticles : Cog = null;
   
+  var SnappingHand : Cog = null;
+  
+  var PaintMeter : Cog = null;
+  
   var DoColor : Boolean = false;
   
   //the first measurement of the mouse's position is always something really dumb for whatever reason. this fixes that
@@ -52,9 +56,12 @@ class Draw : ZilchComponent
     Zero.Connect(Zero.Mouse, Events.MouseUp, this.OnMouseUp);
     this.Camera = this.Space.FindObjectByName("GameCamera");
     this.Player = this.Space.FindObjectByName("Ball");
+    this.SnappingHand = this.Space.FindObjectByName("SnappingHand");
+    this.PaintMeter = this.Space.FindObjectByName("BlueBox");
     this.PaintAmt = this.MaxPaintAmt;
     this.Owner.SoundEmitter.PlayCue(SoundCue.HIsabellaSoundPlayerPaint);
     this.Owner.SoundEmitter.Paused = true;
+    
     
   }
 
@@ -109,18 +116,23 @@ class Draw : ZilchComponent
   {
     //stoping drawing when you let go of the mouse
     if(this.MyDrawings[this.DrawIndex].Sprite.SpriteSource == SpriteSource.Pixel)
+    {
       this.MyDrawings[this.DrawIndex].DrawLines.Active = false;
+      this.SnappingHand.SoundEmitter.PlayCue(SoundCue.HIsabellaSoundPaintingComplete);
+    }
     
     if(this.MyDrawings[this.DrawIndex].Sprite.SpriteSource == SpriteSource.Square)
       this.MyDrawings[this.DrawIndex].DrawSquare.Active = false;
-      
-    this.MyParticles.Destroy();
+    
+    //UNCOMMENT  
+    //this.MyParticles.Destroy();
     
   }
 
   function OnMouseDown(event : ViewportMouseEvent)
   {
-    this.MyParticles = this.Space.CreateAtPosition(Archetype.Vroom, this.Owner.Transform.WorldTranslation);
+    //UNCOMMENT
+    //this.MyParticles = this.Space.CreateAtPosition(Archetype.Vroom, this.Owner.Transform.WorldTranslation);
     //spawning appropriate object
     if(this.Shape == 0 && this.PaintAmt > 0)
       this.MyDrawings.Add(this.Space.CreateAtPosition(Archetype.Drawer, Real3(this.MousePosition.XY,0.01)));
@@ -157,8 +169,18 @@ class Draw : ZilchComponent
   {
     Zero.Mouse.Cursor = Cursor.Invisible;
     
+    //updates the paint meter
+    var meterLength = (this.PaintAmt / this.MaxPaintAmt) * 11.25;
+    Console.WriteLine(meterLength);
+    this.PaintMeter.Transform.Scale = Real3(this.PaintMeter.Transform.Scale.XZ, meterLength);
+    if(this.PaintAmt < 0)
+      this.Owner.Sprite.SpriteSource = SpriteSource.HArtCursorEmpty;
+    else
+      this.Owner.Sprite.SpriteSource = SpriteSource.HArtCursorFilled;
     
-    this.Owner.Sprite.CurrentFrame = Math.Round(this.PaintAmt / this.MaxPaintAmt * 10) as Integer;
+    //deprecated, originally used animation to display amt of paint
+    //this.Owner.Sprite.CurrentFrame = Math.Round(this.PaintAmt / this.MaxPaintAmt * 10) as Integer;
+    
     //get mouse position
     this.MousePosition = this.Camera.CameraViewport.ScreenToWorldZPlane(Zero.Mouse.ClientPosition, 0);
     

@@ -111,6 +111,7 @@ class DebugBall : ZilchComponent
     
     if(event.OtherObject.Name.Contains("Block") && this.LandDebugGracePeriod < 0)
     {
+      this.Owner.SoundEmitter.Volume = 1;
       this.Owner.SoundEmitter.PlayCue(SoundCue.HIsabellaSoundPlayerLand);
       Console.WriteLine("CHECK `event.OtherObject.Name`");
     }
@@ -186,6 +187,7 @@ class DebugBall : ZilchComponent
     if(this.Dying)
     {
       this.Owner.Sprite.VertexColor = Math.Lerp(this.Owner.Sprite.VertexColor, Real4(this.Owner.Sprite.VertexColor.XYZ, 0),event.Dt * 10);
+      this.VisiblePlayer.Sprite.VertexColor = this.Owner.Sprite.VertexColor;
       this.Owner.RigidBody.Velocity = Math.Lerp(this.Owner.RigidBody.Velocity, Real3(0,this.Owner.RigidBody.Velocity.Y,0), event.Dt * 2);
       if(this.Owner.Sprite.VertexColor.W < 0.05)
       {

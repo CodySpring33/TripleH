@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "Palebluedot"
+		var ResourceId = 0x5c247d8d0a877261
+		var FrameSizeX = 1
+		var FrameSizeY = 1
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 0.5
+		var OriginY = 1
+		var PixelsPerUnit = 1
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}
