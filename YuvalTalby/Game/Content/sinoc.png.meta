@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "sinoc"
+		var ResourceId = 0x5c219ef973db27bc
+		var FrameSizeX = 683
+		var FrameSizeY = 507
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 341
+		var OriginY = 253
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

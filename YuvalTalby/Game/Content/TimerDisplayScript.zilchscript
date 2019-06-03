@@ -13,7 +13,15 @@ class TimerDisplayScript : ZilchComponent
     //sets the sprite text
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     this.Player = this.Space.FindObjectByName("Ball");
-    this.Owner.SpriteText.Text = "Distance: `this.GameSession.GameVars.Distance as Integer`";
+    if(this.GameSession.GameVars.Distance >= 0)
+    {
+      this.Owner.SpriteText.Text = "Distance: `this.GameSession.GameVars.Distance as Integer`";
+    }
+    else if(this.GameSession.GameVars.Distance > -510)
+      this.Owner.SpriteText.Text = "Go further. He calls for you.";
+    else
+      this.Owner.SpriteText.Text = "Live free.";
+    
   }
   function OnLogicUpdate(event : UpdateEvent)
   {
