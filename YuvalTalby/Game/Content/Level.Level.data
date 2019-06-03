@@ -89,7 +89,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{47.3161583, -19.4614964, 34.9899979}
+			var Translation = Real3{62.700634, -32.7175407, 34.989994}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -142,7 +142,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 49.918293
+			var Size = 223.718369
 		}
 		EditorCameraController 
 		{
@@ -151,7 +151,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{47.3161583, -19.4614964, 14.9899979}
+			var LookTarget = Real3{62.700634, -32.7175407, 14.989994}
 			var MoveSensitivity = 1
 		}
 	}
@@ -413,7 +413,7 @@ Level
 				var Name = "Time"
 				Transform 
 				{
-					var Translation = Real3{25.7745476, 16.8699207, -10}
+					var Translation = Real3{18.5577412, 13.5341654, -9}
 					var Scale = Real3{10, 10, 1}
 					var Rotation = Quaternion{0, 0, 0, 1}
 				}
@@ -429,7 +429,7 @@ Level
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
-					var Text = "Time: 2.0"
+					var Text = "Distance: 1000"
 					var Font = "5c2aa02478fca154:StencilArmyWWI"
 					var FontSize = 32
 					var PixelsPerUnit = 300
@@ -460,8 +460,8 @@ Level
 						var Name = "HThaneArtCounterBackground"
 						Transform 
 						{
-							var Translation = Real3{0.271906644, -0.0167638063, -0.00999999978}
-							var Scale = Real3{0.0799999982, 0.0799999982, 1}
+							var Translation = Real3{0.432386756, -0.0272772089, -0.00999999978}
+							var Scale = Real3{0.100000001, 0.100000001, 1}
 							var Rotation = Quaternion{0, 0, 0, 1}
 						}
 						Sprite 
@@ -539,7 +539,7 @@ Level
 					var SystemSpace = SystemSpace.WorldSpace
 					var WarmUpTime = 0
 					var PreviewInEditor = false
-					var VertexColor = Real4{0.676352501, 0.725000024, 0.28275001, 1}
+					var VertexColor = Real4{0.976470649, 0.90196085, 0.450980425, 1}
 					var GeometryMode = SpriteParticleGeometryMode.Billboarded
 					var SpriteSource = "5274db4c2e7c11f9:Circle"
 					var ParticleAnimation = SpriteParticleAnimationMode.Single
@@ -662,20 +662,20 @@ Level
 			var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
 		}
 	}
-	Cog [InheritId:"5c3de9e73d781087:Level1"][ContextId:15]
-	{
-		Transform 
-		{
-			var Translation = Real3{-2.41701126, -75.6343384, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{0.5, 0.5, 1}
-		}
-	}
-	Cog [InheritId:"5c74a8d9107a695f:Background"][ContextId:16]
+	Cog [InheritId:"5c74a8d9107a695f:Background"][ContextId:15]
 	{
 		Transform 
 		{
 			var Translation = Real3{-281.720917, -65, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [InheritId:"5c217a6ff1f3eb15:LevelTut"][ContextId:16]
+	{
+		Transform 
+		{
+			var Translation = Real3{-22.2604351, -86.3579559, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}

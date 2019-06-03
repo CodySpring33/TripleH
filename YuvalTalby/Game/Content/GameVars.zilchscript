@@ -9,6 +9,7 @@ class GameVars : ZilchComponent
   var ToggleMusic : Boolean = false;
   var Timer : Real = 0;
   var Time : Real = 0;
+  var Distance : Real = 0;
   function Initialize(init : CogInitializer)
   {
   }

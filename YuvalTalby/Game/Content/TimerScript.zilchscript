@@ -1,5 +1,5 @@
 /////////////////////
-//Name: John Richardson
+//Name: John Richardson / Yuval Talby
 //Date: 5/22/19
 //Brief: Creates a Timer and tells the player the Time
 ////////////////////
@@ -10,16 +10,19 @@ class TimerScript : ZilchComponent
   var Timer : Real = 0;
   var Delay : Real = 0.1;
   var Time : Real = 0;
+  var Player : Cog = null;
   
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    this.Player = this.Space.FindObjectByName("Ball");
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    //increases timer if player isnt dead
-    this.Timer += event.Dt;
+    //increases timer if run has started properly
+    if(this.Player.Transform.Translation.X > 350)
+      this.Timer += event.Dt;
     //
     if(this.Timer >= this.Delay){
       this.Delay += 0.1;
@@ -29,10 +32,14 @@ class TimerScript : ZilchComponent
     if(this.Time == 10){
       this.Time = 0;
     }
-    //Displays the Timer
-    this.Owner.SpriteText.Text = "Time: `this.Timer as Integer`.`this.Time as Integer`";
+    //Displays the Distance
+    if(this.Player.Transform.Translation.X > 350)
+      this.Owner.SpriteText.Text = "Distance: `(this.Player.Transform.Translation.X - 350) as Integer`";
+    else
+      this.Owner.SpriteText.Text = "Distance: 0";
     //Saves the Variables in Game Vars so other Scripts can Access Them from Different Levels
       this.GameSession.GameVars.Timer = this.Timer;
       this.GameSession.GameVars.Time = this.Time;
+      this.GameSession.GameVars.Distance = this.Player.Transform.Translation.X - 350;
   }
 }

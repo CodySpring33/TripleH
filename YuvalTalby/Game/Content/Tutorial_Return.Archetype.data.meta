@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Tutorial_Return"
+		var ResourceId = 0x5c21e7d6085c3348
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

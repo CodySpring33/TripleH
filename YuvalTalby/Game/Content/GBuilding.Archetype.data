@@ -4,7 +4,7 @@ Cog
 	var Name = "Block"
 	Transform 
 	{
-		var Translation = Real3{129.516953, 22.7730484, 0}
+		var Translation = Real3{41.5966988, 115.816673, 0}
 		var Scale = Real3{3.5, 3.5, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -52,7 +52,7 @@ Cog
 		{
 			Transform 
 			{
-				var Translation = Real3{-11.5915089, 1.14307785, 0}
+				var Translation = Real3{-11.5915089, 1.5, 0}
 				var Rotation = Quaternion{0, 0, 0, 1}
 				var Scale = Real3{0.571428537, 1.15476096, 1}
 			}
@@ -61,7 +61,7 @@ Cog
 		{
 			Transform 
 			{
-				var Translation = Real3{9.99240112, 1.14307785, 0}
+				var Translation = Real3{9.99240112, 1.25, 0}
 				var Rotation = Quaternion{0, 0, 0, 1}
 				var Scale = Real3{0.571428537, 1.15476096, 1}
 			}

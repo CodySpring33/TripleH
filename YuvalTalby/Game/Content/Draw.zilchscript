@@ -175,7 +175,7 @@ class Draw : ZilchComponent
     
     //updates the paint meter
     var meterLength = (this.PaintAmt / this.MaxPaintAmt) * 11.25;
-    Console.WriteLine(meterLength);
+    //Console.WriteLine(meterLength);
     this.PaintMeter.Transform.Scale = Real3(this.PaintMeter.Transform.Scale.XZ, meterLength);
     if(this.PaintAmt < 0)
     {
@@ -202,7 +202,11 @@ class Draw : ZilchComponent
         
         if(contact.OtherObject.Name.Contains("Block"))
         {
-          this.PaintAmt += event.Dt * this.RefillMultiplier;
+          this.PaintAmt += this.Player.DebugBall.ThrustStrength / 50 * event.Dt * this.RefillMultiplier;
+          if(contact.OtherObject.Name.Contains("BlockT"))
+          {
+            this.PaintAmt += this.Player.DebugBall.ThrustStrength / 5 * event.Dt * this.RefillMultiplier;
+          }
           this.Shape = 0;
         }
           

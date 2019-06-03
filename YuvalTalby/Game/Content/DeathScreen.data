@@ -133,7 +133,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 60.0832596
+			var Size = 32.974411
 		}
 		EditorCameraController 
 		{
@@ -276,7 +276,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Time Survived"
+			var Text = "Distance"
 			var Font = "5c2aa02478fca154:StencilArmyWWI"
 			var FontSize = 64
 			var PixelsPerUnit = 128

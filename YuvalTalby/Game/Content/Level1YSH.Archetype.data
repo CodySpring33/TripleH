@@ -1,0 +1,92 @@
+[Version:1]
+Cog 
+{
+	var Name = "Level1YSH"
+	Transform 
+	{
+		var Translation = Real3{-36.4414368, -10.2660923, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Chunk 
+	{
+		var ChunkLength = 100
+		var OutBiome = ChunkOutBiome.Level2
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5c7374c3dcf2ab55][InheritId:"5c73725907256ad2:Big_Building"]
+		{
+			var Name = "Block"
+			Transform 
+			{
+				var Translation = Real3{40.7823486, 25.4123535, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{2, 2, 1}
+			}
+		}
+		Cog [Id:0x5c260214e9d201c4][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{13.7243538, 60.4008484, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+		}
+		Cog [Id:0x5c260214e9d2020d][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{26.7135677, 60.2269669, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+		}
+		Cog [Id:0x5c260214e9d20232][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{38.5909729, 60.2964249, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+		}
+		Cog [Id:0x5c260214e9d20256][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{49.7043343, 60.2269669, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+		}
+		Cog [Id:0x5c260214e9d2027b][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{63.0403671, 60.0880508, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+		}
+		Cog [Id:0x5c260214e9d2029c][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{85.5449219, 60.2964249, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+		}
+		Cog [Id:0x5c260214e9d202be][InheritId:"5c2ac7a9a564a91d:Vent"]
+		{
+			Transform 
+			{
+				var Translation = Real3{73.8759003, 60.2269669, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 1, 1}
+			}
+		}
+	}
+}

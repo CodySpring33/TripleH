@@ -7,11 +7,13 @@ class TimerDisplayScript : ZilchComponent
 {
   var Timer : Real = 0;
   var Delay: Real = 1;
+  var Player : Cog = null;
   function Initialize(init : CogInitializer)
   {
     //sets the sprite text
-    this.Owner.SpriteText.Text = "Time Survived: `this.GameSession.GameVars.Timer as Integer`.`this.GameSession.GameVars.Time as Integer`";
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    this.Player = this.Space.FindObjectByName("Ball");
+    this.Owner.SpriteText.Text = "Distance: `this.GameSession.GameVars.Distance as Integer`";
   }
   function OnLogicUpdate(event : UpdateEvent)
   {

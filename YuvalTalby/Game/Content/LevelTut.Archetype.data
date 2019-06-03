@@ -1,0 +1,132 @@
+[Version:1]
+Cog 
+{
+	var Name = "LevelTut"
+	Transform 
+	{
+		var Translation = Real3{-22.2604351, -86.3579559, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Chunk 
+	{
+		var ChunkLength = 400
+		var OutBiome = ChunkOutBiome.Level2
+	}
+	TutorialReturn 
+	{
+	}
+	Hierarchy 
+	{
+		Cog [Id:0x5c7374c3dcf2ab55][InheritId:"5c73725907256ad2:Big_Building"]
+		{
+			var Name = "BlockT"
+			Transform 
+			{
+				var Translation = Real3{41, 25, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{2, 2, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x5c6c55bee4d18173][LocallyRemoved]
+				{
+				}
+			}
+		}
+		Cog [Id:0x5c217a97efd17a9d][InheritId:"5c73725907256ad2:Big_Building"]
+		{
+			var Name = "BlockT"
+			Transform 
+			{
+				var Translation = Real3{124, 25, 0.00100000005}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{2, 2, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x5c6c55bee4d18173][LocallyRemoved]
+				{
+				}
+				Cog [Id:0x5c6c55bee4d180eb][LocallyRemoved]
+				{
+				}
+			}
+		}
+		Cog [Id:0x5c21791412e52c21][InheritId:"5c73725907256ad2:Big_Building"]
+		{
+			var Name = "BlockT"
+			Transform 
+			{
+				var Translation = Real3{250, 25, 5.7220459e-06}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{2, 2, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x5c6c55bee4d18173][LocallyRemoved]
+				{
+				}
+				Cog [Id:0x5c6c55bee4d180eb][LocallyRemoved]
+				{
+				}
+			}
+		}
+		Cog [Id:0x5c210fc98bfdf571][InheritId:"5c73725907256ad2:Big_Building"]
+		{
+			var Name = "BlockT"
+			Transform 
+			{
+				var Translation = Real3{324, 25, -0.00999999978}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{2, 2, 1}
+			}
+			Hierarchy 
+			{
+				Cog [Id:0x5c6c55bee4d180eb][LocallyRemoved]
+				{
+				}
+			}
+		}
+		Cog [Id:0x5c21e5586e5c5516][InheritId:"5c21e7d6085c3348:Tutorial_Return"]
+		{
+			Transform 
+			{
+				var Translation = Real3{208.390182, 15.7018337, 4.60030378e-06}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 75, 1}
+			}
+		}
+		Cog [Id:0x5c21e5586e5c555f][InheritId:"5c21e7d6085c3348:Tutorial_Return"]
+		{
+			Transform 
+			{
+				var Translation = Real3{175.890182, 15.7018337, 4.60030378e-06}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{1, 75, 1}
+			}
+		}
+		Cog [Id:0x5c21e5586e5c5583][InheritId:"5c21e7d6085c3348:Tutorial_Return"]
+		{
+			Transform 
+			{
+				var Translation = Real3{191.390182, 35, 4.60030378e-06}
+				var Rotation = Quaternion{0, 0, 0.707106829, 0.707106769}
+				var Scale = Real3{1.00000012, 75.0000076, 1}
+			}
+		}
+		Cog [Id:0x5c21f6ba1710d0a4][InheritId:"5c21f6ba1711116b:DeathObsticleTut"]
+		{
+			Transform 
+			{
+				var Translation = Real3{287.687775, 62.3463974, 0}
+				var Rotation = Quaternion{0, 0, 0, 1}
+				var Scale = Real3{0.800000012, 0.800000012, 1}
+			}
+			RigidBody 
+			{
+				var DynamicState = RigidBodyDynamicState.Static
+			}
+		}
+	}
+}

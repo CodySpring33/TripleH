@@ -1,6 +1,6 @@
 class Generation : ZilchComponent
 {
-  [Property] var NameOfFirstChunk : String = "Level1";
+  [Property] var NameOfFirstChunk : String = "LevelTut";
   var CurrChunk : Cog = null;
   var OldChunks : Array[Cog] = Array[Cog]();
   var Player : Cog = null;
@@ -17,7 +17,7 @@ class Generation : ZilchComponent
   var Firstback : Cog = null;
   function Initialize(init : CogInitializer)
   {
-    this.CurrChunk = this.Space.FindObjectByName(this.NameOfFirstChunk);
+    this.CurrChunk = this.Space.FindObjectByName("LevelTut");
     this.Player = this.Space.FindObjectByName("Ball");
     this.PlayerStartingX = this.Player.Transform.Translation.X;
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -86,7 +86,7 @@ class Generation : ZilchComponent
     }
     else if(this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level2)
     {
-      var roll = this.RNG.DieRoll(5);
+      var roll = this.RNG.DieRoll(7);
       if(roll == 1)
       {
       return Archetype.Level2; 
@@ -103,9 +103,17 @@ class Generation : ZilchComponent
       {
         return Archetype.Level6;
       }
-      else
+      else if(roll == 5)
       {
         return Archetype.Level7;
+      }
+      else if(roll == 6)
+      {
+        return Archetype.Level1Y;
+      }
+      else
+      {
+        return Archetype.Level2Y;
       }
     }
     else if(this.CurrChunk.Chunk.OutBiome == ChunkOutBiome.Level4)

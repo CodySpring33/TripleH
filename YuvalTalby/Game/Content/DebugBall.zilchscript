@@ -153,8 +153,8 @@ class DebugBall : ZilchComponent
     {
       this.DeathTimer += event.Dt;
       //Console.WriteLine(this.DeathTimer);
-      if(this.DeathTimer > this.GracePeriod)
-        this.Dying = true;
+      //if(this.DeathTimer > this.GracePeriod)
+        //this.Dying = true; //Critical line, decides whether going backwards kills the player. doesn't seem necessary for now
     }
     else if(this.DeathTimer > 0)
       this.DeathTimer -= event.Dt;
@@ -202,12 +202,12 @@ class DebugBall : ZilchComponent
     this.LastFrameXVelocities.Y = this.LastFrameXVelocities.X;
     this.LastFrameXVelocities.X = this.Owner.RigidBody.Velocity.X;
     
-    this.ThrustStrength = 50 + Math.Pow(this.TimeBoy.TimerScript.Timer, 0.5); //scales with three squarters power
+    this.ThrustStrength = 50 + Math.Pow(this.TimeBoy.TimerScript.Timer / 10, 0.5); //scales with three squarters power
     this.ThrustStrength *= this.ThrustStrengthM;
       
     foreach(var contact in this.Owner.Collider.Contacts)
     {
-      if(contact.OtherObject.Name == "Paint" || contact.OtherObject.Name == "Block")
+      if(contact.OtherObject.Name == "Paint" || contact.OtherObject.Name.Contains("Block"))
       {
         var thrustDirection = contact.OtherObject.Transform.EulerAngles.Z;
         this.Owner.RigidBody.Velocity = Real3(event.Dt * Math.Cos(thrustDirection) * this.ThrustStrength,event.Dt * Math.Sin(thrustDirection) * this.ThrustStrength * this.Boost,0) * 40;

@@ -31,6 +31,7 @@ class CameraScript : ZilchComponent
       this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, Real3(this.Player.Transform.Translation.X + 20, 45,10), 10 * event.Dt);
     
     this.Owner.SoundEmitter.Volume = 0.08 - this.Curtain.Sprite.VertexColor.W;
+    this.Owner.SoundEmitter.Pitch = this.Player.DebugBall.ThrustStrength / 2500;
     
     //this.Owner.Transform.Translation += Real3(event.Dt,0,0);
   }
