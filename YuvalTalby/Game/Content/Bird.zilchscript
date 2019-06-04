@@ -22,9 +22,6 @@ class Bird : ZilchComponent
   [Property]
   var IsAttacking : Boolean = false; 
   
-  //Attacking Sprite
-  [Property]
-  var AttackSprite : SpriteSource = null;
   
   /*Getting the bird to actually move*/
   //Gets the player position
@@ -44,12 +41,10 @@ class Bird : ZilchComponent
   var BounceVelocity = Real3(5, 5, 0);  
   
   //How far the bird shoots in front of the player
-  [Property]
-  var PlayerDistance : Real = -7;
+  var PlayerDistance : Real = -4;
   var X : Real = 0; 
   function Initialize(init : CogInitializer)
   {
-    Console.WriteLine("I am Bird: `this.Owner.Transform.Translation`");
     if(this.Player.Transform.Translation.X > this.Owner.Transform.Translation.X){
       //the bird will move left
       this.MovingLeft = 1;  
@@ -79,8 +74,6 @@ class Bird : ZilchComponent
     if(this.IsAlive){
   
       if(this.IsAttacking){
-        this.Owner.Sprite.SpriteSource = this.AttackSprite;
-        this.Speed = 0.2;
       //The Cos 
       var a : Real = this.BirdPos.X - (this.PlayerPos.X + this.PlayerDistance); 
       //the Sin
@@ -92,14 +85,16 @@ class Bird : ZilchComponent
 
       this.X += this.Speed; 
           
-     
+      
+      
+    
       //Transform Euler Angle
       this.Owner.Transform.SetEulerAnglesXYZ(0, 0, finalRotation);
       //Change position based on the a and b. 
       //Starting Pos = Bird Pos
       //Bird Pos = Player Pos... Confusing, right
       this.Owner.Transform.Translation = Real3((this.MovingLeft * this.X) + this.BirdPos.X, 
-    (this.BirdPos.Y + this.MovingLeft *  ((this.BirdPos.Y - this.PlayerPos.Y) / (this.BirdPos.X - (this.PlayerPos.X + this.PlayerDistance))) * this.X), 0);
+    (this.BirdPos.Y + this.MovingLeft *  ((this.BirdPos.Y - this.PlayerPos.Y) / (this.BirdPos.X - this.PlayerPos.X + this.PlayerDistance)) * this.X), 0);
       }
     //if it's not attacking
       else{
@@ -114,8 +109,7 @@ class Bird : ZilchComponent
           this.IsAttacking = true; 
         
         }
-        this.Owner.Transform.Translation = Real3(this.BirdPos.X + this.MovingLeft*this.Speed,  this.PlayerPos.Y + this.YDistance, 0);
-      
+        this.Owner.Transform.Translation = Real3(this.BirdPos.X + this.MovingLeft*this.Speed, this.PlayerPos.Y + this.YDistance, 0); 
       
     }
     }

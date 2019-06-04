@@ -142,7 +142,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 202.428864
+			var Size = 333.748627
 		}
 		EditorCameraController 
 		{
@@ -614,12 +614,90 @@ Level
 			var StartPlaying = false
 		}
 	}
-	Cog [ContextId:14]
+	Cog [InheritId:"5c74a8d9107a695f:Background"][ContextId:14]
+	{
+		Transform 
+		{
+			var Translation = Real3{-281.720917, -65, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [InheritId:"5c217a6ff1f3eb15:LevelTut"][ContextId:15]
+	{
+		Transform 
+		{
+			var Translation = Real3{-22.2604351, -86.3579559, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [ContextId:16]
+	{
+		var Name = "important"
+		Transform 
+		{
+			var Translation = Real3{-221.112854, -19.4523582, -20}
+			var Scale = Real3{15, 15, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 0.75}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c219ef973db27bc:sinoc"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		Hierarchy 
+		{
+			Cog [Id:0x5c219bd3091e5f66][ContextId:17]
+			{
+				var Name = "message"
+				Transform 
+				{
+					var Translation = Real3{1.3935008, 1.46288836, 5}
+					var Scale = Real3{0.0666666701, 0.0666666701, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				SpriteText 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "Live free, my child."
+					var Font = "5c2aa02478fca154:StencilArmyWWI"
+					var FontSize = 128
+					var PixelsPerUnit = 24
+					var TextAlign = TextAlign.Center
+				}
+			}
+		}
+	}
+	Cog [ContextId:18]
 	{
 		var Name = "Curtain"
 		Transform 
 		{
-			var Translation = Real3{0, 0, 0.899999976}
+			var Translation = Real3{0, 0, 1}
 			var Scale = Real3{80, 50, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -663,84 +741,6 @@ Level
 			var StartPlaying = false
 			var Positional = false
 			var Cue = "4e1bd44008b4dc2a:DefaultSoundCue"
-		}
-	}
-	Cog [InheritId:"5c74a8d9107a695f:Background"][ContextId:15]
-	{
-		Transform 
-		{
-			var Translation = Real3{-281.720917, -65, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5c217a6ff1f3eb15:LevelTut"][ContextId:16]
-	{
-		Transform 
-		{
-			var Translation = Real3{-22.2604351, -86.3579559, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [ContextId:17]
-	{
-		var Name = "important"
-		Transform 
-		{
-			var Translation = Real3{-221.112854, -19.4523582, -20}
-			var Scale = Real3{15, 15, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 0.75}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c219ef973db27bc:sinoc"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Hierarchy 
-		{
-			Cog [Id:0x5c219bd3091e5f66][ContextId:18]
-			{
-				var Name = "message"
-				Transform 
-				{
-					var Translation = Real3{1.3935008, 1.46288836, 5}
-					var Scale = Real3{0.0666666701, 0.0666666701, 1}
-					var Rotation = Quaternion{0, 0, 0, 1}
-				}
-				SpriteText 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var OverrideBoundingBox = false
-					var LocalAabbCenter = Real3{0, 0, 0}
-					var LocalAabbHalfExtents = Real3{1, 1, 1}
-					var GroupSortValue = 0
-					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Real4{1, 1, 1, 1}
-					var GeometryMode = SpriteGeometryMode.ZPlane
-					var Text = "Live free, my child."
-					var Font = "5c2aa02478fca154:StencilArmyWWI"
-					var FontSize = 128
-					var PixelsPerUnit = 24
-					var TextAlign = TextAlign.Center
-				}
-			}
 		}
 	}
 }

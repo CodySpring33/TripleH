@@ -1,3 +1,9 @@
+/*************************
+Jordan Driscoll
+May 23rd, 2019
+Makes the Drone Move
+NOT USED
+*******************/
 class DroneMovement : ZilchComponent
 {
   //How quickly he goes when he's not tracking the player 

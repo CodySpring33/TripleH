@@ -3,6 +3,7 @@ class CurtainScript : ZilchComponent
   var Camera : Cog = null;
   var Player : Cog = null;
   var FadeToBlack : Boolean = false;
+  var GoalOpacity : Real = 1;
   
   function Initialize(init : CogInitializer)
   {
@@ -14,20 +15,23 @@ class CurtainScript : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    var goalOpacity =  1 / (this.Player.Transform.Translation.Y + 60);
-    if(goalOpacity < 0)
+    if(!this.Player.DebugBall.Dead)
     {
-      this.FadeToBlack = true;
-      goalOpacity = 1;
-    }
-    var adaptiveOpacity = Math.Lerp(this.Owner.Sprite.VertexColor.Z, goalOpacity, 0.1);
-    //Console.WriteLine(goalOpacity);
-    this.Owner.Transform.Translation = Real3(this.Camera.Transform.Translation.XY, 0.9);
-    this.Owner.Sprite.VertexColor = Real4(this.Owner.Sprite.VertexColor.XYZ, goalOpacity);
-    if(this.FadeToBlack)
-    {  
+      this.GoalOpacity =  1 / (this.Player.Transform.Translation.Y + 60);
+      if(this.GoalOpacity < 0)
+      {
+        this.FadeToBlack = true;
+        this.GoalOpacity = 1;
+      }
+      var adaptiveOpacity = Math.Lerp(this.Owner.Sprite.VertexColor.Z, this.GoalOpacity, 0.1);
+      //Console.WriteLine(goalOpacity);
+      this.Owner.Transform.Translation = Real3(this.Camera.Transform.Translation.XY, this.Owner.Transform.Translation.Z);
+      this.Owner.Sprite.VertexColor = Real4(this.Owner.Sprite.VertexColor.XYZ, this.GoalOpacity);
+      if(this.FadeToBlack)
+      {  
 
-      this.Owner.Sprite.VertexColor = Math.Lerp(this.Owner.Sprite.VertexColor, Real4(0,0,0,goalOpacity), event.Dt * 10);
+        this.Owner.Sprite.VertexColor = Math.Lerp(this.Owner.Sprite.VertexColor, Real4(0,0,0,this.GoalOpacity), event.Dt * 10);
+      }
     }
   }
 }

@@ -6,6 +6,7 @@ CollisionTable
 		"4e740859314e5515:DefaultGroup"
 		"5c3410a3df02994a:Player"
 		"5c3410b6d36460c1:Obsticle"
+		"5c2c3e10049cf3bb:Water"
 	}
 	var CollisionFilters = Array
 	{
@@ -15,6 +16,39 @@ CollisionTable
 			var TypeB = "5c3410a3df02994a:Player"
 			var SkipResolution = true
 			var SkipDetectingCollision = false
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "4e740859314e5515:DefaultGroup"
+			var TypeB = "5c2c3e10049cf3bb:Water"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5c3410b6d36460c1:Obsticle"
+			var TypeB = "5c2c3e10049cf3bb:Water"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5c3410a3df02994a:Player"
+			var TypeB = "5c2c3e10049cf3bb:Water"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
 			var StartEvent = false
 			var EndEvent = false
 			var PersistedEvent = false

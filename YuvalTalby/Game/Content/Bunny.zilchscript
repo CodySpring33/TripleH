@@ -1,0 +1,33 @@
+/***************************************
+Jordan Driscoll
+May 29th, 2019
+This Script is just to testing Collisions & Physics
+NOT USED
+***************************************/
+class Bunny : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate)
+     Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    
+  }
+
+
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    
+    Console.Write("My Name Is Doof & You'll Do What I Say");
+    this.Owner.RigidBody.Velocity = Real3(-5, 3, 0);
+    this.Owner.BoxCollider.Ghost = true;
+    this.Owner.BoxCollider.SendsEvents = false; 
+  }
+  //On Collision
+  //Give the ol' bopperoo
+  
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    
+  }
+}

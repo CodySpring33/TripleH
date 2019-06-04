@@ -2,12 +2,34 @@ class DeathOnCollision : ZilchComponent
 {
   [Property]
   var Player : CogPath = null;
-  
+  var Camera : Cog = null;
+  var Curtain : Cog = null;
   var RAND : Random = Random();
+  var WATER : Boolean = false;
+  var Timer : Real = 0;
   function Initialize(init : CogInitializer)
   {
-    
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    this.Camera = this.Space.FindObjectByName("GameCamera");
+    this.Curtain = this.Space.FindObjectByName("Curtain");
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.WATER)
+    {
+      this.Timer += event.Dt;
+    }
+    if(this.Timer > 1)
+    {
+      this.Curtain.Sprite.VertexColor = Math.Lerp(this.Curtain.Sprite.VertexColor, Real4(this.Curtain.Sprite.VertexColor.XYZ, 1), event.Dt * 10);
+      if(this.Timer > 1.5)
+      {
+        this.Space.LoadLevel(Level.DeathScreen);
+      }
+    }
+    
   }
 
 
@@ -26,7 +48,18 @@ class DeathOnCollision : ZilchComponent
         }
       }
       this.Space.SoundSpace.PlayCue(SoundCue.HIsabellaSoundPlayerDeathThud);
-      this.Player.DebugBall.Dying = true;
+      this.Camera.Transform.SetEulerAnglesXYZ(0,0,Math.Pi / 3);
+      for(var i = 0; i < 60; ++i)
+      {
+        var myWater = this.Space.CreateAtPosition(Archetype.Water, Real3(this.Player.Transform.Translation.XY, this.Owner.Transform.Translation.Z+0.01));
+        myWater.RigidBody.Velocity = Real3(this.RAND.Real2(-25,25), 0);
+        myWater.Transform.Scale = Real3(0.2,0.2,1);
+      }
+      this.Camera.Transform.SetEulerAnglesXYZ(0,0,0);
+      this.Player.RigidBody.Velocity = Real3(0,0,0);
+      this.Player.RigidBody.DynamicState = RigidBodyDynamicState.Static;
+      this.Player.DebugBall.Dead = true;
+      this.WATER = true;
     }
     
   }

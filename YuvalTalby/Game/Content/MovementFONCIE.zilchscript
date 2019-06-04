@@ -1,0 +1,51 @@
+/*************************
+Jordan Driscoll
+May 23rd, 2019
+Creates Better Parabola that speed changes based on it's location
+NOT USED
+*******************/
+class MovemenFONCIE : ZilchComponent
+{ 
+  var VerticalTranslation  = 3; 
+  var TempSpeed = 0.05; 
+ //The maximum speed which it can mvoe
+ [Property]
+ var MaxSpeed : Real = 5; 
+ //This is the graph which you're moving on 
+  [Property]
+  var X : Real = 0; 
+  //This is the max height you can go 
+  var MaxY : Real = 5;
+  //This determines how quickly the X changes
+  var MoveSpeed : Real = 0.05;  
+  //This changes how high the X goes A(x)^2
+  var Amplitude = 2; 
+  //This is how quickly the thing moves leftwards
+  var MoveLeft : Real = 0; 
+  function Initialize(init : CogInitializer) {
+    //The Maximum Y Position 
+    this.MaxY = this.MaxSpeed;  
+    //this.MaxSpeed = this.MaxY;
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent) {
+    //Makes it so the whole thing moves leftwards 
+     this.MoveLeft += 0.005; 
+    //The Location of the X 
+   this.MoveSpeed =  this.MaxSpeed - Math.Abs(this.X); 
+    this.X += this.TempSpeed; 
+    
+    Console.WriteLine("`this.MoveSpeed`");
+    //this.X = this.MaxSpeed - Math.Abs(this.X);
+    //follow an x square pattern
+    if(Math.Abs(this.X) > this.MaxY){
+        this.TempSpeed *= -1;
+      }
+    //if it's going rightwards
+    this.Owner.Transform.Translation = Real3(this.X - this.MoveLeft, (Math.Pow(this.X, 2) / this.Amplitude) - this.VerticalTranslation, 3);
+    //When it reaches a certain angle, go back
+    //Change the speed of movement based on it's location
+    
+  }
+}

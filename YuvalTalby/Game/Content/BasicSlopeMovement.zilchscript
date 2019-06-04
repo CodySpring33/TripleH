@@ -1,0 +1,41 @@
+/************
+Name: Jordan Driscoll
+Date: May 29th, 2019
+This is a test class to get slopes to work
+NOT USED
+*************/
+class BasicSlopeMovement : ZilchComponent
+{
+  //How quickly the object moves
+  var Speed : Real = 0.05;
+  //The X coordinate for the graph
+  var X : Real = 0.05; 
+  //The Starting Position of the Owner
+  var StartingPos : Real3;
+  //The Object which we are sloping torwards
+  [Property]
+  var Bird : CogPath; 
+  //The Posiiton of hte Object which we are sloping Torward
+  var BirdPos : Real3; 
+  function Initialize(init : CogInitializer)
+  {
+    //The Starting X Pos of the Owner
+    this.StartingPos.X = this.Owner.Transform.Translation.X; 
+    //The Starting Y Pos of the Owner
+    this.StartingPos.Y = this.Owner.Transform.Translation.Y; 
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    //Set the Position to the current X Position
+    this.BirdPos.X = this.Bird.Transform.Translation.X;
+    //Set the Position to the current Y Position
+    this.BirdPos.Y = this.Bird.Transform.Translation.Y;
+    //Changes the X of the Graph
+    this.X += this.Speed; 
+    //Has the bird move down the slope
+    this.Owner.Transform.Translation = Real3((-1 * this.X) + this.StartingPos.X,  this.StartingPos.Y + -1 * (((this.StartingPos.Y - this.BirdPos.Y) / (this.StartingPos.X - this.BirdPos.X) * this.X)), 6);
+    
+    
+  }
+}

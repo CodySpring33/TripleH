@@ -1,3 +1,10 @@
+/*******************************
+Jordan Driscoll
+May 21st, 2019
+This Is How the Pendulum Ball Moves
+NOT USED
+
+**************************/
 class Pendulum : ZilchComponent
 {
   //STRING OF PENDULUM 
@@ -45,11 +52,11 @@ class Pendulum : ZilchComponent
     
     
     //Moves the ball at all
-    this.X += this.Speed; 
+    this.X += 0.015; 
     //This gets the balls X Position
-    this.XPos = (this.Amplitude * Math.Sin(this.X)); 
+    this.XPos = this.Amplitude * (Math.Cos(this.X)); 
     //Gets the balls Y position
-    this.Y = -Math.Sqrt(64-Math.Pow(this.XPos, 2));
+    this.Y = -Math.Sqrt(121-Math.Pow(this.XPos, 2));
     //Testing Stuff
    
     //onsole.WriteLine("\n`this.Y`"); 
@@ -59,8 +66,9 @@ class Pendulum : ZilchComponent
     
     
       //change it's position as if it swings on a pendulum 
-    this.Owner.Transform.Translation = Real3(this.XPos + this.StartingX, this.Y + this.StartingY, 0);
-   
+  //  this.Owner.Transform.Translation = Real3(this.XPos + this.StartingX, this.Y + this.StartingY, 0);
+    this.Owner.Transform.Translation = Real3(this.X, this.XPos, 2); 
+    
     
 
   }
