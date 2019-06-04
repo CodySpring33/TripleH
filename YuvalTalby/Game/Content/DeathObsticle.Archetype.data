@@ -4,7 +4,7 @@ Cog
 	var Name = "DO"
 	Transform 
 	{
-		var Translation = Real3{88.7382889, 97.539505, 0}
+		var Translation = Real3{135.346924, 21.0531025, 3.81469727e-06}
 		var Scale = Real3{0.800000012, 0.800000012, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -33,8 +33,8 @@ Cog
 		var SendsEvents = true
 		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 		var CollisionGroup = "5c3410b6d36460c1:Obsticle"
-		var Offset = Real3{8, -4.5, 0}
-		var HalfSize = Real3{6, 3.25, 0.5}
+		var Offset = Real3{8, -4.80000019, 0}
+		var HalfSize = Real3{5.5, 3, 0.5}
 	}
 	RigidBody 
 	{
